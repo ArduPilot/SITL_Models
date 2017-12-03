@@ -13,7 +13,7 @@ import battery
 import motor
 from math import *
 
-parser = optparse.OptionParser("vtol_obc.py")
+parser = optparse.OptionParser("vtol_model.py")
 parser.add_option("--prop-model", default='APC11x7', help='prop model name [default: %default]')
 parser.add_option("--prop-diameter", type='float', default=11.0, help='prop diameter inches [default: %default]')
 parser.add_option("--battery-model", default='5Ah_6S_Nanotech', help='battery model name [default: %default]')
@@ -27,9 +27,9 @@ parser.add_option("--hover-time", type='float', default=5.0, help='hover time in
 parser.add_option("--mass-payload", type='float', default=0.5, help='payload mass in Kg [default: %default]')
 parser.add_option("--mass-avionics", type='float', default=0.15, help='avionics mass in Kg [default: %default]')
 parser.add_option("--mass-structure", type='float', default=4.15, help='structure mass in Kg [default: %default]')
-parser.add_option("--num-motors-cruise", type='int', default=1, help='number of motors in cruise [default: %default]')
-parser.add_option("--num-motors-hover", type='int', default=3, help='number of motors in cruise [default: %default]')
-parser.add_option("--num-motors-total", type='int', default=3, help='number of motors total [default: %default]')
+parser.add_option("--num-motors-cruise", type='int', default=2, help='number of motors in cruise [default: %default]')
+parser.add_option("--num-motors-hover", type='int', default=2, help='number of motors in cruise [default: %default]')
+parser.add_option("--num-motors-total", type='int', default=2, help='number of motors total [default: %default]')
 
 opts, args = parser.parse_args()
 
