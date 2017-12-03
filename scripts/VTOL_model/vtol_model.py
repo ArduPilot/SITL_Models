@@ -365,7 +365,7 @@ print('avionics mass = %.2f Kg' % mass_avionics)
 print('propulsion mass = %.2f Kg' % mass_propulsion)
 print('battery mass = %.2f Kg' % mass_batt)
 print('payload mass = %.2f Kg' % mass_payload)
-print('non-battery mass = %.2f Kg' % mass_auw - mass_batt)
+print('non-battery mass = %.2f Kg' % (mass_auw - mass_batt))
 
 print(' ')
 print('############################################################')
