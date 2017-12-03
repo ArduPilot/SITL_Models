@@ -78,3 +78,7 @@ class battery(object):
     def get_description(self):
         '''return battery type string'''
         return "%s (%uS %uP) " % (self.battery_type, self.cell_series_count, self.cell_parallel_count)
+
+    def get_watt_hours(self):
+        '''return battery capacity in Watt hours'''
+        return self.get_mass() * self.get_energy_density()

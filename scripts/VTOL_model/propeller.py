@@ -16,7 +16,7 @@ class propeller(object):
         self.prop_model = prop_model # select propeller model for efficiency curves
         self.data_pitch_ratio = 7.0/11.0 # pitch to diameter ratio of the prop used to generate the wind tunnel data
         self.prop_dia_m = prop_diameter*0.0254 # prop diameter specified (m).
-        self.prop_pitch_m = prop_diameter*self.data_pitch_ratio # Prop pitch calculated to match ratio of prop used to generate coef data.
+        self.prop_pitch_m = self.prop_dia_m*self.data_pitch_ratio # Prop pitch calculated to match ratio of prop used to generate coef data.
 
         if prop_model not in prop_data.propellers:
             error("propeller %s not found in prop_data.py")

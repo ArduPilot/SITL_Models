@@ -5,6 +5,7 @@ motor model class
 '''
 
 from util import error
+from math import *
 
 motors = {}
 
@@ -91,3 +92,11 @@ class motor(object):
     def get_current_lim(self):
         '''return motor current limit'''
         return self.data.current_lim
+
+    def get_io_current_rpm(self, rpm):
+        '''return the base current for a motor at a given RPM'''
+        return self.get_i0_current() * (rpm / (self.get_i0_voltage() * self.get_kV()))
+
+    def get_torque_constant(self):
+        '''return torque constant in Nm/Amp'''
+        return 60.0 / (2.0 *  pi * self.get_kV())
