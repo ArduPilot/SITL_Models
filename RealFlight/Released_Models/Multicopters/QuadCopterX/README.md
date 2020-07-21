@@ -1,19 +1,21 @@
-Basic QuadCopter for Flightaxis SITL
+# Basic QuadCopter for Flightaxis SITL
 
 
 3s, 2500mah Lipo
+
 900g AUW
 
-RC Functions:
-Output1		Motor1
-Output2		Motor2
-Output3		Motor3
-Output4		Motor4
+## Servo Functions:
 
-Parameter file/setup notes:
+* Servo1		Motor1
+* Servo1		Motor1
+* Servo1		Motor1
+* Servo1		Motor1
 
-AETR normal control order
-RC7 is arm/disarm 
-RC8 is mode, interlink controller modes: STABILIZE,ALTHOLD,LOITER
+## Parameter file/setup notes:
+
+* AETR normal control order
+* RC7(swA) is arm/disarm
+* RC8(SwB) is mode: STABILIZE,ALTHOLD,LOITER
 
 
