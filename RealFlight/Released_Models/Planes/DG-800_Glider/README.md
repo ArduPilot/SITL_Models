@@ -27,7 +27,7 @@ Physical Aircraft Model: maxkop, opjose
 * Servo8		Right outer dspoiler (aileron)
 * Servo9		Landing Gear Retract
 
-Note: the glider will apply wheel brake gradually increasing with nose down from mid elecvator stick
+Note: the glider will apply wheel brake gradually increasing with nose down from mid elevator stick
 
 ## Parameter file/setup notes:
 
