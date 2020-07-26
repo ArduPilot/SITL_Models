@@ -7,14 +7,8 @@ Each model has a readme.md file describing its configuration, capabilities, and 
 Minimum requirements for inclusion:
 
 1. Documentation:
-    README.md file for model including description, attributions, basic physical properties 
-<<<<<<< HEAD
-     (size,weight,etc.), output mapping to actuators, RC in mapping/switches (AETR is standard,mode channel should be ch8 to match Interlink controller mapping), version of RealFlight and ArduPilot tested.
-2. The above documentation be included in the RealFlight RFX model's description page. RealFlight model should have an inspection camera added to allow viewing control surfaces and motors close up for testing.
-=======
-     (size,weight,etc.), output mapping to actuators (ArduPilot currently only supports SERVO1-12 outputs to flightaxis), RC in mapping/switches (AETR is standard,mode channel should be ch8 to match Interlink controller mapping), version of RealFlight and ArduPilot tested.
-2. The above documentation be included in the RealFlight RFX model's description page
->>>>>>> 5cebb09... Update README.md
+    README.md file for model including description, attributions, basic physical properties (size,weight,etc.), output mapping to actuators (ArduPilot currently only supports SERVO1-12 outputs to flightaxis), RC in mapping/switches (AETR is standard,mode channel should be ch8 to match Interlink controller mapping), version of RealFlight and ArduPilot tested.
+2. The above documentation be included in the RealFlight RFX model's description page.
 3. RealFight entire model RFX archive and ArduPilot parameter file. Parameter file should be a diff from the SITL default params for the vehicle and only include changed parameters. Flight modes for three ch8 positions should be:
 
 Plane   |   QuadPlane |  Copter    |   Rover
