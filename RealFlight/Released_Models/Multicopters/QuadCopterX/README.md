@@ -1,5 +1,6 @@
 # Basic QuadCopter for Flightaxis SITL
 
+![](https://github.com/ArduPilot/SITL_Models/RealFlight/Multicopters/QuadCopterX/QuadCopterX.png)
 
 3s, 2500mah Lipo
 

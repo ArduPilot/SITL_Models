@@ -2,6 +2,8 @@
 
 Aircraft Model: DG-800-A
 
+![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/Released_Models/Planes/DG-800_Glider/DG-800-A-G4.png)
+
 Original Aircraft - Design: DG Flugzeugbau GmbH
 
 3D - Model: maxkop
