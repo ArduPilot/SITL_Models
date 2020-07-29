@@ -72,7 +72,7 @@ Q_TAILSIT_THSCMX       5.0000
 Q_TILT_MASK            3.0000
 Q_TILT_TYPE            2.0000
 Q_TILT_YAW_ANGLE       15.0000
-Q_TRIM_PITCH           2.1000
+Q_TRIM_PITCH           -2.0000
 Q_VELZ_MAX           175.0000
 Q_WP_SPEED           300.0000
 RC7_OPTION             41.0000
