@@ -17,7 +17,6 @@
 ## Parameter file/setup notes:
 
 * AETR normal control order
-* RC7(swA) is arm/disarm
 * RC8(SwB) is mode: STABILIZE,ALTHOLD,LOITER
 
 

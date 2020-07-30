@@ -36,7 +36,7 @@ Note: the glider will apply wheel brake gradually increasing with nose down from
 * AETR normal control order, full span aileron control
 * RC5(swC) is flaps, full throw progressive crow
 * RC6(swD) is landing gear, automatic altitude control enabled
-* RC7(swA) is arm/disarm and motor deploy
+* RC7(swA) is arm/disarm and motor deploy/retract
 * RC8(SwB) is mode: MANUAL,FBWA,CRUISE
 
 tested in RealFlight9 using ArduPlane 4.10dev in Sim_vehicle.py
