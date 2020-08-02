@@ -1,7 +1,8 @@
 These models are quad X-frame copter tailsitters contributed by Otto Kueng and based on the actual flying model by Pierre Losa:
 
-[BiWing image](https://github.com/ArduPilot/SITL_Models/blob/master/RealFlight/WIP/markw/Tailsitters/CopterTailsitters/BiWing/BiWing_JWL065.jpg)
-[BiWing Tailsitter video](https://youtu.be/3nS2AodrGPQ)
+![BiWing image](https://github.com/ArduPilot/SITL_Models/blob/master/RealFlight/WIP/markw/Tailsitters/CopterTailsitters/BiWing/BiWing_JWL065.jpg)
+
+![BiWing Tailsitter video](https://youtu.be/3nS2AodrGPQ)
 
 The copter tailsitter quad-X frame class and type are specified by:<br />
 Q_FRAME_CLASS = 1<br />
