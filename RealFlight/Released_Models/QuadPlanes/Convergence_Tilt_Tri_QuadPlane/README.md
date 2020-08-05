@@ -4,7 +4,7 @@ Aircraft Model: Derivative of RealFlight Mini-Convergence
 
 ![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/Released_Models/QuadPlanes/Convergence_Tilt_Tri_QuadPlane/Convergence.png)
 
-Model modifications by : Mark Whitehouse and Henry Wurzburg
+Model modifications by : Mark Whitehorn and Henry Wurzburg
 
 
 * Wing Span....... 30 (in)
