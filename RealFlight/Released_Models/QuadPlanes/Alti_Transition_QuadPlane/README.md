@@ -1,7 +1,7 @@
 # Alti Transition QuadPlane
 
 
-![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/Released_Models/Planes/Alti_Transition_QuadPlane/AltiTransition.png)
+![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/Released_Models/QuadPlanes/Alti_Transition_QuadPlane/AltiTransition.png)
 
 Original Aircraft - Design: ??
 Modifications by Andrew Tridgell and Brandon MacDougall
