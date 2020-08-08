@@ -8,11 +8,11 @@ The copter tailsitter quad-X frame class and type are specified by:<br />
 Q_FRAME_CLASS = 1<br />
 Q_FRAME_TYPE = 1<br />
 and<br />
-Q_TAILSIT_MOTMX = 15 to enable all 4 motors in FW modes<br />
+Q_TAILSIT_MOTMX = 15 = 0b1111 to enable all 4 motors in FW modes<br />
 or<br />
-Q_TAILSIT_MOTMX = 5 to enable only the bottom wing motors<br />
+Q_TAILSIT_MOTMX =  5 = 0b0101 to enable only the bottom wing motors<br />
 or<br />
-Q_TAILSIT_MOTMX = 10 to enable only the top wing motors
+Q_TAILSIT_MOTMX = 10 = 0b1010 to enable only the top wing motors
 
 
 PR https://github.com/ArduPilot/ardupilot/pull/12869 is required for multicopter frame yaw control (body-frame roll) to work correctly when hovering.
