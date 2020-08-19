@@ -11,11 +11,12 @@ Minimum requirements for inclusion:
 2. The above documentation be included in the RealFlight RFX model's description page.
 3. RealFight entire model RFX archive and ArduPilot parameter file. Parameter file should be a complete set of params for the vehicle to allow easy changes between models. Flight modes for three ch8 positions should be:
 
-Plane   |   QuadPlane |  Copter    |   Rover
------   |  ---------  | ------     |  -----
-Manual  |  QSTABILIZE | Stabilize  | Manual
-FBWA    |  QLOITER    |  AltHold   |   Acro
-Cruise  |  FBWA       |  Loiter    |  RTL
+
+Plane   |   QuadPlane |  Copter    |   Rover  | TradHeli
+-----   |  ---------  | ------     |  -----   | --------
+Manual  |  QSTABILIZE | Stabilize  | Manual   |  Stabilize
+FBWA    |  QLOITER    |  AltHold   | Acro     |  Loiter
+Cruise  |  FBWA       |  Loiter    | RTL      |  Acro
 4. The model must use the InterLink controller default mapping. Note that ArduPilot currently only supports CH1-8 on flight-axis input.
 
 Controller | Output
