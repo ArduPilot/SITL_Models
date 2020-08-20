@@ -2,9 +2,9 @@
 
 Derivative of RealFlight9 Thunder Tiger Raptor E720 FBL by Tridge
 
-![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/WIP/hwurzburg/Raptor720_flightaxis/Raptor720-flightaxis.jpg)
+![JPG](https://raw.githubusercontent.com/ArduPilot/SITL_Models/master/RealFlight/images/Raptor720.jpg)
 
-![] (./Raptor720-flightaxis.jpg)
+
 
 SAB 710mm Blades
 
