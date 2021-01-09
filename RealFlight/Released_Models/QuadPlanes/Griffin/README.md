@@ -4,6 +4,7 @@
 ![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/Released_Models/QuadPlanes/Griffin/Griffin.png)
 
 Original Aircraft - Design: Andrew Tridgell and Brandon MacDougall
+Graphics Updates: Adrain Hinst
 
 
 * Wing Span....... 74.2 (in)
@@ -17,6 +18,7 @@ Original Aircraft - Design: Andrew Tridgell and Brandon MacDougall
 ## ArduPilot Servo Functions:
 * Servo1		Aileron
 * Servo2		Elevator
+* Servo3        Camera Pan
 * Servo4        Rudder
 * Servo5		Motor1
 * Servo6		Motor2
@@ -24,10 +26,15 @@ Original Aircraft - Design: Andrew Tridgell and Brandon MacDougall
 * Servo8		Motor4
 * Servo9        Tilt Motor Left
 * Servo10       Tilt Motor Right
+* Servo11       Camera Tilt
+* Servo12       Camera Zoom
 
 ## Parameter file/setup notes:
 
 * AETR normal control order, full span aileron control
 * RC8(SwB) is mode: FBWA,QSTABLIZE,QHOVER
+* Camera Gimbal uses Realflight stabilization and ArduPilot RC Targetting by default
+* Pan = RC6
+* Tilt = RC7
 
 tested in RealFlight9 using ArduPlane 4.10dev in Sim_vehicle.py
