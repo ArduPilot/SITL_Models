@@ -10,9 +10,9 @@
 ## Servo Functions:
 
 * Servo1		Motor1
-* Servo1		Motor1
-* Servo1		Motor1
-* Servo1		Motor1
+* Servo2		Motor2
+* Servo3		Motor3
+* Servo4		Motor4
 
 ## Parameter file/setup notes:
 
