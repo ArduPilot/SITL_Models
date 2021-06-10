@@ -21,4 +21,8 @@ Model BiWing_JWL065_EA.RFX has airfoil and CG similar to the actual flying model
 
 Model BiWing_MH106_EA.RFX has a symmetrical airfoil with CG moved further back for comparison of aerodynamic characteristics. 
 
-These models have been tested in RealFlight8 with the parameters in file: BiWing.parm
+Model BiWing_motorTilt_EA.RFX has 5 degrees of downthrust on the upper wing motors and 5 degrees of upthrust on the lower wing motors. This provides additonal yaw authority when using differential torque in VTOL (multicopter) modes. In FW modes this is the roll axis (body frame X).
+
+Model BiWing_motorTilt_noSurfaces_EA.RFX also has the control surface servos fixed at zero deflection for simulating a model with no control surfaces.
+
+These models have been tested in RealFlight8 with the parameters in file: BiWing.parm; for BiWing_motorTilt_noSurfaces it will be necessary to set one or both Q_OPTIONS bits 7 and 8 to fly in fixed wing modes. See https://ardupilot.org/plane/docs/parameters.html#q-options-quadplane-options
