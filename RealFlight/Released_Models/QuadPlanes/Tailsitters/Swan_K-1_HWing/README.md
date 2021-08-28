@@ -2,7 +2,7 @@
 
 Aircraft Model: Original by Brandon MacDougall
 
-![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/Released_Models/QuadPlanes/Tailsitters/Swan_K-1_Hwing/Hwing.jpg)
+![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/Released_Models/QuadPlanes/Tailsitters/Swan_K-1_Hwing/HWing.jpg)
 
 Model modifications by : Andrew Tridgell
 
