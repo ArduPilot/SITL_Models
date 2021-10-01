@@ -4,7 +4,7 @@ Aircraft Model: Original by Otto (lorbass)
 
 ![JPG](https://github.com/ArduPilot/SITL_Models/raw/master/RealFlight/Released_Models/QuadPlanes/Tailsitters/SkyCat_TVBS/SkyCat.jpg)
 
-Model modifications by : Mark Whitehouse and Andrew Tridgell
+Model modifications by : Mark Whitehorn and Andrew Tridgell
 
 
 * Wing Span....... 55 (in)
