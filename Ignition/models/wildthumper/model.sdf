@@ -1,0 +1,1944 @@
+<sdf version='1.9'>
+  <model name='wildthumper'>
+    <static>0</static>
+    <self_collide>0</self_collide>
+
+    <link name='base_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.001</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.001 0.001 0.001</size>
+          </box>
+        </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Orange</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+          <diffuse>1 0.3125 0 1</diffuse>
+          <ambient>1 0.3125 0 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_small_chassis_joint' type='fixed'>
+      <pose relative_to='base_link'>0.075 0 -0.02 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>front_small_chassis_link</child>
+      <axis>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <link name='front_small_chassis_link'>
+      <pose relative_to='front_small_chassis_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0002666666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001083333333333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0003216666666666667</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_small_chassis_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07000000000000001 0.12 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='front_small_chassis_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/small_chassis_with_frame_connector.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_wheel_chassis_short_joint' type='fixed'>
+      <pose relative_to='base_link'>0.15 0 -0.02 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>front_wheel_chassis_short_link</child>
+      <axis>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <link name='front_wheel_chassis_short_link'>
+      <pose relative_to='front_wheel_chassis_short_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0002666666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001083333333333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0003216666666666667</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_wheel_chassis_short_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07000000000000001 0.12 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='front_wheel_chassis_short_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/wheel_chassis_short.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_left_motor_asm_joint' type='revolute'>
+      <pose relative_to='front_wheel_chassis_short_link'>0 0.03 -0.01 0 0 0</pose>
+      <parent>front_wheel_chassis_short_link</parent>
+      <child>front_left_motor_asm_link</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+          <effort>50</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+      </axis>
+      <physics>
+        <provide_feedback>true</provide_feedback>
+        <ode>
+          <implicit_spring_damper>true</implicit_spring_damper>
+          <cfm_damping>true</cfm_damping>
+          <limit>
+            <cfm>0.0</cfm>
+            <erp>0.2</erp>
+          </limit>
+          <provide_feedback>true</provide_feedback>
+        </ode>
+      </physics>
+    </joint>
+    <link name='front_left_motor_asm_link'>
+      <pose relative_to='front_left_motor_asm_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0.025 0 1.570796326794896 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>2.723333333333334e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.723333333333334e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.28e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_motor_asm_link_collision'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.064</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='front_left_motor_asm_link_collision_1'>
+        <pose>0 0.025 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='front_left_motor_asm_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/left_motor_asm.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_left_wheel_joint' type='revolute'>
+      <pose relative_to='front_left_motor_asm_link'>0 0.09 0 0 0 0</pose>
+      <parent>front_left_motor_asm_link</parent>
+      <child>front_left_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_left_wheel_link'>
+      <pose relative_to='front_left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <mass>0.19</mass>
+        <inertia>
+          <ixx>0.0002022409166666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0002022409166666667</iyy>
+          <iyz>1.203706215242022e-35</iyz>
+          <izz>0.0002973904999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_left_wheel_link_collision'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.062</length>
+            <radius>0.062</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10.0</mu>
+              <mu2>5.0</mu2>
+              <fdir1>1 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='front_left_wheel_link_fixed_joint_lump__front_left_wheel_adapter_link_collision_1'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.024</length>
+            <radius>0.005</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='front_left_wheel_link_fixed_joint_lump__front_left_wheel_rim_link_collision_2'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='front_left_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_tyre.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+              <normal_map>model://wildthumper/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>0.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='front_left_wheel_link_fixed_joint_lump__front_left_wheel_adapter_link_visual_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_adapter.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='front_left_wheel_link_fixed_joint_lump__front_left_wheel_rim_link_visual_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_rim.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_right_motor_asm_joint' type='revolute'>
+      <pose relative_to='front_wheel_chassis_short_link'>0 -0.03 -0.01 0 0 0</pose>
+      <parent>front_wheel_chassis_short_link</parent>
+      <child>front_right_motor_asm_link</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+          <effort>50</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_right_motor_asm_link'>
+      <pose relative_to='front_right_motor_asm_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 -0.025 0 1.570796326794896 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>2.723333333333334e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.723333333333334e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.28e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_motor_asm_link_collision'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.064</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='front_right_motor_asm_link_collision_1'>
+        <pose>0 -0.025 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='front_right_motor_asm_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/right_motor_asm.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='front_right_wheel_joint' type='revolute'>
+      <pose relative_to='front_right_motor_asm_link'>0 -0.09 0 0 0 0</pose>
+      <parent>front_right_motor_asm_link</parent>
+      <child>front_right_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='front_right_wheel_link'>
+      <pose relative_to='front_right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <mass>0.19</mass>
+        <inertia>
+          <ixx>0.0002022409166666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0002022409166666667</iyy>
+          <iyz>1.203706215242022e-35</iyz>
+          <izz>0.0002973904999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='front_right_wheel_link_collision'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.062</length>
+            <radius>0.062</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10.0</mu>
+              <mu2>5.0</mu2>
+              <fdir1>1 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='front_right_wheel_link_fixed_joint_lump__front_right_wheel_adapter_link_collision_1'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.024</length>
+            <radius>0.005</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='front_right_wheel_link_fixed_joint_lump__front_right_wheel_rim_link_collision_2'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='front_right_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_tyre.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+              <normal_map>model://wildthumper/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>0.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='front_right_wheel_link_fixed_joint_lump__front_right_wheel_adapter_link_visual_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_adapter.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='front_right_wheel_link_fixed_joint_lump__front_right_wheel_rim_link_visual_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_rim.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='mid_wheel_chassis_long_joint' type='fixed'>
+      <pose relative_to='base_link'>0 0 -0.025 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>mid_wheel_chassis_long_link</child>
+      <axis>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <link name='mid_wheel_chassis_long_link'>
+      <pose relative_to='mid_wheel_chassis_long_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0002816666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001233333333333334</iyy>
+          <iyz>0</iyz>
+          <izz>0.0003216666666666667</izz>
+        </inertia>
+      </inertial>
+      <collision name='mid_wheel_chassis_long_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07000000000000001 0.12 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='mid_wheel_chassis_long_link_visual'>
+        <pose>0 0 0.005 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/wheel_chassis_long.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='mid_left_motor_asm_joint' type='revolute'>
+      <pose relative_to='mid_wheel_chassis_long_link'>0 0.03 -0.015 0 0 0</pose>
+      <parent>mid_wheel_chassis_long_link</parent>
+      <child>mid_left_motor_asm_link</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+          <effort>50</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='mid_left_motor_asm_link'>
+      <pose relative_to='mid_left_motor_asm_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0.025 0 1.570796326794896 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>2.723333333333334e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.723333333333334e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.28e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='mid_left_motor_asm_link_collision'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.064</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='mid_left_motor_asm_link_collision_1'>
+        <pose>0 0.025 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='mid_left_motor_asm_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/left_motor_asm.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='mid_left_wheel_joint' type='revolute'>
+      <pose relative_to='mid_left_motor_asm_link'>0 0.09 0 0 0 0</pose>
+      <parent>mid_left_motor_asm_link</parent>
+      <child>mid_left_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='mid_left_wheel_link'>
+      <pose relative_to='mid_left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <mass>0.19</mass>
+        <inertia>
+          <ixx>0.0002022409166666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0002022409166666667</iyy>
+          <iyz>1.203706215242022e-35</iyz>
+          <izz>0.0002973904999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='mid_left_wheel_link_collision'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.062</length>
+            <radius>0.062</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10.0</mu>
+              <mu2>5.0</mu2>
+              <fdir1>1 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='mid_left_wheel_link_fixed_joint_lump__mid_left_wheel_adapter_link_collision_1'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.024</length>
+            <radius>0.005</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='mid_left_wheel_link_fixed_joint_lump__mid_left_wheel_rim_link_collision_2'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='mid_left_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_tyre.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+              <normal_map>model://wildthumper/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>0.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='mid_left_wheel_link_fixed_joint_lump__mid_left_wheel_adapter_link_visual_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_adapter.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='mid_left_wheel_link_fixed_joint_lump__mid_left_wheel_rim_link_visual_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_rim.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='mid_right_motor_asm_joint' type='revolute'>
+      <pose relative_to='mid_wheel_chassis_long_link'>0 -0.03 -0.015 0 0 0</pose>
+      <parent>mid_wheel_chassis_long_link</parent>
+      <child>mid_right_motor_asm_link</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+          <effort>50</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='mid_right_motor_asm_link'>
+      <pose relative_to='mid_right_motor_asm_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 -0.025 0 1.570796326794896 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>2.723333333333334e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.723333333333334e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.28e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='mid_right_motor_asm_link_collision'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.064</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='mid_right_motor_asm_link_collision_1'>
+        <pose>0 -0.025 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='mid_right_motor_asm_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/right_motor_asm.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='mid_right_wheel_joint' type='revolute'>
+      <pose relative_to='mid_right_motor_asm_link'>0 -0.09 0 0 0 0</pose>
+      <parent>mid_right_motor_asm_link</parent>
+      <child>mid_right_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='mid_right_wheel_link'>
+      <pose relative_to='mid_right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <mass>0.19</mass>
+        <inertia>
+          <ixx>0.0002022409166666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0002022409166666667</iyy>
+          <iyz>1.203706215242022e-35</iyz>
+          <izz>0.0002973904999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='mid_right_wheel_link_collision'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.062</length>
+            <radius>0.062</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10.0</mu>
+              <mu2>5.0</mu2>
+              <fdir1>1 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='mid_right_wheel_link_fixed_joint_lump__mid_right_wheel_adapter_link_collision_1'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.024</length>
+            <radius>0.005</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='mid_right_wheel_link_fixed_joint_lump__mid_right_wheel_rim_link_collision_2'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='mid_right_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_tyre.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+              <normal_map>model://wildthumper/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>0.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='mid_right_wheel_link_fixed_joint_lump__mid_right_wheel_adapter_link_visual_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_adapter.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='mid_right_wheel_link_fixed_joint_lump__mid_right_wheel_rim_link_visual_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_rim.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_small_chassis_joint' type='fixed'>
+      <pose relative_to='base_link'>-0.075 0 -0.02 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rear_small_chassis_link</child>
+      <axis>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <link name='rear_small_chassis_link'>
+      <pose relative_to='rear_small_chassis_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0002666666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001083333333333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0003216666666666667</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_small_chassis_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07000000000000001 0.12 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='rear_small_chassis_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/small_chassis_with_frame_connector.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_wheel_chassis_short_joint' type='fixed'>
+      <pose relative_to='base_link'>-0.15 0 -0.02 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rear_wheel_chassis_short_link</child>
+      <axis>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <link name='rear_wheel_chassis_short_link'>
+      <pose relative_to='rear_wheel_chassis_short_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0002666666666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001083333333333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.0003216666666666667</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_wheel_chassis_short_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.07000000000000001 0.12 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='rear_wheel_chassis_short_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/wheel_chassis_short.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_left_motor_asm_joint' type='revolute'>
+      <pose relative_to='rear_wheel_chassis_short_link'>0 0.03 -0.01 0 0 0</pose>
+      <parent>rear_wheel_chassis_short_link</parent>
+      <child>rear_left_motor_asm_link</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+          <effort>50</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_left_motor_asm_link'>
+      <pose relative_to='rear_left_motor_asm_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0.025 0 1.570796326794896 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>2.723333333333334e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.723333333333334e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.28e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_left_motor_asm_link_collision'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.064</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='rear_left_motor_asm_link_collision_1'>
+        <pose>0 0.025 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_left_motor_asm_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/left_motor_asm.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_left_wheel_joint' type='revolute'>
+      <pose relative_to='rear_left_motor_asm_link'>0 0.09 0 0 0 0</pose>
+      <parent>rear_left_motor_asm_link</parent>
+      <child>rear_left_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_left_wheel_link'>
+      <pose relative_to='rear_left_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <mass>0.19</mass>
+        <inertia>
+          <ixx>0.0002022409166666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0002022409166666667</iyy>
+          <iyz>1.203706215242022e-35</iyz>
+          <izz>0.0002973904999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_left_wheel_link_collision'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.062</length>
+            <radius>0.062</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10.0</mu>
+              <mu2>5.0</mu2>
+              <fdir1>1 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='rear_left_wheel_link_fixed_joint_lump__rear_left_wheel_adapter_link_collision_1'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.024</length>
+            <radius>0.005</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='rear_left_wheel_link_fixed_joint_lump__rear_left_wheel_rim_link_collision_2'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_left_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_tyre.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+              <normal_map>model://wildthumper/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>0.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='rear_left_wheel_link_fixed_joint_lump__rear_left_wheel_adapter_link_visual_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_adapter.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='rear_left_wheel_link_fixed_joint_lump__rear_left_wheel_rim_link_visual_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/left_wheel_rim.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_right_motor_asm_joint' type='revolute'>
+      <pose relative_to='rear_wheel_chassis_short_link'>0 -0.03 -0.01 0 0 0</pose>
+      <parent>rear_wheel_chassis_short_link</parent>
+      <child>rear_right_motor_asm_link</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.5</lower>
+          <upper>0.5</upper>
+          <effort>50</effort>
+          <velocity>10</velocity>
+        </limit>
+        <dynamics>
+          <damping>0.7</damping>
+          <friction>0</friction>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>3</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_right_motor_asm_link'>
+      <pose relative_to='rear_right_motor_asm_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 -0.025 0 1.570796326794896 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>2.723333333333334e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.723333333333334e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.28e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_right_motor_asm_link_collision'>
+        <pose>0 0 0 0 1.570796326794897 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.064</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='rear_right_motor_asm_link_collision_1'>
+        <pose>0 -0.025 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.016</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_right_motor_asm_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/right_motor_asm.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name='rear_right_wheel_joint' type='revolute'>
+      <pose relative_to='rear_right_motor_asm_link'>0 -0.09 0 0 0 0</pose>
+      <parent>rear_right_motor_asm_link</parent>
+      <child>rear_right_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rear_right_wheel_link'>
+      <pose relative_to='rear_right_wheel_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <mass>0.19</mass>
+        <inertia>
+          <ixx>0.0002022409166666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0002022409166666667</iyy>
+          <iyz>1.203706215242022e-35</iyz>
+          <izz>0.0002973904999999999</izz>
+        </inertia>
+      </inertial>
+      <collision name='rear_right_wheel_link_collision'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.062</length>
+            <radius>0.062</radius>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>10.0</mu>
+              <mu2>5.0</mu2>
+              <fdir1>1 0 0</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='rear_right_wheel_link_fixed_joint_lump__rear_right_wheel_adapter_link_collision_1'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.024</length>
+            <radius>0.005</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name='rear_right_wheel_link_fixed_joint_lump__rear_right_wheel_rim_link_collision_2'>
+        <pose>0 0 0 1.570796326794896 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.05</length>
+            <radius>0.03</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='rear_right_wheel_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_tyre.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+              <normal_map>model://wildthumper/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>0.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='rear_right_wheel_link_fixed_joint_lump__rear_right_wheel_adapter_link_visual_1'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_adapter.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='rear_right_wheel_link_fixed_joint_lump__rear_right_wheel_rim_link_visual_2'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/wheels/right_wheel_rim.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+
+    <joint name='top_chassis_joint' type='fixed'>
+      <pose relative_to='base_link'>0 0 0.0145 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>top_chassis_link</child>
+      <axis>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    <link name='top_chassis_link'>
+      <pose relative_to='top_chassis_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0002504166666666667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.002417083333333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.002646666666666667</izz>
+        </inertia>
+      </inertial>
+      <collision name='top_chassis_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.38 0.12 0.025</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='top_chassis_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://wildthumper/meshes/bases/top_chassis_with_standoffs.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://wildthumper/materials/textures/black_metal/black_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://wildthumper/materials/textures/black_metal/black_metal_metallic.jpg</metalness_map>
+              <normal_map>model://wildthumper/materials/textures/black_metal/black_metal_normal.jpg</normal_map>
+              <roughness_map>model://wildthumper/materials/textures/black_metal/black_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+
+    <!-- sensors -->
+    <link name='imu_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      <sensor name="imu_sensor" type="imu">
+        <pose>0 0 0 3.141593 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+    <joint name='wildthumper/imu_joint' type='revolute'>
+      <child>imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <!-- plugins -->
+    <plugin filename="libignition-gazebo-joint-state-publisher-system.so"
+      name="ignition::gazebo::systems::JointStatePublisher">
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>front_left_wheel_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>front_right_wheel_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>mid_left_wheel_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>mid_right_wheel_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>rear_left_wheel_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>rear_right_wheel_joint</joint_name>
+    </plugin>
+
+    <plugin name="ArduPilotPlugin" filename="libArduPilotPlugin.so">
+      <!-- Port settings -->
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+
+      <!-- Frame conventions
+        modelXYZToAirplaneXForwardZDown:
+          - transforms body frame from orientation in Gazebo to NED
+
+        gazeboXYZToNED
+          - transforms world from Gazebo convention xyz = N -E -D
+            to ArduPilot convention xyz = NED
+
+        Vehicle is oriented x-forward, y-left, z-up
+      -->
+      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+
+      <!-- Sensors -->
+      <imuName>imu_sensor</imuName>
+
+      <!--
+          Rover
+            - max_lin_vel   5 km/h = 1.39 m/s
+            - wheel_radius  0.060 m
+            - max_ang_vel   23.15 rad/s
+            - multiplier    46.30 rad/s
+
+          pwm:            =>  [1000, 2000] 
+          input:          =>  [0, 1]
+          offset: -0.5    =>  [-0.5, 0.5]
+          scale:   2.0    =>  [-1.0, 1.0]
+          scale:   23.15  =>  [-5.0, 5.0]
+        -->
+
+      <!-- 
+          SERVO1_FUNCTION   73 (Throttle Left)
+          SERVO1_MAX        2000
+          SERVO1_MIN        1000
+          SERVO1_REVERSED   0
+          SERVO1_TRIM       1500
+       -->
+      <control channel="0">
+        <jointName>front_left_wheel_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>46.3</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.2</p_gain>
+        <i_gain>0.06</i_gain>
+        <d_gain>0.0001</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>-1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
+      </control>
+      <control channel="0">
+        <jointName>mid_left_wheel_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>46.3</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.2</p_gain>
+        <i_gain>0.06</i_gain>
+        <d_gain>0.0001</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>-1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
+      </control>
+      <control channel="0">
+        <jointName>rear_left_wheel_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>46.3</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.2</p_gain>
+        <i_gain>0.06</i_gain>
+        <d_gain>0.0001</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>-1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
+      </control>
+
+      <!-- 
+          SERVO3_FUNCTION   74 (Throttle Right)
+          SERVO3_MAX        2000
+          SERVO3_MIN        1000
+          SERVO3_REVERSED   0
+          SERVO3_TRIM       1500
+       -->
+      <control channel="2">
+        <jointName>front_right_wheel_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>46.3</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.2</p_gain>
+        <i_gain>0.06</i_gain>
+        <d_gain>0.0001</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>-1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
+      </control>
+      <control channel="2">
+        <jointName>mid_right_wheel_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>46.3</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.2</p_gain>
+        <i_gain>0.06</i_gain>
+        <d_gain>0.0001</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>-1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
+      </control>
+      <control channel="2">
+        <jointName>rear_right_wheel_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>46.3</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.2</p_gain>
+        <i_gain>0.06</i_gain>
+        <d_gain>0.0001</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>-1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
+      </control>
+    </plugin>
+
+  </model>
+</sdf>
