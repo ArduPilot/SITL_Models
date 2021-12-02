@@ -1,0 +1,257 @@
+<sdf version="1.7">
+<model name="rover_playpen">
+
+    <include>
+        <name>ground plane</name>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/ground plane</uri>
+        <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>rocky asphalt 20x20</name>
+        <static>1</static>
+        <uri>model://rocky_asphalt_20x20</uri>
+        <pose>0 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>steel plate 3x3 0</name>
+        <static>1</static>
+        <uri>model://steel_plate_3x3</uri>
+        <pose>3.3 6.5 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>steel plate 3x3 1</name>
+        <static>1</static>
+        <uri>model://steel_plate_3x3</uri>
+        <pose>0.9 -6.3 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>jersey barrier</name>
+        <pose>-7.04627 -9.48196 0 0 0 -0.079487</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 0</name>
+        <pose>-2.55812 -9.39157 0 0 0 -0.086195</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 1</name>
+        <pose>2.00118 -9.44465 0 0 0 -0.002131</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 2</name>
+        <pose>6.54343 -9.75478 0 0 0 -0.047162</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 3</name>
+        <pose>-7.60645 9.35786 0 0 0 -0.082127</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 4</name>
+        <pose>-3.18325 9.07558 0 0 0 0.009022</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 5</name>
+        <pose>1.25868 9.23483 0 0 0 0.031649</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 6</name>
+        <pose>6.73835 9.27402 0 0 0 0.03859</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 7</name>
+        <pose>9.18644 -2.58375 0 0 0 -1.56583</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 8</name>
+        <pose>9.27894 1.83668 0 0 0 -1.58359</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 9</name>
+        <pose>-9.40308 -6.90595 0 0 0 1.49979</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 10</name>
+        <pose>-9.42258 -2.26149 0 0 0 -1.52292</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 11</name>
+        <pose>-9.41111 2.12427 0 0 0 1.4728</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 12</name>
+        <pose>9.20788 -7.33244 0 0 0 -1.60731</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 13</name>
+        <pose>9.24115 6.5262 0 0 0 1.62914</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 14</name>
+        <pose>-9.45729 6.62766 0 0 0 -1.52862</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <name>jersey barrier 15</name>
+        <pose>2.45495 0 0 0 0 -0.864721</pose>
+        <static>1</static>
+        <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/jersey barrier</uri>
+    </include>
+
+    <include>
+        <!-- <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Fire hydrant</uri> -->
+        <uri>model://fire_hydrant</uri>
+        <name>fire hydrant</name>
+        <static>1</static>
+        <pose>6 -6 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://fire_hydrant</uri>
+        <name>fire hydrant 0</name>
+        <static>1</static>
+        <pose>-3 4 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://fire_hydrant</uri>
+        <name>fire hydrant 1</name>
+        <static>1</static>
+        <pose>-6.37191 -2.2541 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <!-- <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Dumpster</uri> -->
+        <uri>model://dumpster</uri>
+        <name>dumpster</name>
+        <static>1</static>
+        <pose>3.33622 6.63471 0 0 0 -0.250643</pose>
+    </include>
+
+    <include>
+        <uri>model://dumpster</uri>
+        <name>dumpster 0</name>
+        <static>1</static>
+        <pose>0.826792 -6.23445 0 0 -0 0.332628</pose>
+    </include>
+
+    <include>
+        <!-- <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Construction Barrel</uri> -->
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel</name>
+        <pose>-5.8477 6.65935 0 0 -0 0</pose>
+    </include>
+
+    
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_0</name>
+        <pose>-4.77864 6.69017 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_1</name>
+        <pose>-3.70543 6.70547 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_2</name>
+        <pose>-2.64657 6.70111 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_3</name>
+        <pose>-5.85728 5.61427 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_4</name>
+        <pose>-5.85482 4.59002 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_5</name>
+        <pose>-5.83657 3.55284 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_6</name>
+        <pose>6.61681 -1.82026 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_7</name>
+        <pose>4.21069 -6.40863 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_8</name>
+        <pose>-4.76366 -6.5527 0 0 -0 0</pose>
+    </include>
+
+    <include>
+        <uri>model://construction_barrel</uri>
+        <name>Construction Barrel_9</name>
+        <pose>6.33891 4.79707 0 0 -0 0</pose>
+    </include>
+
+</model>
+</sdf>

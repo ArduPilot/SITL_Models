@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+<model name="rocky_asphalt_20x20">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+
+    <include>
+        <name>rocky asphalt (-8, -8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-8 -8 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (-4, -8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-4 -8 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (0, -8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>0 -8 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (4, -8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>4 -8 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (8, -8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>8 -8 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>rocky asphalt (-8, -4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-8 -4 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (-4, -4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-4 -4 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (0, -4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>0 -4 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (4, -4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>4 -4 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (8, -4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>8 -4 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>rocky asphalt (-8, 0)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-8 0 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (-4, 0)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-4 0 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (0, 0)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (4, 0)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>4 0 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (8, 0)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>8 0 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>rocky asphalt (-8, 4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-8 4 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (-4, 4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-4 4 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (0, 4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>0 4 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (4, 4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>4 4 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (8, 4)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>8 4 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>rocky asphalt (-8 8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-8 8 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (-4, 8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>-4 8 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (0, 8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>0 8 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (4, 8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>4 8 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>rocky asphalt (8, 8)</name>
+        <uri>model://rocky_asphalt_4x4</uri>
+        <pose>8 8 0 0 0 0</pose>
+    </include>
+
+</model>
+</sdf>
