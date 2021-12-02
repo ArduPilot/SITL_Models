@@ -1,0 +1,75 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="quadruped_runway">
+    <plugin filename="libignition-gazebo-physics-system.so"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin filename="libignition-gazebo-user-commands-system.so"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="libignition-gazebo-imu-system.so"
+      name="ignition::gazebo::systems::Imu">
+    </plugin>
+
+    <scene>
+      <ambient>1.0 1.0 1.0</ambient>
+      <background>0.8 0.8 0.8</background>
+      <sky></sky>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.8 0.8 0.8 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <include>
+      <uri>model://runway</uri>
+    </include>
+
+    <!-- Rough terrain -->
+    <include>
+      <pose>2 0 -0.12 0 0 0</pose>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/FRC 2016 Rough Terrain</uri>
+      <name>rough_terrain_1</name>
+    </include>
+    <include>
+      <pose>2 0.35 -0.12 0 0 0</pose>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/FRC 2016 Rough Terrain</uri>
+      <name>rough_terrain_2</name>
+    </include>
+    <include>
+      <pose>2 -0.35 -0.12 0 0 0</pose>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/FRC 2016 Rough Terrain</uri>
+      <name>rough_terrain_3</name>
+    </include>
+    <include>
+      <pose>2 0.7 -0.12 0 0 0</pose>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/FRC 2016 Rough Terrain</uri>
+      <name>rough_terrain_4</name>
+    </include>
+    <include>
+      <pose>2 -0.7 -0.12 0 0 0</pose>
+      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/FRC 2016 Rough Terrain</uri>
+      <name>rough_terrain_5</name>
+    </include>
+
+    <!-- Quadruped rover -->
+    <include>
+      <pose>0 0 0.12 0 0 0</pose>
+      <uri>model://quadruped</uri>
+    </include>
+
+  </world>
+</sdf>
