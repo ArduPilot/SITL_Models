@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="Construction Barrel">
+    <link name="link">
+      <inertial>
+        <pose>0 0 0.4 0 0 0</pose>
+        <mass>500</mass>
+        <inertia>
+          <ixx>51.2096</ixx>
+          <iyy>51.2096</iyy>
+          <izz>25</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+        </inertia>
+      </inertial>
+      <collision name="body_collision">
+        <pose>0 0 0.65 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.3</radius>
+            <length>1.2</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name="base_collision">
+        <pose>0 0 0.05 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.5</radius>
+            <length>0.1</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://construction_barrel/meshes/construction_barrel.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+                <albedo_map>materials/textures/Construction_Barrel_Diffuse.png</albedo_map>
+                <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

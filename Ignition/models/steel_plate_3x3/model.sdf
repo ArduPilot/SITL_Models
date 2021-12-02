@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+<model name="steel_plate_3x3">
+    <pose>0 0 0 0 0 0</pose>
+    <static>1</static>
+
+    <include>
+        <name>steel plate (-1,  -1)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>-1 -1 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>steel plate (-1,  0)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>-1 0 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>steel plate (-1,  1)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>-1 1 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>steel plate (0,  -1)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>0 -1 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>steel plate (0,  0)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>0 0 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>steel plate (0,  1)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>0 1 0 0 0 0</pose>
+    </include>
+
+    <include>
+        <name>steel plate (1,  -1)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>1 -1 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>steel plate (1,  0)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>1 0 0 0 0 0</pose>
+    </include>
+    <include>
+        <name>steel plate (1,  1)</name>
+        <uri>model://steel_plate_1x1</uri>
+        <pose>1 1 0 0 0 0</pose>
+    </include>
+
+</model>
+</sdf>

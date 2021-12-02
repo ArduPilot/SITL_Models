@@ -1,0 +1,34 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="fire_hydrant">
+    <static>true</static>
+    <link name="link">
+      <collision name="body_collision">
+        <pose>0 0 0.45 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.2</radius>
+            <length>0.9</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://fire_hydrant/meshes/fire_hydrant.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+                <albedo_map>materials/textures/fire_hydrant_diffuse.png</albedo_map>
+                <metalness>0.1</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

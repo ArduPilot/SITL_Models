@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+<model name="rocky_asphalt_4x4">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+        <visual name="visual">
+            <geometry>
+                <box>
+                    <size>4 4 0.01</size>
+                </box>
+            </geometry>
+            <material>
+                <render_order>4</render_order>
+                <ambient>0.8 0.8 0.8 1</ambient>
+                <diffuse>0.8 0.8 0.8 1</diffuse>
+                <specular>0.8 0.8 0.8 1</specular>
+                <pbr>
+                    <metal>
+                        <albedo_map>materials/textures/rocky_asphalt1_albedo.png</albedo_map>
+                        <ambient_occlusion_map>materials/textures/rocky_asphalt1_ao.png</ambient_occlusion_map>
+                        <metalness_map>materials/textures/rocky_asphalt1_Metallic.png</metalness_map>
+                        <normal_map>materials/textures/rocky_asphalt1_Normal-ogl.png</normal_map>
+                        <roughness_map>materials/textures/rocky_asphalt1_Roughness.png</roughness_map>
+                        <roughness>0.5</roughness>
+                        <metalness>0.1</metalness>
+                    </metal>
+                </pbr>
+            </material>
+        </visual>
+    </link>
+</model>
+</sdf>

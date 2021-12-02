@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+<model name="steel_plate_1x1">
+    <pose>0 0 0 0 0 0</pose>
+    <static>true</static>
+    <link name="link">
+        <visual name="visual">
+            <geometry>
+                <box>
+                    <size>1 1 0.02</size>
+                </box>
+            </geometry>
+            <material>
+                <render_order>5</render_order>
+                <ambient>0.8 0.8 0.8 1</ambient>
+                <diffuse>0.8 0.8 0.8 1</diffuse>
+                <specular>0.8 0.8 0.8 1</specular>
+                <pbr>
+                    <metal>
+                        <albedo_map>materials/textures/steelplate1_albedo.png</albedo_map>
+                        <ambient_occlusion_map>materials/textures/steelplate1_ao.png</ambient_occlusion_map>
+                        <metalness_map>materials/textures/steelplate1_metallic.png</metalness_map>
+                        <normal_map>materials/textures/steelplate1_normal-ogl.png</normal_map>
+                        <roughness_map>materials/textures/steelplate1_roughness.png</roughness_map>
+                        <roughness>0.2</roughness>
+                        <metalness>0.9</metalness>
+                    </metal>
+                </pbr>
+            </material>
+        </visual>
+    </link>
+</model>
+</sdf>
