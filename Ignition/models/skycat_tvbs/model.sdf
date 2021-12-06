@@ -284,8 +284,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>0.0</lower>
-          <upper>1.570796</upper>
+          <lower>-1.047198</lower>
+          <upper>1.047198</upper>
         </limit>
         <dynamics>
           <damping>0.02</damping>
@@ -331,8 +331,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>0.0</lower>
-          <upper>1.570796</upper>
+          <lower>-1.047198</lower>
+          <upper>1.047198</upper>
         </limit>
         <dynamics>
           <damping>0.02</damping>
@@ -773,11 +773,13 @@
           SERVO3_MIN        1000
           SERVO3_REVERSED   0
           SERVO3_TRIM       1500
+
+          Tilt is +/- 60 deg (1.04719755 rad)
        -->
       <control channel="2">
         <jointName>tilt_left_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>3.14159265</multiplier>
+        <multiplier>2.094395</multiplier>
         <offset>-0.5</offset>
         <servo_min>2000</servo_min>
         <servo_max>1000</servo_max>
@@ -797,11 +799,13 @@
           SERVO4_MIN        1000
           SERVO4_REVERSED   0
           SERVO4_TRIM       1500
+
+          Tilt is +/- 60 deg (1.04719755 rad)
        -->
       <control channel="3">
         <jointName>tilt_right_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>3.14159265</multiplier>
+        <multiplier>-2.094395</multiplier>
         <offset>-0.5</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
