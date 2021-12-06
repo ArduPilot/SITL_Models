@@ -1,0 +1,278 @@
+<sdf version='1.7'>
+  <model name='skycat_tvbs'>
+    <static>0</static>
+    <self_collide>0</self_collide>
+
+    <link name='base_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>2.6</mass>
+        <inertia>
+          <ixx>0.010833333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.114833333</iyy>
+          <iyz>0</iyz>
+          <izz>0.108333333</izz>
+        </inertia>
+      </inertial>
+      <collision name='fuselage_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.7 0.1 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name='wing_collision'>
+        <pose>-0.20 0 0.05 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.4 1.40 0.04</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='skycat_base'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_base.dae</uri>
+          </mesh>
+        </geometry>
+        <!-- <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://skycat_tvbs/materials/textures/skycat.tga</albedo_map>
+              <roughness>0.2</roughness>
+              <metalness>0.2</metalness> 
+            </metal>
+          </pbr>
+        </material> -->
+      </visual>
+      <!-- <visual name='skycat_elevon_left'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_elevon_left.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='skycat_elevon_right'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_elevon_right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='skycat_tilt_left'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_tilt_left.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='skycat_tilt_right'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_tilt_right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual> -->
+    </link>
+
+    <link name="elevon_left_link">
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_elevon_left.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://skycat_tvbs/materials/textures/skycat.tga</albedo_map>
+              <roughness>0.2</roughness>
+              <metalness>0.2</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name="elevon_left_joint" type="revolute">
+      <pose relative_to='base_link'>-0.263 0.327 0.037 0 0 0.366519</pose>
+      <parent>base_link</parent>
+      <child>elevon_left_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>0.523599</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="elevon_right_link">
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_elevon_right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="elevon_right_joint" type="revolute">
+      <pose relative_to='base_link'>-0.263 -0.327 0.037 0 0 -0.366519</pose>
+      <parent>base_link</parent>
+      <child>elevon_right_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>0.523599</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="tilt_left_link">
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_tilt_left.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="tilt_left_joint" type="revolute">
+      <pose relative_to='base_link'>0.091 0.327 0.042 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>tilt_left_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>1.570796</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="tilt_right_link">
+      <visual name='visual'>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/skycat_tilt_right.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="tilt_right_joint" type="revolute">
+      <pose relative_to='base_link'>0.091 -0.327 0.042 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>tilt_right_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0.0</lower>
+          <upper>1.570796</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="prop_left_link">
+      <pose relative_to='prop_left_joint'>0 0 0.03 0 0 0</pose>
+      <visual name='motor_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.025</radius>
+            <length>0.025</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='prop_visual'>
+        <pose>0 0 0.025 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/iris_prop_ccw.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="prop_left_joint" type="revolute">
+      <pose relative_to='tilt_left_joint'>0 0 0 0 1.570796 0</pose>
+      <parent>tilt_left_link</parent>
+      <child>prop_left_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="prop_right_link">
+      <pose relative_to='prop_right_joint'>0 0 0.03 0 0 0</pose>
+      <visual name='motor_visual'>
+        <geometry>
+          <cylinder>
+            <radius>0.025</radius>
+            <length>0.025</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <visual name='prop_visual'>
+        <pose>0 0 0.025 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://skycat_tvbs/meshes/iris_prop_cw.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="prop_right_joint" type="revolute">
+      <pose relative_to='tilt_right_joint'>0 0 0 0 1.570796 0</pose>
+      <parent>tilt_right_link</parent>
+      <child>prop_right_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+  </model>
+</sdf>
