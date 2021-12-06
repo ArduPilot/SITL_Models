@@ -376,7 +376,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://skycat_tvbs/meshes/iris_prop_ccw.dae</uri>
+            <uri>model://skycat_tvbs/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -434,7 +434,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://skycat_tvbs/meshes/iris_prop_cw.dae</uri>
+            <uri>model://skycat_tvbs/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
       </visual>
@@ -498,7 +498,7 @@
       name="ignition::gazebo::systems::JointStatePublisher">
     </plugin>
 
-    <!-- prop_left (ccw) lift-drag -->
+    <!-- prop_left (cc) lift-drag -->
     <plugin filename="libignition-gazebo-lift-drag-system.so"
         name="ignition::gazebo::systems::LiftDrag">
       <a0>0.3</a0>
@@ -512,7 +512,7 @@
       <area>0.002</area>
       <air_density>1.2041</air_density>
       <cp>0.084 0 0</cp>
-      <forward>0 1 0</forward>
+      <forward>0 -1 0</forward>
       <upward>0 0 1</upward>
       <link_name>motor_left_link</link_name>
     </plugin>
@@ -529,12 +529,12 @@
       <area>0.002</area>
       <air_density>1.2041</air_density>
       <cp>-0.084 0 0</cp>
-      <forward>0 -1 0</forward>
+      <forward>0 1 0</forward>
       <upward>0 0 1</upward>
       <link_name>motor_left_link</link_name>
     </plugin>
 
-    <!-- prop_right (cw) lift-drag -->
+    <!-- prop_right (ccw) lift-drag -->
     <plugin filename="libignition-gazebo-lift-drag-system.so"
         name="ignition::gazebo::systems::LiftDrag">
       <a0>0.3</a0>
@@ -548,7 +548,7 @@
       <area>0.002</area>
       <air_density>1.2041</air_density>
       <cp>0.084 0 0</cp>
-      <forward>0 -1 0</forward>
+      <forward>0 1 0</forward>
       <upward>0 0 1</upward>
       <link_name>motor_right_link</link_name>
     </plugin>
@@ -565,7 +565,7 @@
       <area>0.002</area>
       <air_density>1.2041</air_density>
       <cp>-0.084 0 0</cp>
-      <forward>0 1 0</forward>
+      <forward>0 -1 0</forward>
       <upward>0 0 1</upward>
       <link_name>motor_right_link</link_name>
     </plugin>
@@ -816,7 +816,7 @@
       </control>
 
       <!-- 
-          SERVO5_FUNCTION   73 (Left Motor CCW)
+          SERVO5_FUNCTION   73 (Left Motor CW)
           SERVO5_MAX        2000
           SERVO5_MIN        1000
           SERVO5_REVERSED   0
@@ -825,7 +825,7 @@
       <control channel="4">
         <jointName>motor_left_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>1500</multiplier>
+        <multiplier>-1500</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -840,7 +840,7 @@
       </control>
 
       <!-- 
-          SERVO6_FUNCTION   74 (Right Motor CW)
+          SERVO6_FUNCTION   74 (Right Motor CCW)
           SERVO6_MAX        2000
           SERVO6_MIN        1000
           SERVO6_REVERSED   0
@@ -849,7 +849,7 @@
       <control channel="5">
         <jointName>motor_right_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>-1500</multiplier>
+        <multiplier>1500</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
