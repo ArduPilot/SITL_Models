@@ -5,13 +5,13 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.93.6 commit date:2021-11-16, commit time:14:54, hash:c842a90e2fa1</authoring_tool>
     </contributor>
-    <created>2021-12-06T11:27:59</created>
-    <modified>2021-12-06T11:27:59</modified>
+    <created>2021-12-07T11:03:18</created>
+    <modified>2021-12-07T11:03:18</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
   <library_effects>
-    <effect id="_1_-_Default-effect">
+    <effect id="SkyCat-effect">
       <profile_COMMON>
         <newparam sid="skycat_tga-surface">
           <surface type="2D">
@@ -48,8 +48,8 @@
     </image>
   </library_images>
   <library_materials>
-    <material id="_1_-_Default-material" name="01 - Default">
-      <instance_effect url="#_1_-_Default-effect"/>
+    <material id="SkyCat-material" name="SkyCat">
+      <instance_effect url="#SkyCat-effect"/>
     </material>
   </library_materials>
   <library_geometries>
@@ -87,7 +87,7 @@
         <vertices id="Mesh_044-mesh-vertices">
           <input semantic="POSITION" source="#Mesh_044-mesh-positions"/>
         </vertices>
-        <triangles material="_1_-_Default-material" count="144">
+        <triangles material="SkyCat-material" count="144">
           <input semantic="VERTEX" source="#Mesh_044-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Mesh_044-mesh-normals" offset="1"/>
           <input semantic="TEXCOORD" source="#Mesh_044-mesh-map" offset="2" set="0"/>
@@ -129,7 +129,7 @@
         <vertices id="Mesh_043-mesh-vertices">
           <input semantic="POSITION" source="#Mesh_043-mesh-positions"/>
         </vertices>
-        <triangles material="_1_-_Default-material" count="104">
+        <triangles material="SkyCat-material" count="104">
           <input semantic="VERTEX" source="#Mesh_043-mesh-vertices" offset="0"/>
           <input semantic="NORMAL" source="#Mesh_043-mesh-normals" offset="1"/>
           <input semantic="TEXCOORD" source="#Mesh_043-mesh-map" offset="2" set="0"/>
@@ -147,7 +147,7 @@
           <instance_geometry url="#Mesh_043-mesh" name="Elevon_Outer_R">
             <bind_material>
               <technique_common>
-                <instance_material symbol="_1_-_Default-material" target="#_1_-_Default-material">
+                <instance_material symbol="SkyCat-material" target="#SkyCat-material">
                   <bind_vertex_input semantic="UVChannel_1" input_semantic="TEXCOORD" input_set="0"/>
                 </instance_material>
               </technique_common>
@@ -159,7 +159,7 @@
           <instance_geometry url="#Mesh_044-mesh" name="Elevon_Inner_R">
             <bind_material>
               <technique_common>
-                <instance_material symbol="_1_-_Default-material" target="#_1_-_Default-material">
+                <instance_material symbol="SkyCat-material" target="#SkyCat-material">
                   <bind_vertex_input semantic="UVChannel_1" input_semantic="TEXCOORD" input_set="0"/>
                 </instance_material>
               </technique_common>
