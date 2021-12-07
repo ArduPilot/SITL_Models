@@ -427,6 +427,20 @@
             <uri>model://skycat_tvbs/meshes/iris_prop_cw.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://skycat_tvbs/materials/textures/metal_graphite/metal_graphite_basecolor.jpg</albedo_map>
+              <metalness_map>model://skycat_tvbs/materials/textures/metal_graphite/metal_graphite_metallic.jpg</metalness_map>
+              <normal_map>model://skycat_tvbs/materials/textures/metal_graphite/metal_graphite_normal.jpg</normal_map>
+              <roughness_map>model://skycat_tvbs/materials/textures/metal_graphite/metal_graphite_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
       </visual>
     </link>
     <joint name="motor_left_joint" type="revolute">
@@ -485,6 +499,20 @@
             <uri>model://skycat_tvbs/meshes/iris_prop_ccw.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://skycat_tvbs/materials/textures/metal_graphite/metal_graphite_basecolor.jpg</albedo_map>
+              <metalness_map>model://skycat_tvbs/materials/textures/metal_graphite/metal_graphite_metallic.jpg</metalness_map>
+              <normal_map>model://skycat_tvbs/materials/textures/metal_graphite/metal_graphite_normal.jpg</normal_map>
+              <roughness_map>model://skycat_tvbs/materials/textures/metal_graphite/metal_graphite_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
       </visual>
     </link>
     <joint name="motor_right_joint" type="revolute">
