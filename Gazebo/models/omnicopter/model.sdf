@@ -1,0 +1,1303 @@
+<sdf version='1.7'>
+  <model name='omnicopter'>
+    <static>0</static>
+    <self_collide>0</self_collide>
+
+    <link name='base_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>1.5</mass>
+        <inertia>
+          <ixx>0.009375</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.009375</iyy>
+          <iyz>0</iyz>
+          <izz>0.009375</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.25 0.25 0.25</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='base_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/omnicopter_base.dae</uri>
+          </mesh>
+        </geometry>
+         <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic006/plastic006_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic006/plastic006_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic006/plastic006_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+     </visual>
+      <visual name='tailboom1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/tailboom1.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='tailboom2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/tailboom2.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='tailboom3_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/tailboom3.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='tailboom4_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/tailboom4.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='tailboom5_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/tailboom5.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='tailboom6_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/tailboom6.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic007/plastic007_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+
+    <link name='motor_1_link'>
+      <pose relative_to='motor_1_joint'>0 0 0.018 0 0 0</pose>
+      <inertial>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='spinner_visual'>
+        <pose>0 0 -0.01 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/spinner.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://omnicopter/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://omnicopter/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='prop_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>model://omnicopter/meshes/iris_prop_cw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <!-- <visual name='prop_disk_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 1 0 0.5</ambient>
+          <diffuse>1 1 0 0.5</diffuse>
+          <specular>0.3 0.3 0.3 0.5</specular>
+        </material>
+      </visual> -->
+    </link>
+    <joint name='motor_1_joint' type='revolute'>
+      <pose relative_to='base_link'>0.10147914 0. -0.06590132 0. 0.57595865 0.</pose>
+      <parent>base_link</parent>
+      <child>motor_1_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+      </axis>
+      <sensor name="force_torque_sensor" type="force_torque">
+        <update_rate>30</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <force_torque>
+          <frame>sensor</frame>
+          <measure_direction>child_to_parent</measure_direction>
+        </force_torque>
+      </sensor>
+    </joint>
+
+    <link name='motor_2_link'>
+      <pose relative_to='motor_2_joint'>0 0 0.018 0 0 0</pose>
+      <inertial>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='spinner_visual'>
+        <pose>0 0 -0.01 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/spinner.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://omnicopter/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://omnicopter/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='prop_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>model://omnicopter/meshes/iris_prop_cw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <!-- <visual name='prop_disk_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 1 0 0.5</ambient>
+          <diffuse>1 1 0 0.5</diffuse>
+          <specular>0.3 0.3 0.3 0.5</specular>
+        </material>
+      </visual> -->
+    </link>
+    <joint name='motor_2_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.05073957 -0.08788351 -0.06590132 3.30947295e-17 5.75958653e-01 -2.09439510e+00</pose>
+      <parent>base_link</parent>
+      <child>motor_2_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+      </axis>
+      <sensor name="force_torque_sensor" type="force_torque">
+        <update_rate>30</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <force_torque>
+          <frame>sensor</frame>
+          <measure_direction>child_to_parent</measure_direction>
+        </force_torque>
+      </sensor>
+    </joint>
+
+    <link name='motor_3_link'>
+      <pose relative_to='motor_3_joint'>0 0 0.018 0 0 0</pose>
+      <inertial>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='spinner_visual'>
+        <pose>0 0 -0.01 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/spinner.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://omnicopter/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://omnicopter/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='prop_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>model://omnicopter/meshes/iris_prop_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <!-- <visual name='prop_disk_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 1 0 0.5</ambient>
+          <diffuse>1 1 0 0.5</diffuse>
+          <specular>0.3 0.3 0.3 0.5</specular>
+        </material>
+      </visual> -->
+    </link>
+    <joint name='motor_3_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.05073957 0.08788351 -0.06590132 -3.30947295e-17 5.75958653e-01 2.09439510e+00</pose>
+      <parent>base_link</parent>
+      <child>motor_3_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+      </axis>
+      <sensor name="force_torque_sensor" type="force_torque">
+        <update_rate>30</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <force_torque>
+          <frame>sensor</frame>
+          <measure_direction>child_to_parent</measure_direction>
+        </force_torque>
+      </sensor>
+    </joint>
+
+    <link name='motor_4_link'>
+      <pose relative_to='motor_4_joint'>0 0 0.018 0 0 0</pose>
+      <inertial>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='spinner_visual'>
+        <pose>0 0 -0.01 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/spinner.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://omnicopter/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://omnicopter/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='prop_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>model://omnicopter/meshes/iris_prop_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <!-- <visual name='prop_disk_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 1 0 0.5</ambient>
+          <diffuse>1 1 0 0.5</diffuse>
+          <specular>0.3 0.3 0.3 0.5</specular>
+        </material>
+      </visual> -->
+    </link>
+    <joint name='motor_4_joint' type='revolute'>
+      <pose relative_to='base_link'>0.04894553 -0.08477614 0.07112202 1.57079633 0. 2.0943951</pose>
+      <parent>base_link</parent>
+      <child>motor_4_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+      </axis>
+      <sensor name="force_torque_sensor" type="force_torque">
+        <update_rate>30</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <force_torque>
+          <frame>sensor</frame>
+          <measure_direction>child_to_parent</measure_direction>
+        </force_torque>
+      </sensor>
+    </joint>
+
+    <link name='motor_5_link'>
+      <pose relative_to='motor_5_joint'>0 0 0.018 0 0 0</pose>
+      <inertial>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='spinner_visual'>
+        <pose>0 0 -0.01 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/spinner.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://omnicopter/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://omnicopter/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='prop_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>model://omnicopter/meshes/iris_prop_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <!-- <visual name='prop_disk_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 1 0 0.5</ambient>
+          <diffuse>1 1 0 0.5</diffuse>
+          <specular>0.3 0.3 0.3 0.5</specular>
+        </material>
+      </visual> -->
+    </link>
+    <joint name='motor_5_joint' type='revolute'>
+      <pose relative_to='base_link'>-0.09789106 0. 0.07112202 -1.57079633 0. 0.</pose>
+      <parent>base_link</parent>
+      <child>motor_5_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+      </axis>
+      <sensor name="force_torque_sensor" type="force_torque">
+        <update_rate>30</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <force_torque>
+          <frame>sensor</frame>
+          <measure_direction>child_to_parent</measure_direction>
+        </force_torque>
+      </sensor>
+    </joint>
+
+    <link name='motor_6_link'>
+      <pose relative_to='motor_6_joint'>0 0 0.018 0 0 0</pose>
+      <inertial>
+        <pose>0 0 -0.018 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='spinner_visual'>
+        <pose>0 0 -0.01 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://omnicopter/meshes/spinner.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/red_metal/red_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://omnicopter/materials/textures/red_metal/red_metal_metallic.jpg</metalness_map>
+              <normal_map>model://omnicopter/materials/textures/red_metal/red_metal_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/red_metal/red_metal_roughness.jpg</roughness_map>
+              <roughness>1.0</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name='prop_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.5 0.5 0.5</scale>
+            <uri>model://omnicopter/meshes/iris_prop_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>0.3 0.3 0.3</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_diffuse.jpg</albedo_map>
+              <normal_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_normal.jpg</normal_map>
+              <roughness_map>model://omnicopter/materials/textures/plastic008/plastic008_1k_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>0.5</metalness> 
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <!-- <visual name='prop_disk_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.002</length>
+            <radius>0.05</radius>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 1 0 0.5</ambient>
+          <diffuse>1 1 0 0.5</diffuse>
+          <specular>0.3 0.3 0.3 0.5</specular>
+        </material>
+      </visual> -->
+    </link>
+    <joint name='motor_6_joint' type='revolute'>
+      <pose relative_to='base_link'>0.04894553 0.08477614 0.07112202 -1.57079633 0. -2.0943951</pose>
+      <parent>base_link</parent>
+      <child>motor_6_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+      </axis>
+      <sensor name="force_torque_sensor" type="force_torque">
+        <update_rate>30</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <force_torque>
+          <frame>sensor</frame>
+          <measure_direction>child_to_parent</measure_direction>
+        </force_torque>
+      </sensor>
+    </joint>
+
+    <!-- sensors -->
+    <link name='imu_link'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      <sensor name="imu_sensor" type="imu">
+        <pose>0 0 0 3.141593 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+    <joint name='imu_joint' type='revolute'>
+      <child>imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <!-- plugins -->
+    <plugin filename="libignition-gazebo-joint-state-publisher-system.so"
+      name="ignition::gazebo::systems::JointStatePublisher">
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>motor_1_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>motor_2_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>motor_3_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>motor_4_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>motor_5_joint</joint_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-apply-joint-force-system.so"
+      name="ignition::gazebo::systems::ApplyJointForce">
+      <joint_name>motor_6_joint</joint_name>
+    </plugin>
+
+    <!-- prop motor_1 (cw) lift-drag -->
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>0.05 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_1_link</link_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.05 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_1_link</link_name>
+    </plugin>
+
+    <!-- prop motor_2 (cw) lift-drag -->
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>0.05 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_2_link</link_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.05 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_2_link</link_name>
+    </plugin>
+
+    <!-- prop motor_3 (ccw) lift-drag -->
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>0.05 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_3_link</link_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.05 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_3_link</link_name>
+    </plugin>
+
+    <!-- prop motor_4 (ccw) lift-drag -->
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>0.05 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_4_link</link_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.05 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_4_link</link_name>
+    </plugin>
+
+    <!-- prop motor_5 (cw) lift-drag -->
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>0.05 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_5_link</link_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.05 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_5_link</link_name>
+    </plugin>
+
+    <!-- prop motor_6 (ccw) lift-drag -->
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>0.05 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_6_link</link_name>
+    </plugin>
+    <plugin filename="libignition-gazebo-lift-drag-system.so"
+        name="ignition::gazebo::systems::LiftDrag">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.003</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.05 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_6_link</link_name>
+    </plugin>
+
+    <plugin name="ArduPilotPlugin" filename="libArduPilotPlugin.so">
+      <!-- Port settings -->
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+
+      <!-- Frame conventions
+        modelXYZToAirplaneXForwardZDown:
+          - transforms body frame from orientation in Gazebo to NED
+
+        gazeboXYZToNED
+          - transforms world from Gazebo convention xyz = N -E -D
+            to ArduPilot convention xyz = NED
+
+        Vehicle is oriented x-forward, y-left, z-up
+      -->
+      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+
+      <!-- Sensors -->
+      <imuName>imu_link::imu_sensor</imuName>
+
+      <!-- 
+          SERVO1_FUNCTION   33 (Motor 1 CW)
+          SERVO1_MAX        2000
+          SERVO1_MIN        1000
+          SERVO1_REVERSED   0
+          SERVO1_TRIM       1500
+       -->
+      <control channel="0">
+        <jointName>motor_1_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>-2762</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.25</p_gain> 
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+      </control>
+
+      <!-- 
+          SERVO2_FUNCTION   34 (Motor 2 CW)
+          SERVO2_MAX        2000
+          SERVO2_MIN        1000
+          SERVO2_REVERSED   0
+          SERVO2_TRIM       1500
+       -->
+      <control channel="1">
+        <jointName>motor_2_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>-2762</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.25</p_gain> 
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+      </control>
+
+      <!-- 
+          SERVO3_FUNCTION   35 (Motor 3 CCW)
+          SERVO3_MAX        2000
+          SERVO3_MIN        1000
+          SERVO3_REVERSED   0
+          SERVO3_TRIM       1500
+       -->
+      <control channel="2">
+        <jointName>motor_3_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>2762</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.25</p_gain> 
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+      </control>
+
+      <!-- 
+          SERVO4_FUNCTION   36 (Motor 4 CCW)
+          SERVO4_MAX        2000
+          SERVO4_MIN        1000
+          SERVO4_REVERSED   0
+          SERVO4_TRIM       1500
+       -->
+      <control channel="3">
+        <jointName>motor_4_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>2762</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.25</p_gain> 
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+      </control>
+
+      <!-- 
+          SERVO5_FUNCTION   37 (Motor 5 CW)
+          SERVO5_MAX        2000
+          SERVO5_MIN        1000
+          SERVO5_REVERSED   0
+          SERVO5_TRIM       1500
+       -->
+      <control channel="4">
+        <jointName>motor_5_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>-2762</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.25</p_gain> 
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+      </control>
+
+      <!-- 
+          SERVO6_FUNCTION   38 (Motor 6 CCW)
+          SERVO6_MAX        2000
+          SERVO6_MIN        1000
+          SERVO6_REVERSED   0
+          SERVO6_TRIM       1500
+       -->
+      <control channel="5">
+        <jointName>motor_6_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>2762</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>VELOCITY</type>
+        <p_gain>0.25</p_gain> 
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+      </control>
+
+    </plugin>
+
+  </model>
+</sdf>
