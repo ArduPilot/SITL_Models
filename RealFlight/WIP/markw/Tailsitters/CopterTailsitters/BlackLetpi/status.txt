@@ -1,0 +1,6 @@
+flyable in RF8 using blackletpi.parm
+on master 68ed809f8b9191e992ed28fd22e1fc67ee88936e
+
+could probably improve both the VTOL and FW tuning
+definitely needs better tuning of the VTOL Z controller
+(descents are a bit weird)
