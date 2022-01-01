@@ -1,4 +1,4 @@
-# Addiction-X QuadPlane
+# Addiction-X 3D
 
 Aircraft Model:
 3D Model By: Erik Peterson - AKA: Keylitho - 
@@ -28,7 +28,7 @@ Model modifications by : Andrew Tridgell
 ## Parameter file/setup notes:
 
 * AETR normal control order
-* RC8(SwB) is mode: ACRO,FBWA,QHOVER
+* RC8(SwB) is mode: ACRO,FBWA,CRUISE
 
 
 tested in RealFlight9 using ArduPlane 4.20dev in Sim_vehicle.py
