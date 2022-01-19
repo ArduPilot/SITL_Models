@@ -1,0 +1,634 @@
+<%
+  # defaults
+  if !defined?(model_name) then model_name = 'daf_xf_450_flatbed_trailer' end
+  if !defined?(model_pose) then model_pose = '0 0 0 0 0 0' end
+  if !defined?(fdm_addr) then fdm_addr = '127.0.0.1' end
+  if !defined?(fdm_port_in) then fdm_port_in = 9012 end
+
+  # sdf header and footer
+  header=''
+  footer=''
+  if defined?(sdf)
+    header='<?xml version="1.0" ?>
+<!--
+DO NOT EDIT. This file is generated from an ERB template.
+
+  erb -T 1 sdf=true model.sdf.erb > model.sdf
+
+-->
+<sdf version="1.7">'
+    footer='</sdf>'
+  end
+%>
+<%= header %>
+<model name="<%= model_name %>">
+  <pose><%= model_pose %></pose>
+  
+  <link name="base_link">
+    <inertial>
+      <pose>0 0 0 0 0 0</pose>
+      <mass>40</mass>
+      <inertia>
+        <ixx>2.7</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>2.7</iyy>
+        <iyz>0</iyz>
+        <izz>4.05</izz>
+      </inertia>
+    </inertial>
+    <collision name="collision">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <box>
+          <size>12.2 2.34 1.0</size>
+        </box>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <pose>-0.405 0 0.28 0 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_chassis.dae</uri>
+        </mesh>
+      </geometry>
+      <material>
+        <ambient>1 1 1</ambient>
+        <diffuse>1 1 1</diffuse>
+        <specular>0.1 0.1 0.1</specular>
+        <pbr>
+          <metal>
+            <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+            <metalness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+            <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+            <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+            <roughness>0.5</roughness>
+            <metalness>0.5</metalness> 
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="left_wheel_1_joint" type="revolute">
+    <pose relative_to="base_link">-0.92 1.02 -0.3 -1.5708 0 0</pose>
+    <parent>base_link</parent>
+    <child>left_wheel_1_link</child>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>-1e+16</lower>
+        <upper>1e+16</upper>
+      </limit>
+      <dynamics>
+        <damping>0.0001</damping>
+      </dynamics>
+    </axis>
+  </joint>
+  <link name="left_wheel_1_link">
+    <pose relative_to="left_wheel_1_joint">0 0 0 0 0 0</pose>
+    <inertial>
+      <pose>0 0 0 0 0 0</pose>
+      <mass>40</mass>
+      <inertia>
+        <ixx>2.831063333</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>2.831063333</iyy>
+        <iyz>0</iyz>
+        <izz>4.9005</izz>
+      </inertia>
+    </inertial>
+    <collision name="collision">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <cylinder>
+          <radius>0.495</radius>
+          <length>0.338</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name="tyre_visual">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_tyre.dae</uri>
+        </mesh>
+      </geometry>
+      <material>
+        <ambient>1 1 1</ambient>
+        <diffuse>1 1 1</diffuse>
+        <specular>1 1 1</specular>
+        <pbr>
+          <metal>
+            <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+            <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+            <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+            <roughness>1.0</roughness>
+            <metalness>0.0</metalness> 
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+    <visual name="hub_visual">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_hub.dae</uri>
+        </mesh>
+      </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+    </visual>
+  </link>
+
+  <joint name="right_wheel_1_joint" type="revolute">
+    <pose relative_to="base_link">-0.92 -1.02 -0.3 -1.5708 0 0</pose>
+    <parent>base_link</parent>
+    <child>right_wheel_1_link</child>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>-1e+16</lower>
+        <upper>1e+16</upper>
+      </limit>
+      <dynamics>
+        <damping>0.0001</damping>
+      </dynamics>
+    </axis>
+  </joint>
+  <link name="right_wheel_1_link">
+    <pose relative_to="right_wheel_1_joint">0 0 0 0 0 0</pose>
+    <inertial>
+      <pose>0 0 0 0 0 0</pose>
+      <mass>40</mass>
+      <inertia>
+        <ixx>2.831063333</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>2.831063333</iyy>
+        <iyz>0</iyz>
+        <izz>4.9005</izz>
+      </inertia>
+    </inertial>
+    <collision name="collision">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <cylinder>
+          <radius>0.495</radius>
+          <length>0.338</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name="tyre_visual">
+      <pose>0 0 0 3.141592654 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_tyre.dae</uri>
+        </mesh>
+      </geometry>
+      <material>
+        <ambient>1 1 1</ambient>
+        <diffuse>1 1 1</diffuse>
+        <specular>1 1 1</specular>
+        <pbr>
+          <metal>
+            <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+            <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+            <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+            <roughness>1.0</roughness>
+            <metalness>0.0</metalness> 
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+    <visual name="hub_visual">
+      <pose>0 0 0 3.141592654 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_hub.dae</uri>
+        </mesh>
+      </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+    </visual>
+  </link>
+
+  <joint name="left_wheel_2_joint" type="revolute">
+    <pose relative_to="base_link">-2.27 1.02 -0.3 -1.5708 0 0</pose>
+    <parent>base_link</parent>
+    <child>left_wheel_2_link</child>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>-1e+16</lower>
+        <upper>1e+16</upper>
+      </limit>
+      <dynamics>
+        <damping>0.0001</damping>
+      </dynamics>
+    </axis>
+  </joint>
+  <link name="left_wheel_2_link">
+    <pose relative_to="left_wheel_2_joint">0 0 0 0 0 0</pose>
+    <inertial>
+      <pose>0 0 0 0 0 0</pose>
+      <mass>40</mass>
+      <inertia>
+        <ixx>2.831063333</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>2.831063333</iyy>
+        <iyz>0</iyz>
+        <izz>4.9005</izz>
+      </inertia>
+    </inertial>
+    <collision name="collision">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <cylinder>
+          <radius>0.495</radius>
+          <length>0.338</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name="tyre_visual">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_tyre.dae</uri>
+        </mesh>
+      </geometry>
+      <material>
+        <ambient>1 1 1</ambient>
+        <diffuse>1 1 1</diffuse>
+        <specular>1 1 1</specular>
+        <pbr>
+          <metal>
+            <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+            <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+            <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+            <roughness>1.0</roughness>
+            <metalness>0.0</metalness> 
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+    <visual name="hub_visual">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_hub.dae</uri>
+        </mesh>
+      </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+    </visual>
+  </link>
+
+  <joint name="right_wheel_2_joint" type="revolute">
+    <pose relative_to="base_link">-2.27 -1.02 -0.3 -1.5708 0 0</pose>
+    <parent>base_link</parent>
+    <child>right_wheel_2_link</child>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>-1e+16</lower>
+        <upper>1e+16</upper>
+      </limit>
+      <dynamics>
+        <damping>0.0001</damping>
+      </dynamics>
+    </axis>
+  </joint>
+  <link name="right_wheel_2_link">
+    <pose relative_to="right_wheel_2_joint">0 0 0 0 0 0</pose>
+    <inertial>
+      <pose>0 0 0 0 0 0</pose>
+      <mass>40</mass>
+      <inertia>
+        <ixx>2.831063333</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>2.831063333</iyy>
+        <iyz>0</iyz>
+        <izz>4.9005</izz>
+      </inertia>
+    </inertial>
+    <collision name="collision">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <cylinder>
+          <radius>0.495</radius>
+          <length>0.338</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name="tyre_visual">
+      <pose>0 0 0 3.141592654 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_tyre.dae</uri>
+        </mesh>
+      </geometry>
+      <material>
+        <ambient>1 1 1</ambient>
+        <diffuse>1 1 1</diffuse>
+        <specular>1 1 1</specular>
+        <pbr>
+          <metal>
+            <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+            <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+            <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+            <roughness>1.0</roughness>
+            <metalness>0.0</metalness> 
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+    <visual name="hub_visual">
+      <pose>0 0 0 3.141592654 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_hub.dae</uri>
+        </mesh>
+      </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+    </visual>
+  </link>
+
+  <joint name="left_wheel_3_joint" type="revolute">
+    <pose relative_to="base_link">-3.625 1.02 -0.3 -1.5708 0 0</pose>
+    <parent>base_link</parent>
+    <child>left_wheel_3_link</child>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>-1e+16</lower>
+        <upper>1e+16</upper>
+      </limit>
+      <dynamics>
+        <damping>0.0001</damping>
+      </dynamics>
+    </axis>
+  </joint>
+  <link name="left_wheel_3_link">
+    <pose relative_to="left_wheel_3_joint">0 0 0 0 0 0</pose>
+    <inertial>
+      <pose>0 0 0 0 0 0</pose>
+      <mass>40</mass>
+      <inertia>
+        <ixx>2.831063333</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>2.831063333</iyy>
+        <iyz>0</iyz>
+        <izz>4.9005</izz>
+      </inertia>
+    </inertial>
+    <collision name="collision">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <cylinder>
+          <radius>0.495</radius>
+          <length>0.338</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name="tyre_visual">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_tyre.dae</uri>
+        </mesh>
+      </geometry>
+      <material>
+        <ambient>1 1 1</ambient>
+        <diffuse>1 1 1</diffuse>
+        <specular>1 1 1</specular>
+        <pbr>
+          <metal>
+            <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+            <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+            <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+            <roughness>1.0</roughness>
+            <metalness>0.0</metalness> 
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+    <visual name="hub_visual">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_hub.dae</uri>
+        </mesh>
+      </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+    </visual>
+  </link>
+
+  <joint name="right_wheel_3_joint" type="revolute">
+    <pose relative_to="base_link">-3.625 -1.02 -0.3 -1.5708 0 0</pose>
+    <parent>base_link</parent>
+    <child>right_wheel_3_link</child>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>-1e+16</lower>
+        <upper>1e+16</upper>
+      </limit>
+      <dynamics>
+        <damping>0.0001</damping>
+      </dynamics>
+    </axis>
+  </joint>
+  <link name="right_wheel_3_link">
+    <pose relative_to="right_wheel_3_joint">0 0 0 0 0 0</pose>
+    <inertial>
+      <pose>0 0 0 0 0 0</pose>
+      <mass>40</mass>
+      <inertia>
+        <ixx>2.831063333</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>2.831063333</iyy>
+        <iyz>0</iyz>
+        <izz>4.9005</izz>
+      </inertia>
+    </inertial>
+    <collision name="collision">
+      <pose>0 0 0 0 0 0</pose>
+      <geometry>
+        <cylinder>
+          <radius>0.495</radius>
+          <length>0.338</length>
+        </cylinder>
+      </geometry>
+    </collision>
+    <visual name="tyre_visual">
+      <pose>0 0 0 3.141592654 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_tyre.dae</uri>
+        </mesh>
+      </geometry>
+      <material>
+        <ambient>1 1 1</ambient>
+        <diffuse>1 1 1</diffuse>
+        <specular>1 1 1</specular>
+        <pbr>
+          <metal>
+            <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_diffuse.jpg</albedo_map>
+            <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_normal.jpg</normal_map>
+            <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/rubber_01/rubber_01_roughness.jpg</roughness_map>
+            <roughness>1.0</roughness>
+            <metalness>0.0</metalness> 
+          </metal>
+        </pbr>
+      </material>
+    </visual>
+    <visual name="hub_visual">
+      <pose>0 0 0 3.141592654 0 0</pose>
+      <geometry>
+        <mesh>
+          <uri>model://daf_xf_450_flatbed_trailer/meshes/trailer_wheel_hub.dae</uri>
+        </mesh>
+      </geometry>
+        <material>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
+          <specular>1 1 1</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_diffuse.jpg</albedo_map>
+              <metalness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_metallic.jpg</metalness_map>
+              <normal_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_normal.jpg</normal_map>
+              <roughness_map>model://daf_xf_450_flatbed_trailer/materials/textures/silver_metal/silver_metal_roughness.jpg</roughness_map>
+              <roughness>0.5</roughness>
+              <metalness>1.0</metalness> 
+            </metal>
+          </pbr>
+        </material>
+    </visual>
+  </link>
+
+  <!-- Sensors -->
+  <link name="imu_link">
+    <inertial>
+      <mass>0.01</mass>
+      <inertia>
+        <ixx>1.66667E-07</ixx>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyy>1.66667E-07</iyy>
+        <iyz>0</iyz>
+        <izz>1.66667E-07</izz>
+      </inertia>
+    </inertial>
+    <sensor name="imu_sensor" type="imu">
+      <pose>0 0 0 3.141593 0 0</pose>
+      <always_on>1</always_on>
+      <update_rate>1000.0</update_rate>
+    </sensor>
+  </link>
+  <joint name="imu_joint" type="revolute">
+    <child>imu_link</child>
+    <parent>base_link</parent>
+    <axis>
+      <xyz>0 0 1</xyz>
+      <limit>
+        <lower>0</lower>
+        <upper>0</upper>
+      </limit>
+      <dynamics>
+        <damping>0.0001</damping>
+      </dynamics>
+      <use_parent_model_frame>1</use_parent_model_frame>
+    </axis>
+  </joint>
+
+  <!-- Plugins -->
+  <plugin name="ignition::gazebo::systems::JointStatePublisher"
+      filename="libignition-gazebo-joint-state-publisher-system.so">
+  </plugin>
+
+  <plugin name="ArduPilotPlugin"
+      filename="libArduPilotPlugin.so">
+    <fdm_addr><%= fdm_addr %></fdm_addr>
+    <fdm_port_in><%= fdm_port_in %></fdm_port_in>
+    <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+    <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
+    <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+    <imuName>imu_sensor</imuName>
+  </plugin>
+
+</model>
+<%= footer %>

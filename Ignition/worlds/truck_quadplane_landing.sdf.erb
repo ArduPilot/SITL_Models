@@ -1,0 +1,85 @@
+<%
+  # load templates for the required models 
+  def make_tractor_model(model_name, model_pose, fdm_port_in,
+    trailer_joint='', trailer_model='')
+    ERB.new(File.read('../models/daf_xf_450_tractor/model.sdf.erb'))
+      .result(binding)
+  end
+
+  def make_trailer_model(model_name, model_pose, fdm_port_in)
+    ERB.new(File.read('../models/daf_xf_450_flatbed_trailer/model.sdf.erb'))
+      .result(binding)
+  end
+
+  def make_quadplane_model(model_name, model_pose, fdm_port_in)
+    ERB.new(File.read('../models/alti_transition_quad/model.sdf.erb'))
+      .result(binding)
+  end
+
+  # define the trailer joint
+  trailer_joint = '
+  <joint name="trailer_joint" type="ball">
+  <pose relative_to="base_link">-1.98 0 0 0 0 0</pose>
+  <parent>base_link</parent>
+  <child>trailer::base_link</child>
+  </joint>'
+
+  # make the trailer model
+  trailer_pose = '-6.8 0 -0.25 0 0 0'
+  trailer_model = make_trailer_model('trailer', trailer_pose, 9012)
+
+  # make the tractor model and inject trailer
+  tractor_pose = '0 0 1.0 0 0 0'
+  tractor_model = make_tractor_model('tractor', tractor_pose, 9002,
+    trailer_joint, trailer_model)
+
+  # make the quadplane and place on the trailer
+  quadplane_pose = '-8.0 0 1.6 0 0 0'
+  quadplane_model = make_quadplane_model('quadplane', quadplane_pose, 9022)
+%>
+
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="truck_quadplane_landing">
+    <plugin filename="libignition-gazebo-physics-system.so"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin filename="libignition-gazebo-user-commands-system.so"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="libignition-gazebo-imu-system.so"
+      name="ignition::gazebo::systems::Imu">
+    </plugin>
+
+    <scene>
+      <ambient>1.0 1.0 1.0</ambient>
+      <background>0.8 0.8 0.8</background>
+      <sky></sky>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.8 0.8 0.8 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <include>
+      <uri>model://runway</uri>
+    </include>
+
+    <%= tractor_model %>
+    <%= quadplane_model %>
+
+  </world>
+</sdf>
