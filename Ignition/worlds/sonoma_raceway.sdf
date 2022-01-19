@@ -1,0 +1,74 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <world name="sonoma_raceway">
+    <plugin filename="libignition-gazebo-physics-system.so"
+      name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin filename="libignition-gazebo-user-commands-system.so"
+      name="ignition::gazebo::systems::UserCommands">
+    </plugin>
+    <plugin filename="libignition-gazebo-scene-broadcaster-system.so"
+      name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+    <plugin filename="libignition-gazebo-imu-system.so"
+      name="ignition::gazebo::systems::Imu">
+    </plugin>
+
+    <scene>
+      <ambient>1.0 1.0 1.0</ambient>
+      <background>0.8 0.8 0.8</background>
+      <sky></sky>
+    </scene>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.8 0.8 0.8 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <spherical_coordinates>
+      <surface_model>EARTH_WGS84</surface_model>
+      <latitude_deg>38.161479</latitude_deg>
+      <longitude_deg>-122.454630</longitude_deg>
+      <elevation>488.0</elevation>
+    </spherical_coordinates>
+
+    <include>
+      <uri>model://sonoma_raceway</uri>
+    </include>
+
+    <!-- 
+      A vehicle on the Sonoma Raceway start grid has a
+      heading of 0.959931 rad (-55 deg)
+
+      <pose>0 0 0 0 0 0.959931089</pose>
+
+      Below are examples for loading different vehicles onto
+      the start grid. 
+      -->
+
+    <!-- <include>
+      <pose>0 0 0.15 0 0 0.959931089</pose>
+      <uri>model://wildthumper</uri>
+    </include> -->
+
+    <!-- <include>
+      <pose>0 0 0.15 0 0 0.959931089</pose>
+      <uri>model://iris_with_standoffs</uri>
+    </include> -->
+
+    <!-- <include>
+      <pose>0 0 0.15 0 0 0.959931089</pose>
+      <uri>model://skywalker_x8_quad</uri>
+    </include> -->
+
+  </world>
+</sdf>
