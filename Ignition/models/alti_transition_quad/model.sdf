@@ -17,18 +17,99 @@
           <izz>0.75</izz>
         </inertia>
       </inertial>
-      <collision name="base_link_collision">
-        <pose>0 0 0 0 0 0</pose>
+      <collision name="fuselage_collision">
+        <pose>0.2 0 -0.05 0 1.570796327 0</pose>
         <geometry>
-          <mesh>
-            <uri>model://alti_transition_quad/meshes/alti_transition_base_link.dae</uri>
-          </mesh>
+          <capsule>
+            <radius>0.1</radius>
+            <length>1.1</length>
+          </capsule>
+        </geometry>
+      </collision>
+      <collision name="left_wing_collision">
+        <pose>-0.05 0.7 0.04 0.087266463 0 0.13962634</pose>
+        <geometry>
+          <box>
+            <size>0.3 1.4 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="right_wing_collision">
+        <pose>-0.05 -0.7 0.04 -0.087266463 0 -0.13962634</pose>
+        <geometry>
+          <box>
+            <size>0.3 1.4 0.02</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="left_winglet_collision">
+        <pose>-0.19 1.45 0.17 -0.523598776 -0.261799388 0.087266463</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.01 0.16</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="right_winglet_collision">
+        <pose>-0.19 -1.45 0.17 0.523598776 -0.261799388 -0.087266463</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.01 0.16</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="left_vstab_collision">
+        <pose>-1.25 0.405 0.07 0.122173048 -0.436332313 0</pose>
+        <geometry>
+          <box>
+            <size>0.18 0.01 0.23</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="right_vstab_collision">
+        <pose>-1.25 -0.405 0.07 -0.122173048 -0.436332313 0</pose>
+        <geometry>
+          <box>
+            <size>0.18 0.01 0.23</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="hstab_collision">
+        <pose>-1.35 0 0.215 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.06 0.7 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="left_landing_gear_collision">
+        <pose>0.255 0.3 -0.26 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <collision name="right_landing_gear_collision">
+        <pose>0.255 -0.3 -0.26 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
+        </geometry>
+      </collision>
+      <collision name="rear_landing_gear_collision">
+        <pose>-0.265 0 -0.26 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.02</radius>
+          </sphere>
         </geometry>
       </collision>
       <visual name="base_link_visual">
         <geometry>
           <mesh>
-            <uri>model://alti_transition_quad/meshes/alti_transition_base_link.dae</uri>
+            <uri>model://alti_transition_quad/meshes/alti_transition_base.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -456,13 +537,13 @@
           <izz>0.003446072</izz>
         </inertia>
       </inertial>
-      <collision name="collision">
+      <!-- <collision name="collision">
         <geometry>
           <mesh>
             <uri>model://alti_transition_quad/meshes/alti_transition_aileron_left.dae</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
       <visual name="visual">
         <geometry>
           <mesh>
@@ -512,13 +593,13 @@
           <izz>0.003446072</izz>
         </inertia>
       </inertial>
-      <collision name="collision">
+      <!-- <collision name="collision">
         <geometry>
           <mesh>
             <uri>model://alti_transition_quad/meshes/alti_transition_aileron_right.dae</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
       <visual name="visual">
         <geometry>
           <mesh>
@@ -568,11 +649,19 @@
           <izz>0.003446072</izz>
         </inertia>
       </inertial>
-      <collision name="collision">
+      <!-- <collision name="collision">
         <geometry>
           <mesh>
             <uri>model://alti_transition_quad/meshes/alti_transition_elevator.dae</uri>
           </mesh>
+        </geometry>
+      </collision> -->
+      <collision name="collision">
+        <pose>-0.03 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.06 0.62 0.01</size>
+          </box>
         </geometry>
       </collision>
       <visual name="visual">
