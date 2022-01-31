@@ -199,6 +199,17 @@ DO NOT EDIT. This file is generated from an ERB template.
           <length>0.36</length>
         </cylinder>
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+            <fdir1>1 0 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+      </surface>
     </collision>
     <visual name="tyre_visual">
       <pose>0 0 0 0 0 0</pose>
@@ -352,6 +363,17 @@ DO NOT EDIT. This file is generated from an ERB template.
           <length>0.36</length>
         </cylinder>
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+            <fdir1>1 0 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+      </surface>
     </collision>
     <visual name="tyre_visual">
       <pose>0 0 0 3.14159265 0 0</pose>
@@ -451,6 +473,17 @@ DO NOT EDIT. This file is generated from an ERB template.
           <length>0.45</length>
         </cylinder>
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+            <fdir1>1 0 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+      </surface>
     </collision>
     <visual name="tyre_visual">
       <pose>0 0 0 0 0 0</pose>
@@ -550,6 +583,17 @@ DO NOT EDIT. This file is generated from an ERB template.
           <length>0.45</length>
         </cylinder>
       </geometry>
+      <surface>
+        <friction>
+          <ode>
+            <mu>1.0</mu>
+            <mu2>1.0</mu2>
+            <fdir1>1 0 0</fdir1>
+            <slip1>0.0</slip1>
+            <slip2>0.0</slip2>
+          </ode>
+        </friction>
+      </surface>
     </collision>
     <visual name="tyre_visual">
       <pose>0 0 0 3.14159265 0 0</pose>
@@ -738,13 +782,13 @@ DO NOT EDIT. This file is generated from an ERB template.
       <servo_min>1000</servo_min>
       <servo_max>2000</servo_max>
       <type>POSITION</type>
-      <p_gain>500.0</p_gain>
+      <p_gain>10000.0</p_gain>
       <i_gain>0</i_gain>
-      <d_gain>50</d_gain>
+      <d_gain>2000</d_gain>
       <i_max>-1</i_max>
       <i_min>0</i_min>
-      <cmd_max>100000.0</cmd_max>
-      <cmd_min>-100000.0</cmd_min>
+      <cmd_max>10000.0</cmd_max>
+      <cmd_min>-10000.0</cmd_min>
     </control>
 
     <!--
@@ -758,13 +802,13 @@ DO NOT EDIT. This file is generated from an ERB template.
       <servo_min>1000</servo_min>
       <servo_max>2000</servo_max>
       <type>POSITION</type>
-      <p_gain>500.0</p_gain>
+      <p_gain>10000.0</p_gain>
       <i_gain>0</i_gain>
-      <d_gain>50</d_gain>
+      <d_gain>2000</d_gain>
       <i_max>-1</i_max>
       <i_min>0</i_min>
-      <cmd_max>100000.0</cmd_max>
-      <cmd_min>-100000.0</cmd_min>
+      <cmd_max>10000.0</cmd_max>
+      <cmd_min>-10000.0</cmd_min>
     </control>
   </plugin>
 
