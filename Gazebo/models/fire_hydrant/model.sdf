@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
   <model name="fire_hydrant">
-    <static>true</static>
     <link name="link">
       <collision name="body_collision">
         <pose>0 0 0.45 0 0 0</pose>
