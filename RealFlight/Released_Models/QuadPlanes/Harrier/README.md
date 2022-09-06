@@ -2,7 +2,7 @@
 
 Aircraft Model: Derivative of RealFlight Harrier
 
-![Harrier](Harrier.png)
+![Harrier](Harrier.PNG)
 
 Model modifications by : Clayton Greig
 
