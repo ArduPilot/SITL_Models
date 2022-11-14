@@ -26,18 +26,18 @@ MAVPROXY_ARGS=""
 for i in $(seq $NVEHICLES); do
   IDX=$(expr $i '-' 1)
   PORT_OFFSET=$(expr ${IDX} '*' 10)
-  OUT1_PORT=$(expr ${PORT_OFFSET} '+' 14550)
-  OUT2_PORT=$(expr ${PORT_OFFSET} '+' 14551)
   MASTER_PORT=$(expr ${PORT_OFFSET} '+' 5760)
   SITL_PORT=$(expr ${PORT_OFFSET} '+' 5501)
 
-  MAVPROXY_ARGS="${MAVPROXY_ARGS} --out 127.0.0.1:${OUT1_PORT}" 
-  MAVPROXY_ARGS="${MAVPROXY_ARGS} --out 127.0.0.1:${OUT2_PORT}" 
   MAVPROXY_ARGS="${MAVPROXY_ARGS} --master tcp:127.0.0.1:${MASTER_PORT}" 
   MAVPROXY_ARGS="${MAVPROXY_ARGS} --sitl 127.0.0.1:${SITL_PORT}" 
 
-  # echo "i: ${i}, PORT_OFFSET: ${PORT_OFFSET}, OUT1_PORT: ${OUT1_PORT}"
+  # echo "i: ${i}, PORT_OFFSET: ${PORT_OFFSET}, MASTER_PORT: ${MASTER_PORT}"
 done
+
+# forward to 14550 and 14551
+MAVPROXY_ARGS="${MAVPROXY_ARGS} --out 127.0.0.1:14550" 
+MAVPROXY_ARGS="${MAVPROXY_ARGS} --out 127.0.0.1:14551" 
 
 # add map and console
 MAVPROXY_ARGS="${MAVPROXY_ARGS} --map --console"
