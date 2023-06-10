@@ -547,6 +547,43 @@
       </axis>
     </joint>
 
+    <!-- Positive is right. -->
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>rudder_joint</joint_name>
+      <initial_position>0.0</initial_position>
+      <p_gain>0.2</p_gain>
+    </plugin>
+
+    <!-- Positive is up. -->
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>elevator_joint</joint_name>
+      <initial_position>0.0</initial_position>
+      <p_gain>0.2</p_gain>
+    </plugin>
+
+    <!-- Positive is up. -->
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>left_aileron_joint</joint_name>
+      <initial_position>0.0</initial_position>
+      <p_gain>0.2</p_gain>
+    </plugin>
+
+    <!-- Positive is up. -->
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>right_aileron_joint</joint_name>
+      <initial_position>0.0</initial_position>
+      <p_gain>0.2</p_gain>
+    </plugin>
+
+    <!-- Positive is forward. -->
     <plugin
       filename="gz-sim-thruster-system"
       name="gz::sim::systems::Thruster">
