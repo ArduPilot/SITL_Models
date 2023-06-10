@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="pik_20b_sailplane">
+    <pose>0 0 0 0 0 0</pose>
+    <link name="base_link">`
+      <inertial>
+        <pose>0 0 0.5 0 0 0</pose>
+        <mass>400</mass>
+        <inertia>
+          <ixx>4.0</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>4.0</iyy>
+          <iyz>0</iyz>
+          <izz>4.0</izz>
+        </inertia>
+      </inertial>
+      <collision name="fuselage_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_fuselage_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="main_wheel_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="tail_wheel_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <collision name="left_wing_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_wing_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="right_wing_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_wing_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <visual name="fuselage_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_fuselage.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="left_wheel_door_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_wheel_door.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="right_wheel_door_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_wheel_door.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="main_wheel_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="tail_wheel_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+
+      <visual name="left_wing_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_wing.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="right_wing_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_wing.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <visual name="left_flap_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_flap.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="right_flap_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_flap.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <visual name="left_aileron_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_alieron.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="right_aileron_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_aileron.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <visual name="elevator_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_elevator.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="rudder_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_rudder.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
