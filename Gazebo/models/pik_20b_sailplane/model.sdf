@@ -137,7 +137,7 @@
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
-            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_alieron.dae</uri>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_aileron.dae</uri>
           </mesh>
         </geometry>
       </visual>
