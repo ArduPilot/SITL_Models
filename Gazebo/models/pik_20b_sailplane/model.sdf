@@ -81,6 +81,7 @@
           </mesh>
         </geometry>
       </visual>
+
       <!-- <visual name="main_wheel_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
@@ -97,7 +98,6 @@
           </mesh>
         </geometry>
       </visual> -->
-
 
       <visual name="left_wing_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
@@ -133,22 +133,22 @@
         </geometry>
       </visual>
 
-      <visual name="left_aileron_visual">
+      <!-- <visual name="left_aileron_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_aileron.dae</uri>
           </mesh>
         </geometry>
-      </visual>
-      <visual name="right_aileron_visual">
+      </visual> -->
+      <!-- <visual name="right_aileron_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_aileron.dae</uri>
           </mesh>
         </geometry>
-      </visual>
+      </visual> -->
 
       <!-- <visual name="elevator_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
@@ -259,6 +259,100 @@
         </dynamics>
       </axis>
     </joint>
+
+    <link name="left_aileron_link">
+      <inertial>
+        <pose>-0.2675 4.465 0.8 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="left_aileron_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_aileron.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="left_aileron_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_aileron.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="left_aileron_joint" type="revolute">
+      <pose degrees="true">-0.2675 4.465 0.8 3.0 0 -3.0</pose>
+      <parent>base_link</parent>
+      <child>left_aileron_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.366519</lower>
+          <upper>0.418879</upper>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="right_aileron_link">
+      <inertial>
+        <pose>-0.2675 -4.465 0.8 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="right_aileron_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_aileron.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="left_aileron_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_aileron.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="right_aileron_joint" type="revolute">
+      <pose degrees="true">-0.2675 -4.465 0.8 -3.0 0 3.0</pose>
+      <parent>base_link</parent>
+      <child>right_aileron_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.366519</lower>
+          <upper>0.418879</upper>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+
 
     <link name="rudder_link">
       <inertial>
