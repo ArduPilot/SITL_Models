@@ -23,22 +23,22 @@
           </mesh>
         </geometry>
       </collision>
-      <collision name="main_wheel_collision">
+      <!-- <collision name="main_wheel_collision">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel_collision.stl</uri>
           </mesh>
         </geometry>
-      </collision>
-      <collision name="tail_wheel_collision">
+      </collision> -->
+      <!-- <collision name="tail_wheel_collision">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel_collision.stl</uri>
           </mesh>
         </geometry>
-      </collision>
+      </collision> -->
 
       <collision name="left_wing_collision">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
@@ -81,22 +81,22 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name="main_wheel_visual">
+      <!-- <visual name="main_wheel_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel.dae</uri>
           </mesh>
         </geometry>
-      </visual>
-      <visual name="tail_wheel_visual">
+      </visual> -->
+      <!-- <visual name="tail_wheel_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel.dae</uri>
           </mesh>
         </geometry>
-      </visual>
+      </visual> -->
 
 
       <visual name="left_wing_visual">
@@ -166,7 +166,101 @@
           </mesh>
         </geometry>
       </visual>
-
     </link>
+
+    <link name="main_wheel_link">
+      <inertial>
+        <pose>0 0 0.5 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="main_wheel_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="main_wheel_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="main_wheel_joint" type="revolute">
+      <pose>0.2627999 0 0.065767 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>main_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.0e-16</lower>
+          <upper>1.0e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="tail_wheel_link">
+      <inertial>
+        <pose>0 0 0.5 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="tail_wheel_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="main_wheel_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="tail_wheel_joint" type="revolute">
+      <pose>-3.6236 0 0.42776 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>tail_wheel_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.0e-16</lower>
+          <upper>1.0e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+
+
   </model>
 </sdf>
