@@ -150,22 +150,22 @@
         </geometry>
       </visual>
 
-      <visual name="elevator_visual">
+      <!-- <visual name="elevator_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_elevator.dae</uri>
           </mesh>
         </geometry>
-      </visual>
-      <visual name="rudder_visual">
+      </visual> -->
+      <!-- <visual name="rudder_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_rudder.dae</uri>
           </mesh>
         </geometry>
-      </visual>
+      </visual> -->
     </link>
 
     <link name="main_wheel_link">
@@ -260,6 +260,97 @@
       </axis>
     </joint>
 
+    <link name="rudder_link">
+      <inertial>
+        <pose>0 0 0.5 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="rudder_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_rudder.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="rudder_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_rudder.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="rudder_joint" type="revolute">
+      <pose>-3.8286 0 0.475 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rudder_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0.4712389</lower>
+          <upper>0.4712389</upper>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="elevator_link">
+      <inertial>
+        <pose>0 0 0.5 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="elevator_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_elevator.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="elevator_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_elevator.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="elevator_joint" type="revolute">
+      <pose>-3.803 0 1.693 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>elevator_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>0.3490659</lower>
+          <upper>0.3490659</upper>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
 
 
   </model>
