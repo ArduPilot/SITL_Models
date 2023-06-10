@@ -170,7 +170,7 @@
 
     <link name="main_wheel_link">
       <inertial>
-        <pose>0 0 0.5 0 0 0</pose>
+        <pose degrees="true">0.2627999 0 0.065767 0 0 0</pose>
         <mass>5</mass>
         <inertia>
           <ixx>0.01</ixx>
@@ -216,7 +216,7 @@
 
     <link name="tail_wheel_link">
       <inertial>
-        <pose>0 0 0.5 0 0 0</pose>
+        <pose>-3.6236 0 0.42776 0 0 0</pose>
         <mass>5</mass>
         <inertia>
           <ixx>0.01</ixx>
@@ -262,7 +262,7 @@
 
     <link name="rudder_link">
       <inertial>
-        <pose>0 0 0.5 0 0 0</pose>
+        <pose>-3.8286 0 0.475 0 0 0</pose>
         <mass>5</mass>
         <inertia>
           <ixx>0.01</ixx>
@@ -308,7 +308,7 @@
 
     <link name="elevator_link">
       <inertial>
-        <pose>0 0 0.5 0 0 0</pose>
+        <pose>-3.803 0 1.693 0 0 0</pose>
         <mass>5</mass>
         <inertia>
           <ixx>0.01</ixx>
