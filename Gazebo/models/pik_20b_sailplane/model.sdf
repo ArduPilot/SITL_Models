@@ -116,22 +116,22 @@
         </geometry>
       </visual>
 
-      <visual name="left_flap_visual">
+      <!-- <visual name="left_flap_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_flap.dae</uri>
           </mesh>
         </geometry>
-      </visual>
-      <visual name="right_flap_visual">
+      </visual> -->
+      <!-- <visual name="right_flap_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_flap.dae</uri>
           </mesh>
         </geometry>
-      </visual>
+      </visual> -->
 
       <!-- <visual name="left_aileron_visual">
         <pose degrees="true">2.155 0 0 0 0 180</pose>
@@ -260,6 +260,98 @@
       </axis>
     </joint>
 
+    <link name="left_flap_link">
+      <inertial>
+        <pose>-0.2675 4.465 0.8 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="left_flap_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_flap.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="left_flap_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_left_flap.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="left_flap_joint" type="revolute">
+      <pose degrees="true">-0.2675 4.465 0.8 3.0 0 -2.7</pose>
+      <parent>base_link</parent>
+      <child>left_flap_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.396263</lower>
+          <upper>0.139626</upper>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="right_flap_link">
+      <inertial>
+        <pose>-0.2675 -4.465 0.8 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.01</iyy>
+          <iyz>0</iyz>
+          <izz>0.01</izz>
+        </inertia>
+      </inertial>
+      <visual name="right_flap_visual">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_flap.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="right_flap_collision">
+        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <geometry>
+          <mesh>
+            <uri>model://pik_20b_sailplane/meshes/pik_20b_right_flap.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+    <joint name="right_flap_joint" type="revolute">
+      <pose degrees="true">-0.2675 -4.465 0.8 -3.0 0 2.7</pose>
+      <parent>base_link</parent>
+      <child>right_flap_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1.396263</lower>
+          <upper>0.139626</upper>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
     <link name="left_aileron_link">
       <inertial>
         <pose>-0.2675 4.465 0.8 0 0 0</pose>
@@ -351,8 +443,6 @@
         </dynamics>
       </axis>
     </joint>
-
-
 
     <link name="rudder_link">
       <inertial>
@@ -546,6 +636,24 @@
         </dynamics>
       </axis>
     </joint>
+
+    <!-- Positive is up. -->
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>left_flap_joint</joint_name>
+      <initial_position>0.0</initial_position>
+      <p_gain>0.2</p_gain>
+    </plugin>
+
+    <!-- Positive is up. -->
+    <plugin
+      filename="gz-sim-joint-position-controller-system"
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>right_flap_joint</joint_name>
+      <initial_position>0.0</initial_position>
+      <p_gain>0.2</p_gain>
+    </plugin>
 
     <!-- Positive is up. -->
     <plugin
