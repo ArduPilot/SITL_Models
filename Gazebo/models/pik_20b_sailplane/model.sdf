@@ -1178,6 +1178,137 @@
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
     </plugin>
 
+    <plugin name="ArduPilotPlugin"
+      filename="ArduPilotPlugin">
+      <!-- Port settings. -->
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+      <have_32_channels>0</have_32_channels>
+
+      <!-- Frame transforms.-->
+      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED>0 0 0 3.141593 0 1.57079632</gazeboXYZToNED>
+
+      <!-- Sensors. -->
+      <imuName>base_link::imu_sensor</imuName>
+
+      <!-- 
+          SERVO1_FUNCTION   4 (Aileron)
+          SERVO1_MAX        2000
+          SERVO1_MIN        1000
+          SERVO1_REVERSED   0
+          SERVO1_TRIM       1500
+
+          pwm:          =>  [1000, 2000]
+          input:        =>  [0, 1]
+          offset: -0.5  =>  [-0.5, 0.5]
+          scale:   2.0  =>  [-1.0, 1.0]
+          scale: 0.524  =>  [-0.524, 0.524]
+       -->
+      <control channel="0">
+        <jointName>left_aileron_joint</jointName>
+        <multiplier>0.8377580409572782</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/left_aileron_joint/cmd_pos</cmd_topic>
+      </control>
+
+      <control channel="0">
+        <jointName>right_aileron_joint</jointName>
+        <multiplier>-0.8377580409572782</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/right_aileron_joint/cmd_pos</cmd_topic>
+      </control>
+
+      <!-- 
+          SERVO2_FUNCTION   19 (Elevator)
+          SERVO2_MAX        2000
+          SERVO2_MIN        1000
+          SERVO2_REVERSED   0
+          SERVO2_TRIM       1500
+       -->
+      <control channel="1">
+        <jointName>elevator_joint</jointName>
+        <multiplier>-0.6981317007977318</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/elevator_joint/cmd_pos</cmd_topic>
+      </control>
+
+      <!-- 
+          SERVO3_FUNCTION   70 (Throttle)
+          SERVO3_MAX        2000
+          SERVO3_MIN        1000
+          SERVO3_REVERSED   0
+          SERVO3_TRIM       1000
+       -->
+      <control channel="2">
+        <jointName>propeller_joint</jointName>
+        <multiplier>850</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/model/pik_20b_sailplane/joint/propeller_joint/cmd_vel</cmd_topic>
+      </control>
+
+      <!-- 
+          SERVO4_FUNCTION   21 (Rudder)
+          SERVO4_MAX        2000
+          SERVO4_MIN        1000
+          SERVO4_REVERSED   0
+          SERVO4_TRIM       1500
+       -->
+      <control channel="3">
+        <jointName>rudder_joint</jointName>
+        <multiplier>-0.9424777960769379</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/rudder_joint/cmd_pos</cmd_topic>
+      </control>
+
+      <!-- 
+          SERVO5_FUNCTION   2 (Flap)
+          SERVO5_FUNCTION   3 (FlapAuto)
+          SERVO5_MAX        2000
+          SERVO5_MIN        1000
+          SERVO5_REVERSED   0
+          SERVO5_TRIM       1000
+       -->
+      <control channel="4">
+        <jointName>left_flap_joint</jointName>
+        <multiplier>-1.3962634015954636</multiplier>
+        <offset>0.0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/left_flap_joint/cmd_pos</cmd_topic>
+      </control>
+
+      <control channel="4">
+        <jointName>right_flap_joint</jointName>
+        <multiplier>-1.3962634015954636</multiplier>
+        <offset>0.0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/right_flap_joint/cmd_pos</cmd_topic>
+      </control>
+
+
+    </plugin>
+
   </model>
 </sdf>
 
