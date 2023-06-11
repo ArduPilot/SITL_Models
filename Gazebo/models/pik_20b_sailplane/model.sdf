@@ -861,6 +861,11 @@
       </axis>
     </joint>
 
+    <!-- System plugins. -->
+    <plugin filename="gz-sim-joint-state-publisher-system"
+      name="gz::sim::systems::JointStatePublisher">
+    </plugin>
+
     <!-- Positive is up. -->
     <plugin
       filename="gz-sim-joint-position-controller-system"
