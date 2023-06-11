@@ -971,6 +971,9 @@
       <thrust_coefficient>0.005</thrust_coefficient>
       <fluid_density>1.2041</fluid_density>
       <propeller_diameter>1.270</propeller_diameter>
+      <use_angvel_cmd>1</use_angvel_cmd>
+      <max_thrust_cmd>1000.0</max_thrust_cmd>
+      <min_thrust_cmd>0.0</min_thrust_cmd>
     </plugin>
 
     <!-- left wing -->
