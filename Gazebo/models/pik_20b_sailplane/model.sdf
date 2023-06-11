@@ -300,6 +300,18 @@
           <specular>0.1 0.1 0.1 1</specular>
         </material>
       </visual> -->
+
+      <!-- Sensors. -->
+      <sensor name="imu_sensor" type="imu">
+        <pose degrees="true">0 0 0 180 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+      <sensor name="navsat_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>1</update_rate>
+      </sensor>
+
     </link>
 
     <link name="main_wheel_link">
