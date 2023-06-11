@@ -872,7 +872,14 @@
       name="gz::sim::systems::JointPositionController">
       <joint_name>left_flap_joint</joint_name>
       <initial_position>0.0</initial_position>
-      <p_gain>0.2</p_gain>
+      <topic>/left_flap_joint/cmd_pos</topic>
+      <p_gain>20</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>5</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
     </plugin>
 
     <!-- Positive is up. -->
@@ -881,7 +888,14 @@
       name="gz::sim::systems::JointPositionController">
       <joint_name>right_flap_joint</joint_name>
       <initial_position>0.0</initial_position>
-      <p_gain>0.2</p_gain>
+      <topic>/right_flap_joint/cmd_pos</topic>
+      <p_gain>20</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>5</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
     </plugin>
 
     <!-- Positive is up. -->
@@ -890,7 +904,14 @@
       name="gz::sim::systems::JointPositionController">
       <joint_name>left_aileron_joint</joint_name>
       <initial_position>0.0</initial_position>
-      <p_gain>0.2</p_gain>
+      <topic>/left_aileron_joint/cmd_pos</topic>
+      <p_gain>20</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>5</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
     </plugin>
 
     <!-- Positive is up. -->
@@ -899,7 +920,14 @@
       name="gz::sim::systems::JointPositionController">
       <joint_name>right_aileron_joint</joint_name>
       <initial_position>0.0</initial_position>
-      <p_gain>0.2</p_gain>
+      <topic>/right_aileron_joint/cmd_pos</topic>
+      <p_gain>20</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>5</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
     </plugin>
 
     <!-- Positive is right. -->
@@ -908,7 +936,14 @@
       name="gz::sim::systems::JointPositionController">
       <joint_name>rudder_joint</joint_name>
       <initial_position>0.0</initial_position>
-      <p_gain>0.2</p_gain>
+      <topic>/rudder_joint/cmd_pos</topic>
+      <p_gain>20</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>5</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
     </plugin>
 
     <!-- Positive is up. -->
@@ -917,7 +952,14 @@
       name="gz::sim::systems::JointPositionController">
       <joint_name>elevator_joint</joint_name>
       <initial_position>0.0</initial_position>
-      <p_gain>0.2</p_gain>
+      <topic>/elevator_joint/cmd_pos</topic>
+      <p_gain>20</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>5</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1000</cmd_max>
+      <cmd_min>-1000</cmd_min>
     </plugin>
 
     <!-- Positive is forward. -->
