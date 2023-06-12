@@ -117,7 +117,7 @@
         </geometry>
       </visual>
 
-      <visual name="left_flap_visual">
+      <!-- <visual name="left_flap_visual">
         <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
@@ -132,7 +132,7 @@
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_flap.dae</uri>
           </mesh>
         </geometry>
-      </visual>
+      </visual> -->
 
       <visual name="left_aileron_visual">
         <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
@@ -413,9 +413,10 @@
       </axis>
     </joint>
 
-    <!-- <link name="left_flap_link">
+    <link name="left_flap_link">
+      <pose>-0.42 2.5 0.2 0 0 0</pose>
       <inertial>
-        <pose>-0.42 2.5 0.7 0 0 0</pose>
+        <!-- <pose>-0.42 2.5 0.7 0 0 0</pose> -->
         <mass>10</mass>
         <inertia>
           <ixx>13.885</ixx>
@@ -427,7 +428,8 @@
         </inertia>
       </inertial>
       <visual name="left_flap_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
+        <pose degrees="true">2.575 -2.5 -0.7 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_flap.dae</uri>
@@ -435,7 +437,7 @@
         </geometry>
       </visual>
       <visual name="cp_left_flap_visual">
-        <pose degrees="true">-0.42 2.5 0.7 0 0 0</pose>
+        <!-- <pose degrees="true">-0.42 2.5 0.7 0 0 0</pose> -->
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -448,7 +450,8 @@
         </material>
       </visual>
       <collision name="left_flap_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
+        <pose degrees="true">2.575 -2.5 -0.7 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_flap.dae</uri>
@@ -457,7 +460,8 @@
       </collision>
     </link>
     <joint name="left_flap_joint" type="revolute">
-      <pose degrees="true">-0.2675 4.465 0.8 3.0 0 -2.7</pose>
+      <!-- <pose degrees="true">-0.2675 4.465 0.8 3.0 0 -2.7</pose> -->
+      <pose relative_to="base_link" degrees="true">-0.2675 4.465 0.3 3.0 0 -2.7</pose>
       <parent>base_link</parent>
       <child>left_flap_link</child>
       <axis>
@@ -470,11 +474,12 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint> -->
+    </joint>
 
-    <!-- <link name="right_flap_link">
+    <link name="right_flap_link">
+      <pose>-0.42 -2.5 0.2 0 0 0</pose>
       <inertial>
-        <pose>-0.42 -2.5 0.7 0 0 0</pose>
+        <!-- <pose>-0.42 -2.5 0.7 0 0 0</pose> -->
         <mass>10</mass>
         <inertia>
           <ixx>13.885</ixx>
@@ -486,7 +491,8 @@
         </inertia>
       </inertial>
       <visual name="right_flap_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
+        <pose degrees="true">2.575 2.5 -0.7 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_flap.dae</uri>
@@ -494,7 +500,8 @@
         </geometry>
       </visual>
       <visual name="cp_right_flap_visual">
-        <pose degrees="true">-0.42 -2.5 0.7 0 0 0</pose>
+        <!-- <pose degrees="true">-0.42 -2.5 0.7 0 0 0</pose> -->
+        <pose degrees="true">2.575 2.5 -0.7 0 0 180</pose>
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -507,7 +514,7 @@
         </material>
       </visual>
       <collision name="right_flap_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_flap.dae</uri>
@@ -516,7 +523,8 @@
       </collision>
     </link>
     <joint name="right_flap_joint" type="revolute">
-      <pose degrees="true">-0.2675 -4.465 0.8 -3.0 0 2.7</pose>
+      <!-- <pose degrees="true">-0.2675 -4.465 0.8 -3.0 0 2.7</pose> -->
+      <pose relative_to="base_link" degrees="true">-0.2675 -4.465 0.3 -3.0 0 2.7</pose>
       <parent>base_link</parent>
       <child>right_flap_link</child>
       <axis>
@@ -529,7 +537,7 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint> -->
+    </joint>
 
     <!-- <link name="left_aileron_link">
       <inertial>
@@ -869,41 +877,41 @@
     </joint> -->
 
     <!-- System plugins. -->
-    <!-- <plugin filename="gz-sim-joint-state-publisher-system"
+    <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
-    </plugin> -->
+    </plugin>
 
     <!-- Positive is up. -->
-    <!-- <plugin
+    <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>left_flap_joint</joint_name>
       <initial_position>0.0</initial_position>
       <topic>/left_flap_joint/cmd_pos</topic>
-      <p_gain>20</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>5</d_gain>
-      <i_max>1</i_max>
-      <i_min>-1</i_min>
+      <p_gain>100</p_gain>
+      <i_gain>30</i_gain>
+      <d_gain>20</d_gain>
+      <i_max>100</i_max>
+      <i_min>-100</i_min>
       <cmd_max>1000</cmd_max>
       <cmd_min>-1000</cmd_min>
-    </plugin> -->
+    </plugin>
 
     <!-- Positive is up. -->
-    <!-- <plugin
+    <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>right_flap_joint</joint_name>
       <initial_position>0.0</initial_position>
       <topic>/right_flap_joint/cmd_pos</topic>
-      <p_gain>20</p_gain>
-      <i_gain>0</i_gain>
-      <d_gain>5</d_gain>
-      <i_max>1</i_max>
-      <i_min>-1</i_min>
+      <p_gain>100</p_gain>
+      <i_gain>30</i_gain>
+      <d_gain>20</d_gain>
+      <i_max>100</i_max>
+      <i_min>-100</i_min>
       <cmd_max>1000</cmd_max>
       <cmd_min>-1000</cmd_min>
-    </plugin> -->
+    </plugin>
 
     <!-- Positive is up. -->
     <!-- <plugin
