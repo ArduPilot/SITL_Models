@@ -3,7 +3,6 @@
   <model name="pik_20b_sailplane">
     <link name="base_link">`
       <inertial>
-        <!-- <pose>0 0 0.5 0 0 0</pose> -->
         <mass>300</mass>
         <inertia>
           <ixx>1574.24</ixx>
@@ -316,7 +315,6 @@
     <link name="main_wheel_link">
       <pose degrees="true">0.2627999 0 -0.434233 0 0 0</pose>
       <inertial>
-        <!-- <pose degrees="true">0.2627999 0 0.065767 0 0 0</pose> -->
         <mass>5</mass>
         <inertia>
           <ixx>0.044</ixx>
@@ -328,7 +326,6 @@
         </inertia>
       </inertial>
       <visual name="main_wheel_visual">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">1.89220 0 -0.0657670 0 0 180</pose>
         <geometry>
           <mesh>
@@ -337,7 +334,6 @@
         </geometry>
       </visual>
       <collision name="main_wheel_collision">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">1.89220 0 -0.0657670 0 0 180</pose>
         <geometry>
           <mesh>
@@ -347,7 +343,6 @@
       </collision>
     </link>
     <joint name="main_wheel_joint" type="revolute">
-      <!-- <pose>0.2627999 0 0.065767 0 0 0</pose> -->
       <pose>0 0 0 0 0 0</pose>
       <parent>base_link</parent>
       <child>main_wheel_link</child>
@@ -366,7 +361,6 @@
     <link name="tail_wheel_link">
       <pose>-3.6236 0 -0.0722400 0 0 0</pose>
       <inertial>
-        <!-- <pose>-3.6236 0 0.42776 0 0 0</pose> -->
         <mass>2</mass>
         <inertia>
           <ixx>0.0023</ixx>
@@ -378,7 +372,6 @@
         </inertia>
       </inertial>
       <visual name="tail_wheel_visual">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">5.7786 0 -0.42776 0 0 180</pose>
         <geometry>
           <mesh>
@@ -387,7 +380,6 @@
         </geometry>
       </visual>
       <collision name="tail_wheel_collision">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">5.7786 0 -0.42776 0 0 180</pose>
         <geometry>
           <mesh>
@@ -397,7 +389,6 @@
       </collision>
     </link>
     <joint name="tail_wheel_joint" type="revolute">
-      <!-- <pose>-3.6236 0 0.42776 0 0 0</pose> -->
       <pose>0 0 0 0 0 0</pose>
       <parent>base_link</parent>
       <child>tail_wheel_link</child>
@@ -416,7 +407,6 @@
     <link name="left_flap_link">
       <pose>-0.42 2.5 0.2 0 0 0</pose>
       <inertial>
-        <!-- <pose>-0.42 2.5 0.7 0 0 0</pose> -->
         <mass>10</mass>
         <inertia>
           <ixx>13.885</ixx>
@@ -428,7 +418,6 @@
         </inertia>
       </inertial>
       <visual name="left_flap_visual">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">2.575 -2.5 -0.7 0 0 180</pose>
         <geometry>
           <mesh>
@@ -437,7 +426,6 @@
         </geometry>
       </visual>
       <visual name="cp_left_flap_visual">
-        <!-- <pose degrees="true">-0.42 2.5 0.7 0 0 0</pose> -->
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -450,7 +438,6 @@
         </material>
       </visual>
       <collision name="left_flap_collision">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">2.575 -2.5 -0.7 0 0 180</pose>
         <geometry>
           <mesh>
@@ -460,7 +447,6 @@
       </collision>
     </link>
     <joint name="left_flap_joint" type="revolute">
-      <!-- <pose degrees="true">-0.2675 4.465 0.8 3.0 0 -2.7</pose> -->
       <pose relative_to="base_link" degrees="true">-0.2675 4.465 0.3 3.0 0 -2.7</pose>
       <parent>base_link</parent>
       <child>left_flap_link</child>
@@ -479,7 +465,6 @@
     <link name="right_flap_link">
       <pose>-0.42 -2.5 0.2 0 0 0</pose>
       <inertial>
-        <!-- <pose>-0.42 -2.5 0.7 0 0 0</pose> -->
         <mass>10</mass>
         <inertia>
           <ixx>13.885</ixx>
@@ -491,7 +476,6 @@
         </inertia>
       </inertial>
       <visual name="right_flap_visual">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">2.575 2.5 -0.7 0 0 180</pose>
         <geometry>
           <mesh>
@@ -500,7 +484,6 @@
         </geometry>
       </visual>
       <visual name="cp_right_flap_visual">
-        <!-- <pose degrees="true">-0.42 -2.5 0.7 0 0 0</pose> -->
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -513,7 +496,6 @@
         </material>
       </visual>
       <collision name="right_flap_collision">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">2.575 2.5 -0.7 0 0 180</pose>
         <geometry>
           <mesh>
@@ -523,7 +505,6 @@
       </collision>
     </link>
     <joint name="right_flap_joint" type="revolute">
-      <!-- <pose degrees="true">-0.2675 -4.465 0.8 -3.0 0 2.7</pose> -->
       <pose relative_to="base_link" degrees="true">-0.2675 -4.465 0.3 -3.0 0 2.7</pose>
       <parent>base_link</parent>
       <child>right_flap_link</child>
@@ -542,7 +523,6 @@
     <link name="left_aileron_link">
       <pose>-0.22 6.0 0.375 0 0 0</pose>
       <inertial>
-        <!-- <pose>-0.22 6.0 0.875 0 0 0</pose> -->
         <mass>10</mass>
         <inertia>
           <ixx>6.446</ixx>
@@ -554,7 +534,6 @@
         </inertia>
       </inertial>
       <visual name="left_aileron_visual">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">2.375 -6.0 -0.875 0 0 180</pose>
         <geometry>
           <mesh>
@@ -563,7 +542,6 @@
         </geometry>
       </visual>
       <visual name="cp_left_aileron_visual">
-        <!-- <pose degrees="true">-0.22 6.0 0.875 0 0 0</pose> -->
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -576,7 +554,6 @@
         </material>
       </visual>
       <collision name="left_aileron_collision">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">2.375 -6.0 -0.875 0 0 180</pose>
         <geometry>
           <mesh>
@@ -586,7 +563,6 @@
       </collision>
     </link>
     <joint name="left_aileron_joint" type="revolute">
-      <!-- <pose degrees="true">-0.2675 4.465 0.8 3.0 0 -3.0</pose> -->
       <pose relative_to="base_link" degrees="true">-0.2675 4.465 0.3 3.0 0 -3.0</pose>
       <parent>base_link</parent>
       <child>left_aileron_link</child>
@@ -605,7 +581,6 @@
     <link name="right_aileron_link">
       <pose>-0.22 -6.0 0.375 0 0 0</pose>
       <inertial>
-        <!-- <pose>-0.22 -6.0 0.875 0 0 0</pose> -->
         <mass>10</mass>
         <inertia>
           <ixx>6.446</ixx>
@@ -617,7 +592,6 @@
         </inertia>
       </inertial>
       <visual name="right_aileron_visual">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">2.375 6.0 -0.875 0 0 180</pose>
         <geometry>
           <mesh>
@@ -626,7 +600,6 @@
         </geometry>
       </visual>
       <visual name="cp_right_aileron_visual">
-        <!-- <pose degrees="true">-0.22 -6.0 0.875 0 0 0</pose> -->
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -639,7 +612,6 @@
         </material>
       </visual>
       <collision name="left_aileron_collision">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">2.375 6.0 -0.875 0 0 180</pose>
         <geometry>
           <mesh>
@@ -649,7 +621,6 @@
       </collision>
     </link>
     <joint name="right_aileron_joint" type="revolute">
-      <!-- <pose degrees="true">-0.2675 -4.465 0.8 -3.0 0 3.0</pose> -->
       <pose relative_to="base_link" degrees="true">-0.2675 -4.465 0.3 -3.0 0 3.0</pose>
       <parent>base_link</parent>
       <child>right_aileron_link</child>
@@ -668,7 +639,6 @@
     <link name="rudder_link">
         <pose>-3.9 0 0.65 0 0 0</pose>
       <inertial>
-        <!-- <pose>-3.9 0 1.15 0 0 0</pose> -->
         <mass>10</mass>
         <inertia>
           <ixx>1.21</ixx>
@@ -680,7 +650,6 @@
         </inertia>
       </inertial>
       <visual name="rudder_visual">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">6.055 0 -1.15 0 0 180</pose>
         <geometry>
           <mesh>
@@ -689,7 +658,6 @@
         </geometry>
       </visual>
       <visual name="cp_rudder_visual">
-        <!-- <pose degrees="true">-3.9 0 1.15 0 0 0</pose> -->
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -702,7 +670,6 @@
         </material>
       </visual>
       <collision name="rudder_collision">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">6.055 0 -1.15 0 0 180</pose>
         <geometry>
           <mesh>
@@ -712,7 +679,6 @@
       </collision>
     </link>
     <joint name="rudder_joint" type="revolute">
-      <!-- <pose>-3.8286 0 0.475 0 0 0</pose> -->
       <pose relative_to="base_link">-3.8286 0 -0.0250 0 0 0</pose>
       <parent>base_link</parent>
       <child>rudder_link</child>
@@ -731,7 +697,6 @@
     <link name="elevator_link">
         <pose>-3.84 0 1.195 0 0 0</pose>
       <inertial>
-        <!-- <pose>-3.84 0 1.695 0 0 0</pose> -->
         <mass>10</mass>
         <inertia>
           <ixx>3.5023</ixx>
@@ -743,7 +708,6 @@
         </inertia>
       </inertial>
       <visual name="elevator_visual">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">5.995 0 -1.695 0 0 180</pose>
         <geometry>
           <mesh>
@@ -752,7 +716,6 @@
         </geometry>
       </visual>
       <visual name="cp_elevator_visual">
-        <!-- <pose degrees="true">-3.84 0 1.695 0 0 0</pose> -->
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -765,7 +728,6 @@
         </material>
       </visual>
       <collision name="elevator_collision">
-        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
         <pose degrees="true">5.995 0 -1.695 0 0 180</pose>
         <geometry>
           <mesh>
@@ -775,7 +737,6 @@
       </collision>
     </link>
     <joint name="elevator_joint" type="revolute">
-      <!-- <pose>-3.803 0 1.693 0 0 0</pose> -->
       <pose relative_to="base_link">-3.803 0 1.193 0 0 0</pose>
       <parent>base_link</parent>
       <child>elevator_link</child>
@@ -1018,7 +979,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-0.03 3.0 0.75</cp> -->
       <cp>-0.03 3.0 0.25</cp>
       <area>5.0</area>
       <air_density>1.2041</air_density>
@@ -1042,7 +1002,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-0.03 -3.0 0.75</cp> -->
       <cp>-0.03 -3.0 0.25</cp>
       <area>5.0</area>
       <air_density>1.2041</air_density>
@@ -1066,7 +1025,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-0.42 2.5 0.7</cp> -->
       <cp>-0.42 2.5 0.2</cp>
       <area>0.10</area>
       <air_density>1.2041</air_density>
@@ -1092,7 +1050,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-0.42 -2.5 0.7</cp> -->
       <cp>-0.42 -2.5 0.2</cp>
       <area>0.10</area>
       <air_density>1.2041</air_density>
@@ -1118,7 +1075,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-0.22 6.0 0.875</cp> -->
       <cp>-0.22 6.0 0.375</cp>
       <area>0.10</area>
       <air_density>1.2041</air_density>
@@ -1144,7 +1100,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-0.22 -6.0 0.875</cp> -->
       <cp>-0.22 -6.0 0.375</cp>
       <area>0.10</area>
       <air_density>1.2041</air_density>
@@ -1170,7 +1125,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-3.55 0 1.68</cp> -->
       <cp>-3.55 0 1.18</cp>
       <area>1.25</area>
       <air_density>1.2041</air_density>
@@ -1194,7 +1148,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-3.84 0 1.695</cp> -->
       <cp>-3.84 0 1.195</cp>
       <area>0.10</area>
       <air_density>1.2041</air_density>
@@ -1220,7 +1173,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-3.55 0 1.15</cp> -->
       <cp>-3.55 0 0.65</cp>
       <area>1.02</area>
       <air_density>1.2041</air_density>
@@ -1245,7 +1197,6 @@
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
       <cma_stall>0</cma_stall>
-      <!-- <cp>-3.9 0 1.15</cp> -->
       <cp>-3.9 0 0.65</cp>
       <area>0.10</area>
       <air_density>1.2041</air_density>
