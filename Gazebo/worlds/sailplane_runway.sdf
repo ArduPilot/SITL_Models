@@ -107,7 +107,7 @@
     </include>
 
     <include>
-      <pose degrees="true">0 0 0.1 0 0 90</pose>
+      <pose degrees="true">0 0 0.65 0 0 90</pose>
       <uri>model://pik_20b_sailplane</uri>
     </include>
 

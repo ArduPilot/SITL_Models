@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <sdf version="1.9">
   <model name="pik_20b_sailplane">
-    <pose>0 0 0 0 0 0</pose>
     <link name="base_link">`
       <inertial>
-        <pose>0 0 0.5 0 0 0</pose>
+        <!-- <pose>0 0 0.5 0 0 0</pose> -->
         <mass>300</mass>
         <inertia>
           <ixx>1574.24</ixx>
@@ -17,7 +16,7 @@
       </inertial>
 
       <collision name="fuselage_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_fuselage_collision.stl</uri>
@@ -25,25 +24,25 @@
         </geometry>
       </collision>
 
-      <!-- <collision name="main_wheel_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <collision name="main_wheel_collision">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel_collision.stl</uri>
           </mesh>
         </geometry>
-      </collision> -->
-      <!-- <collision name="tail_wheel_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      </collision>
+      <collision name="tail_wheel_collision">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel_collision.stl</uri>
           </mesh>
         </geometry>
-      </collision> -->
+      </collision>
 
       <collision name="left_wing_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_wing_collision.stl</uri>
@@ -51,7 +50,7 @@
         </geometry>
       </collision>
       <collision name="right_wing_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_wing_collision.stl</uri>
@@ -60,7 +59,7 @@
       </collision>
 
       <visual name="fuselage_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_fuselage.dae</uri>
@@ -68,7 +67,7 @@
         </geometry>
       </visual>
       <visual name="left_wheel_door_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_wheel_door.dae</uri>
@@ -76,7 +75,7 @@
         </geometry>
       </visual>
       <visual name="right_wheel_door_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_wheel_door.dae</uri>
@@ -84,25 +83,25 @@
         </geometry>
       </visual>
 
-      <!-- <visual name="main_wheel_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <visual name="main_wheel_visual">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel.dae</uri>
           </mesh>
         </geometry>
-      </visual> -->
-      <!-- <visual name="tail_wheel_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      </visual>
+      <visual name="tail_wheel_visual">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel.dae</uri>
           </mesh>
         </geometry>
-      </visual> -->
+      </visual>
 
       <visual name="left_wing_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_wing.dae</uri>
@@ -110,7 +109,7 @@
         </geometry>
       </visual>
       <visual name="right_wing_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_wing.dae</uri>
@@ -118,60 +117,60 @@
         </geometry>
       </visual>
 
-      <!-- <visual name="left_flap_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <visual name="left_flap_visual">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_flap.dae</uri>
           </mesh>
         </geometry>
-      </visual> -->
-      <!-- <visual name="right_flap_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      </visual>
+      <visual name="right_flap_visual">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_flap.dae</uri>
           </mesh>
         </geometry>
-      </visual> -->
+      </visual>
 
-      <!-- <visual name="left_aileron_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <visual name="left_aileron_visual">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_left_aileron.dae</uri>
           </mesh>
         </geometry>
-      </visual> -->
-      <!-- <visual name="right_aileron_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      </visual>
+      <visual name="right_aileron_visual">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_right_aileron.dae</uri>
           </mesh>
         </geometry>
-      </visual> -->
+      </visual>
 
-      <!-- <visual name="elevator_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <visual name="elevator_visual">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_elevator.dae</uri>
           </mesh>
         </geometry>
-      </visual> -->
-      <!-- <visual name="rudder_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      </visual>
+      <visual name="rudder_visual">
+        <pose degrees="true">2.155 0 -0.5 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_rudder.dae</uri>
           </mesh>
         </geometry>
-      </visual> -->
+      </visual>
 
       <!-- CP visuals. -->
       <visual name="cp_left_wing_visual">
-        <pose degrees="true">-0.03 3.0 0.75 0 0 0</pose>
+        <pose degrees="true">-0.03 3.0 0.25 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.1</radius>
@@ -184,7 +183,7 @@
         </material>
       </visual>
       <visual name="cp_right_wing_visual">
-        <pose degrees="true">-0.03 -3.0 0.75 0 0 0</pose>
+        <pose degrees="true">-0.03 -3.0 0.25 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.1</radius>
@@ -196,8 +195,8 @@
           <specular>0.1 0.1 0.1 1</specular>
         </material>
       </visual>
-      <!-- <visual name="cp_left_flap_visual">
-        <pose degrees="true">-0.42 2.5 0.7 0 0 0</pose>
+      <visual name="cp_left_flap_visual">
+        <pose degrees="true">-0.42 2.5 0.2 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -208,9 +207,9 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual> -->
-      <!-- <visual name="cp_right_flap_visual">
-        <pose degrees="true">-0.42 -2.5 0.7 0 0 0</pose>
+      </visual>
+      <visual name="cp_right_flap_visual">
+        <pose degrees="true">-0.42 -2.5 0.2 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -221,9 +220,9 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual> -->
-      <!-- <visual name="cp_left_aileron_visual">
-        <pose degrees="true">-0.22 6.0 0.875 0 0 0</pose>
+      </visual>
+      <visual name="cp_left_aileron_visual">
+        <pose degrees="true">-0.22 6.0 0.375 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -234,9 +233,9 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual> -->
-      <!-- <visual name="cp_right_aileron_visual">
-        <pose degrees="true">-0.22 -6.0 0.875 0 0 0</pose>
+      </visual>
+      <visual name="cp_right_aileron_visual">
+        <pose degrees="true">-0.22 -6.0 0.375 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -247,9 +246,9 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual> -->
+      </visual>
       <visual name="cp_hstab_visual">
-        <pose degrees="true">-3.55 0 1.68 0 0 0</pose>
+        <pose degrees="true">-3.55 0 1.18 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.1</radius>
@@ -261,8 +260,8 @@
           <specular>0.1 0.1 0.1 1</specular>
         </material>
       </visual>
-      <!-- <visual name="cp_elevator_visual">
-        <pose degrees="true">-3.84 0 1.695 0 0 0</pose>
+      <visual name="cp_elevator_visual">
+        <pose degrees="true">-3.84 0 1.195 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -273,9 +272,9 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual> -->
+      </visual>
       <visual name="cp_vstab_visual">
-        <pose degrees="true">-3.55 0 1.15 0 0 0</pose>
+        <pose degrees="true">-3.55 0 0.65 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.1</radius>
@@ -287,8 +286,8 @@
           <specular>0.1 0.1 0.1 1</specular>
         </material>
       </visual>
-      <!-- <visual name="cp_rudder_visual">
-        <pose degrees="true">-3.9 0 1.15 0 0 0</pose>
+      <visual name="cp_rudder_visual">
+        <pose degrees="true">-3.9 0 0.65 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -299,7 +298,7 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual> -->
+      </visual>
 
       <!-- Sensors. -->
       <sensor name="imu_sensor" type="imu">
@@ -314,10 +313,11 @@
 
     </link>
 
-    <link name="main_wheel_link">
-      <inertial>
-        <pose degrees="true">0.2627999 0 0.065767 0 0 0</pose>
-        <mass>5</mass>
+    <!-- <link name="main_wheel_link">
+      <pose degrees="true">0.2627999 0 -0.434233 0 0 0</pose>
+      <inertial> -->
+        <!-- <pose degrees="true">0.2627999 0 0.065767 0 0 0</pose> -->
+        <!-- <mass>5</mass>
         <inertia>
           <ixx>0.044</ixx>
           <ixy>0</ixy>
@@ -327,16 +327,18 @@
           <izz>0.044</izz>
         </inertia>
       </inertial>
-      <visual name="main_wheel_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <visual name="main_wheel_visual"> -->
+        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
+        <!-- <pose degrees="true">1.89220 0 -0.0657670 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
-      <collision name="main_wheel_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <collision name="main_wheel_collision"> -->
+        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
+        <!-- <pose degrees="true">1.89220 0 -0.0657670 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_main_wheel_collision.stl</uri>
@@ -344,8 +346,9 @@
         </geometry>
       </collision>
     </link>
-    <joint name="main_wheel_joint" type="revolute">
-      <pose>0.2627999 0 0.065767 0 0 0</pose>
+    <joint name="main_wheel_joint" type="revolute"> -->
+      <!-- <pose>0.2627999 0 0.065767 0 0 0</pose> -->
+      <!-- <pose>0 0 0 0 0 0</pose>
       <parent>base_link</parent>
       <child>main_wheel_link</child>
       <axis>
@@ -358,12 +361,13 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="tail_wheel_link">
-      <inertial>
-        <pose>-3.6236 0 0.42776 0 0 0</pose>
-        <mass>2</mass>
+    <!-- <link name="tail_wheel_link">
+      <pose>-3.6236 0 -0.0722400 0 0 0</pose>
+      <inertial> -->
+        <!-- <pose>-3.6236 0 0.42776 0 0 0</pose> -->
+        <!-- <mass>2</mass>
         <inertia>
           <ixx>0.0023</ixx>
           <ixy>0</ixy>
@@ -373,16 +377,18 @@
           <izz>0.0023</izz>
         </inertia>
       </inertial>
-      <visual name="tail_wheel_visual">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <visual name="tail_wheel_visual"> -->
+        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
+        <!-- <pose degrees="true">5.7786 0 -0.42776 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel.dae</uri>
           </mesh>
         </geometry>
       </visual>
-      <collision name="main_wheel_collision">
-        <pose degrees="true">2.155 0 0 0 0 180</pose>
+      <collision name="tail_wheel_collision"> -->
+        <!-- <pose degrees="true">2.155 0 0 0 0 180</pose> -->
+        <!-- <pose degrees="true">5.7786 0 -0.42776 0 0 180</pose>
         <geometry>
           <mesh>
             <uri>model://pik_20b_sailplane/meshes/pik_20b_tail_wheel_collision.stl</uri>
@@ -391,8 +397,9 @@
       </collision>
     </link>
     <joint name="tail_wheel_joint" type="revolute">
-      <pose>-3.6236 0 0.42776 0 0 0</pose>
-      <parent>base_link</parent>
+      <pose>0 0 0 0 0 0</pose> -->
+      <!-- <pose>-3.6236 0 0.42776 0 0 0</pose> -->
+      <!-- <parent>base_link</parent>
       <child>tail_wheel_link</child>
       <axis>
         <xyz>0 1 0</xyz>
@@ -404,9 +411,9 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="left_flap_link">
+    <!-- <link name="left_flap_link">
       <inertial>
         <pose>-0.42 2.5 0.7 0 0 0</pose>
         <mass>10</mass>
@@ -463,9 +470,9 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="right_flap_link">
+    <!-- <link name="right_flap_link">
       <inertial>
         <pose>-0.42 -2.5 0.7 0 0 0</pose>
         <mass>10</mass>
@@ -522,9 +529,9 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="left_aileron_link">
+    <!-- <link name="left_aileron_link">
       <inertial>
         <pose>-0.22 6.0 0.875 0 0 0</pose>
         <mass>10</mass>
@@ -581,9 +588,9 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="right_aileron_link">
+    <!-- <link name="right_aileron_link">
       <inertial>
         <pose>-0.22 -6.0 0.875 0 0 0</pose>
         <mass>10</mass>
@@ -640,9 +647,9 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="rudder_link">
+    <!-- <link name="rudder_link">
       <inertial>
         <pose>-3.9 0 1.15 0 0 0</pose>
         <mass>10</mass>
@@ -699,9 +706,9 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="elevator_link">
+    <!-- <link name="elevator_link">
       <inertial>
         <pose>-3.84 0 1.695 0 0 0</pose>
         <mass>10</mass>
@@ -758,9 +765,9 @@
           <damping>0.0001</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="engine_link">
+    <!-- <link name="engine_link">
       <pose degrees="true">-0.15 0 1.6 0 90 0</pose>
       <inertial>
         <mass>5</mass>
@@ -809,9 +816,9 @@
           <damping>1.0</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
-    <link name="propeller_link">
+    <!-- <link name="propeller_link">
       <pose degrees="true">0.05 0 1.6 0 90 0</pose>
       <inertial>
         <mass>5</mass>
@@ -859,15 +866,15 @@
           <damping>1.0</damping>
         </dynamics>
       </axis>
-    </joint>
+    </joint> -->
 
     <!-- System plugins. -->
-    <plugin filename="gz-sim-joint-state-publisher-system"
+    <!-- <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
-    </plugin>
+    </plugin> -->
 
     <!-- Positive is up. -->
-    <plugin
+    <!-- <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>left_flap_joint</joint_name>
@@ -880,10 +887,10 @@
       <i_min>-1</i_min>
       <cmd_max>1000</cmd_max>
       <cmd_min>-1000</cmd_min>
-    </plugin>
+    </plugin> -->
 
     <!-- Positive is up. -->
-    <plugin
+    <!-- <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>right_flap_joint</joint_name>
@@ -896,10 +903,10 @@
       <i_min>-1</i_min>
       <cmd_max>1000</cmd_max>
       <cmd_min>-1000</cmd_min>
-    </plugin>
+    </plugin> -->
 
     <!-- Positive is up. -->
-    <plugin
+    <!-- <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>left_aileron_joint</joint_name>
@@ -912,10 +919,10 @@
       <i_min>-1</i_min>
       <cmd_max>1000</cmd_max>
       <cmd_min>-1000</cmd_min>
-    </plugin>
+    </plugin> -->
 
     <!-- Positive is up. -->
-    <plugin
+    <!-- <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>right_aileron_joint</joint_name>
@@ -928,10 +935,10 @@
       <i_min>-1</i_min>
       <cmd_max>1000</cmd_max>
       <cmd_min>-1000</cmd_min>
-    </plugin>
+    </plugin> -->
 
     <!-- Positive is right. -->
-    <plugin
+    <!-- <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>rudder_joint</joint_name>
@@ -944,10 +951,10 @@
       <i_min>-1</i_min>
       <cmd_max>1000</cmd_max>
       <cmd_min>-1000</cmd_min>
-    </plugin>
+    </plugin> -->
 
     <!-- Positive is up. -->
-    <plugin
+    <!-- <plugin
       filename="gz-sim-joint-position-controller-system"
       name="gz::sim::systems::JointPositionController">
       <joint_name>elevator_joint</joint_name>
@@ -960,10 +967,10 @@
       <i_min>-1</i_min>
       <cmd_max>1000</cmd_max>
       <cmd_min>-1000</cmd_min>
-    </plugin>
+    </plugin> -->
 
     <!-- Positive is forward. -->
-    <plugin
+    <!-- <plugin
       filename="gz-sim-thruster-system"
       name="gz::sim::systems::Thruster">
       <namespace>pik_20b_sailplane</namespace>
@@ -974,10 +981,10 @@
       <use_angvel_cmd>1</use_angvel_cmd>
       <max_thrust_cmd>1000.0</max_thrust_cmd>
       <min_thrust_cmd>0.0</min_thrust_cmd>
-    </plugin>
+    </plugin> -->
 
     <!-- left wing -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.13</a0>
       <cla>3.7</cla>
@@ -993,10 +1000,14 @@
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>Left Wing</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- right wing -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.13</a0>
       <cla>3.7</cla>
@@ -1012,10 +1023,14 @@
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>Right Wing</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- left_flap -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.15</a0>
       <cla>6.8</cla>
@@ -1033,10 +1048,14 @@
       <link_name>base_link</link_name>
       <control_joint_name>left_flap_joint</control_joint_name>
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>Left Flap</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- right_flap -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.15</a0>
       <cla>6.8</cla>
@@ -1054,10 +1073,14 @@
       <link_name>base_link</link_name>
       <control_joint_name>right_flap_joint</control_joint_name>
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>Right Flap</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- left_aileron -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.15</a0>
       <cla>6.8</cla>
@@ -1075,10 +1098,14 @@
       <link_name>base_link</link_name>
       <control_joint_name>left_aileron_joint</control_joint_name>
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>Left Aileron</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- right_aileron -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.15</a0>
       <cla>6.8</cla>
@@ -1096,10 +1123,14 @@
       <link_name>base_link</link_name>
       <control_joint_name>right_aileron_joint</control_joint_name>
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>Right Aileron</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- horizontal stabiliser -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.13</a0>
       <cla>3.7</cla>
@@ -1115,10 +1146,14 @@
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>HStab</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- elevator -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.15</a0>
       <cla>6.8</cla>
@@ -1136,10 +1171,14 @@
       <link_name>base_link</link_name>
       <control_joint_name>elevator_joint</control_joint_name>
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>Elevator</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- vertical stabiliser -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.13</a0>
       <cla>3.7</cla>
@@ -1155,10 +1194,14 @@
       <forward>1 0 0</forward>
       <upward>0 1 0</upward>
       <link_name>base_link</link_name>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>VStab</label>
+      </visualize_forces>
+    </plugin> -->
 
     <!-- rudder -->
-    <plugin filename="gz-sim-lift-drag-system"
+    <!-- <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.15</a0>
       <cla>6.8</cla>
@@ -1176,23 +1219,27 @@
       <link_name>base_link</link_name>
       <control_joint_name>rudder_joint</control_joint_name>
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
-    </plugin>
+      <visualize_forces>
+        <visualize>1</visualize>
+        <label>Rudder</label>
+      </visualize_forces>
+    </plugin> -->
 
-    <plugin name="ArduPilotPlugin"
-      filename="ArduPilotPlugin">
+    <!-- <plugin name="ArduPilotPlugin"
+      filename="ArduPilotPlugin"> -->
       <!-- Port settings. -->
-      <fdm_addr>127.0.0.1</fdm_addr>
+      <!-- <fdm_addr>127.0.0.1</fdm_addr>
       <fdm_port_in>9002</fdm_port_in>
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>
-      <have_32_channels>0</have_32_channels>
+      <have_32_channels>0</have_32_channels> -->
 
       <!-- Frame transforms.-->
-      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
-      <gazeboXYZToNED>0 0 0 3.141593 0 1.57079632</gazeboXYZToNED>
+      <!-- <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED>0 0 0 3.141593 0 1.57079632</gazeboXYZToNED> -->
 
       <!-- Sensors. -->
-      <imuName>base_link::imu_sensor</imuName>
+      <!-- <imuName>base_link::imu_sensor</imuName> -->
 
       <!-- 
           SERVO1_FUNCTION   4 (Aileron)
@@ -1207,7 +1254,7 @@
           scale:   2.0  =>  [-1.0, 1.0]
           scale: 0.524  =>  [-0.524, 0.524]
        -->
-      <control channel="0">
+      <!-- <control channel="0">
         <jointName>left_aileron_joint</jointName>
         <multiplier>0.8377580409572782</multiplier>
         <offset>-0.5</offset>
@@ -1225,7 +1272,7 @@
         <servo_max>2000</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/right_aileron_joint/cmd_pos</cmd_topic>
-      </control>
+      </control> -->
 
       <!-- 
           SERVO2_FUNCTION   19 (Elevator)
@@ -1234,7 +1281,7 @@
           SERVO2_REVERSED   0
           SERVO2_TRIM       1500
        -->
-      <control channel="1">
+      <!-- <control channel="1">
         <jointName>elevator_joint</jointName>
         <multiplier>-0.6981317007977318</multiplier>
         <offset>-0.5</offset>
@@ -1242,7 +1289,7 @@
         <servo_max>2000</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/elevator_joint/cmd_pos</cmd_topic>
-      </control>
+      </control> -->
 
       <!-- 
           SERVO3_FUNCTION   70 (Throttle)
@@ -1251,7 +1298,7 @@
           SERVO3_REVERSED   0
           SERVO3_TRIM       1000
        -->
-      <control channel="2">
+      <!-- <control channel="2">
         <jointName>propeller_joint</jointName>
         <multiplier>850</multiplier>
         <offset>0</offset>
@@ -1259,7 +1306,7 @@
         <servo_max>2000</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/model/pik_20b_sailplane/joint/propeller_joint/cmd_vel</cmd_topic>
-      </control>
+      </control> -->
 
       <!-- 
           SERVO4_FUNCTION   21 (Rudder)
@@ -1268,7 +1315,7 @@
           SERVO4_REVERSED   0
           SERVO4_TRIM       1500
        -->
-      <control channel="3">
+      <!-- <control channel="3">
         <jointName>rudder_joint</jointName>
         <multiplier>-0.9424777960769379</multiplier>
         <offset>-0.5</offset>
@@ -1276,7 +1323,7 @@
         <servo_max>2000</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/rudder_joint/cmd_pos</cmd_topic>
-      </control>
+      </control> -->
 
       <!-- 
           SERVO5_FUNCTION   2 (Flap)
@@ -1286,7 +1333,7 @@
           SERVO5_REVERSED   0
           SERVO5_TRIM       1000
        -->
-      <control channel="4">
+      <!-- <control channel="4">
         <jointName>left_flap_joint</jointName>
         <multiplier>-1.3962634015954636</multiplier>
         <offset>0.0</offset>
@@ -1294,9 +1341,9 @@
         <servo_max>2000</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/left_flap_joint/cmd_pos</cmd_topic>
-      </control>
+      </control> -->
 
-      <control channel="4">
+      <!-- <control channel="4">
         <jointName>right_flap_joint</jointName>
         <multiplier>-1.3962634015954636</multiplier>
         <offset>0.0</offset>
@@ -1304,10 +1351,9 @@
         <servo_max>2000</servo_max>
         <type>COMMAND</type>
         <cmd_topic>/right_flap_joint/cmd_pos</cmd_topic>
-      </control>
+      </control> -->
 
-
-    </plugin>
+    <!-- </plugin> -->
 
   </model>
 </sdf>
