@@ -173,7 +173,7 @@
       </visual> -->
 
       <!-- CP visuals. -->
-      <visual name="cp_left_wing_visual">
+      <!-- <visual name="cp_left_wing_visual">
         <pose degrees="true">-0.03 3.0 0.25 0 0 0</pose>
         <geometry>
           <sphere>
@@ -198,7 +198,7 @@
           <diffuse>0 1 0 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <!-- <visual name="cp_left_flap_visual">
         <pose degrees="true">-0.42 2.5 0.2 0 0 0</pose>
         <geometry>
@@ -251,7 +251,7 @@
           <specular>0.1 0.1 0.1 1</specular>
         </material>
       </visual> -->
-      <visual name="cp_hstab_visual">
+      <!-- <visual name="cp_hstab_visual">
         <pose degrees="true">-3.55 0 1.18 0 0 0</pose>
         <geometry>
           <sphere>
@@ -263,7 +263,7 @@
           <diffuse>0 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <!-- <visual name="cp_elevator_visual">
         <pose degrees="true">-3.84 0 1.195 0 0 0</pose>
         <geometry>
@@ -277,7 +277,7 @@
           <specular>0.1 0.1 0.1 1</specular>
         </material>
       </visual> -->
-      <visual name="cp_vstab_visual">
+      <!-- <visual name="cp_vstab_visual">
         <pose degrees="true">-3.55 0 0.65 0 0 0</pose>
         <geometry>
           <sphere>
@@ -289,7 +289,7 @@
           <diffuse>0 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <!-- <visual name="cp_rudder_visual">
         <pose degrees="true">-3.9 0 0.65 0 0 0</pose>
         <geometry>
@@ -430,7 +430,7 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name="cp_left_flap_visual">
+      <!-- <visual name="cp_left_flap_visual">
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -441,7 +441,7 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <collision name="left_flap_collision">
         <pose degrees="true">2.575 -2.5 -0.7 0 0 180</pose>
         <geometry>
@@ -488,7 +488,7 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name="cp_right_flap_visual">
+      <!-- <visual name="cp_right_flap_visual">
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -499,7 +499,7 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <collision name="right_flap_collision">
         <pose degrees="true">2.575 2.5 -0.7 0 0 180</pose>
         <geometry>
@@ -546,7 +546,7 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name="cp_left_aileron_visual">
+      <!-- <visual name="cp_left_aileron_visual">
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -557,7 +557,7 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <collision name="left_aileron_collision">
         <pose degrees="true">2.375 -6.0 -0.875 0 0 180</pose>
         <geometry>
@@ -604,7 +604,7 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name="cp_right_aileron_visual">
+      <!-- <visual name="cp_right_aileron_visual">
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -615,7 +615,7 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <collision name="left_aileron_collision">
         <pose degrees="true">2.375 6.0 -0.875 0 0 180</pose>
         <geometry>
@@ -662,7 +662,7 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name="cp_rudder_visual">
+      <!-- <visual name="cp_rudder_visual">
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -673,7 +673,7 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <collision name="rudder_collision">
         <pose degrees="true">6.055 0 -1.15 0 0 180</pose>
         <geometry>
@@ -720,7 +720,7 @@
           </mesh>
         </geometry>
       </visual>
-      <visual name="cp_elevator_visual">
+      <!-- <visual name="cp_elevator_visual">
         <geometry>
           <sphere>
             <radius>0.05</radius>
@@ -731,7 +731,7 @@
           <diffuse>1 0 1 1</diffuse>
           <specular>0.1 0.1 0.1 1</specular>
         </material>
-      </visual>
+      </visual> -->
       <collision name="elevator_collision">
         <pose degrees="true">5.995 0 -1.695 0 0 180</pose>
         <geometry>
@@ -990,10 +990,10 @@
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-      <visualize_forces>
+      <!-- <visualize_forces>
         <visualize>1</visualize>
         <label>Left Wing</label>
-      </visualize_forces>
+      </visualize_forces> -->
     </plugin>
 
     <!-- right wing -->
@@ -1013,10 +1013,10 @@
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-      <visualize_forces>
+      <!-- <visualize_forces>
         <visualize>1</visualize>
         <label>Right Wing</label>
-      </visualize_forces>
+      </visualize_forces> -->
     </plugin>
 
     <!-- left_flap -->
@@ -1088,10 +1088,10 @@
       <link_name>base_link</link_name>
       <control_joint_name>left_aileron_joint</control_joint_name>
       <control_joint_rad_to_cl>-2.0</control_joint_rad_to_cl>
-      <visualize_forces>
+      <!-- <visualize_forces>
         <visualize>1</visualize>
         <label>Left Aileron</label>
-      </visualize_forces>
+      </visualize_forces> -->
     </plugin>
 
     <!-- right_aileron -->
@@ -1113,10 +1113,10 @@
       <link_name>base_link</link_name>
       <control_joint_name>right_aileron_joint</control_joint_name>
       <control_joint_rad_to_cl>-2.0</control_joint_rad_to_cl>
-      <visualize_forces>
+      <!-- <visualize_forces>
         <visualize>1</visualize>
         <label>Right Aileron</label>
-      </visualize_forces>
+      </visualize_forces> -->
     </plugin>
 
     <!-- horizontal stabiliser -->
@@ -1136,10 +1136,10 @@
       <forward>1 0 0</forward>
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
-      <visualize_forces>
+      <!-- <visualize_forces>
         <visualize>0</visualize>
         <label>HStab</label>
-      </visualize_forces>
+      </visualize_forces> -->
     </plugin>
 
     <!-- elevator -->
@@ -1161,10 +1161,10 @@
       <link_name>base_link</link_name>
       <control_joint_name>elevator_joint</control_joint_name>
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
-      <visualize_forces>
+      <!-- <visualize_forces>
         <visualize>1</visualize>
         <label>Elevator</label>
-      </visualize_forces>
+      </visualize_forces> -->
     </plugin>
 
     <!-- vertical stabiliser -->
@@ -1184,10 +1184,10 @@
       <forward>1 0 0</forward>
       <upward>0 1 0</upward>
       <link_name>base_link</link_name>
-      <visualize_forces>
+      <!-- <visualize_forces>
         <visualize>1</visualize>
         <label>VStab</label>
-      </visualize_forces>
+      </visualize_forces> -->
     </plugin>
 
     <!-- rudder -->
@@ -1209,10 +1209,10 @@
       <link_name>base_link</link_name>
       <control_joint_name>rudder_joint</control_joint_name>
       <control_joint_rad_to_cl>2.0</control_joint_rad_to_cl>
-      <visualize_forces>
+      <!-- <visualize_forces>
         <visualize>1</visualize>
         <label>Rudder</label>
-      </visualize_forces>
+      </visualize_forces> -->
     </plugin>
 
     <plugin name="ArduPilotPlugin"
