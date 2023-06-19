@@ -7,7 +7,7 @@
           Adjust CoM so glider balances on a transverse line passing
           through the main wing CP.
         -->
-        <pose>0.2 0 0 0 0 0</pose>
+        <pose>0.3 0 0 0 0 0</pose>
         <mass>300</mass>
         <inertia>
           <ixx>1574.24</ixx>
@@ -758,7 +758,7 @@
     </joint>
 
     <link name="engine_link">
-      <pose degrees="true">-0.15 0 1.1 0 80 0</pose>
+      <pose degrees="true">-0.15 0 1.1 0 90 0</pose>
       <inertial>
         <mass>5</mass>
         <inertia>
@@ -1183,7 +1183,7 @@
       <upward>0 0 1</upward>
       <link_name>base_link</link_name>
       <control_joint_name>elevator_joint</control_joint_name>
-      <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
+      <control_joint_rad_to_cl>-7.0</control_joint_rad_to_cl>
       <!-- <visualize_forces>
         <visualize>1</visualize>
         <label>Elevator</label>
