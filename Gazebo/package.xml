@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ardupilot_sitl_models</name>
+  <version>0.0.0</version>
+  <description>Gazebo models configured for ArduPilot SITL</description>
+  <maintainer email="rhys.mainwaring@me.com">Rhys Mainwaring</maintainer>
+  <license>GPL-3.0</license>
+  <author>Rhys Mainwaring</author>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <exec_depend>ardupilot_gazebo</exec_depend>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+
