@@ -411,7 +411,7 @@
       -->
       <control channel="0">
         <jointName>motor_port_joint</jointName>
-        <multiplier>10</multiplier>
+        <multiplier>70</multiplier>
         <offset>-0.5</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -428,7 +428,7 @@
       -->
       <control channel="2">
         <jointName>motor_stbd_joint</jointName>
-        <multiplier>10</multiplier>
+        <multiplier>70</multiplier>
         <offset>-0.5</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
