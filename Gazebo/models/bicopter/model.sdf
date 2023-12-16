@@ -1,0 +1,518 @@
+<?xml version="1.0"?>
+<!--
+  Dimensions
+
+  Prop  : 9inch 3p (https://grabcad.com/library/propeller-phantom-3-9450-1)
+  Motor : 2312-920KV (https://grabcad.com/library/dji-2312-e305-motor-1)
+          mass:   50.0g
+          size:   27.7 x 26.0 mm
+          thrust: https://ctu-mrs.github.io/docs/hardware/motor_tests.html
+  ESC   : 30A
+  Servo : HITEC 422 SERVO (https://grabcad.com/library/hitech-servo-hs-422-1)
+          mass:   45.5g
+          torque: 4.1 kg.cm
+          size:   40.6 x 19.8 x 36.8 mm
+
+  Joint controllers
+
+  Move left (ccw) tilt servo
+    gz topic -t "/ccw_servo_joint/cmd_pos" -m gz.msgs.Double -p "data: 0.5"
+
+  Move right (cw) tilt servo
+    gz topic -t "/cw_servo_joint/cmd_pos" -m gz.msgs.Double -p "data: 0.5"
+
+  Command left motor angulkar velocity (ccw)
+    gz topic -t "/model/bicopter/joint/ccw_mot_joint/cmd_vel" -m gz.msgs.Double -p "data: -10.0"
+
+  Command right motor angular velocity (cw)
+    gz topic -t "/model/bicopter/joint/cw_mot_joint/cmd_vel" -m gz.msgs.Double -p "data: 10.0"
+
+  Adjust camera zoom
+    gz service -s /gui/follow/offset -/-reqtype gz.msgs.Vector3d -/-reptype gz.msgs.Boolean -/-timeout 2000 -/-req "x: -0.5, y: 0, z: 0.25"
+-->
+<sdf version="1.9"> 
+  <model name="bicopter">
+    <pose>0 0 0 0 0 0</pose>
+    <link name="base_link">
+      <inertial>
+        <pose>0.0047 0 0.08 0 0 0</pose>
+        <!--
+          Estimate for inertial based on a solid box with dimensions:
+          <size>0.16 0.12 0.10</size>
+        -->
+        <mass>0.40</mass>
+        <inertia>
+          <ixx>0.000813333</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001186667</iyy>
+          <iyz>0</iyz>
+          <izz>0.001333333</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/base.stl</uri>
+          </mesh>
+        </geometry>
+        <!--
+          Collision approximation:
+        -->
+        <!-- <pose>0 0 0.08 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.16 0.26 0.16</size>
+          </box>
+        </geometry> -->
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/base.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5 1</ambient>
+          <diffuse>0.5 0.5 0.5 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    
+    <!-- left servo (ccw) -->
+    <link name="ccw_servo_link">
+      <pose relative_to="ccw_servo_joint">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.050</mass>
+        <!--
+          Estimate for inertial based on a solid box with dimensions:
+          <size>0.03 0.04 0.02</size>
+        -->
+        <inertia>
+          <ixx>8.33333E-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5.41667E-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.04167E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/ccw_servo.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/ccw_servo.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="ccw_servo_joint" type="revolute">
+      <pose relative_to="base_link">0.010312 0.15468 0.15176 0.018488 0 3.14159</pose>
+      <parent>base_link</parent>
+      <child>ccw_servo_link</child>
+      <axis>
+        <xyz>0 -1 0</xyz>
+        <limit>    
+          <lower>-0.785398163</lower>
+          <upper>0.785398163</upper>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping> 
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <!-- left motor (ccw) -->
+    <link name="ccw_mot_link">
+      <pose relative_to="ccw_mot_joint">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>7e-06 -1.2e-05 0.017767 0 0 0</pose>
+        <mass>0.050</mass>
+        <inertia>
+          <ixx>1.19292E-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.19292E-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.000018225</izz>
+          </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>    
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/ccw_mot.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/ccw_mot.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 1 1</ambient>
+          <diffuse>0 0 1 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="ccw_mot_joint" type="revolute">
+      <pose relative_to="ccw_servo_link">0 -0.004 0.0425 0 0 0</pose>
+      <parent>ccw_servo_link</parent>
+      <child>ccw_mot_link</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- right servo (cw) -->
+    <link name="cw_servo_link">
+      <pose relative_to="cw_servo_joint">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.050</mass>
+        <!--
+          Estimate for inertial based on a solid box with dimensions:
+          <size>0.03 0.04 0.02</size>
+        -->
+        <inertia>    
+          <ixx>8.33333E-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5.41667E-06</iyy>
+          <iyz>0</iyz>
+          <izz>1.04167E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/cw_servo.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/cw_servo.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="cw_servo_joint" type="revolute">
+      <pose relative_to="base_link">0.010312 -0.14923 0.15181 -0.018488 0 -3.14159</pose>
+      <parent>base_link</parent>
+      <child>cw_servo_link</child>
+      <axis>    
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.785398163</lower>
+          <upper>0.785398163</upper>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- right motor (cw) -->
+    <link name="cw_mot_link">
+      <pose relative_to="cw_mot_joint">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 9e-06 0.017847 0 0 0</pose>
+        <mass>0.050</mass>
+        <inertia>
+          <ixx>1.19292E-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.19292E-05</iyy>
+          <iyz>0</iyz>
+          <izz>0.000018225</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/cw_mot.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://bicopter/meshes/cw_mot.stl</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1.0</specular>
+        </material>
+      </visual>
+      </link>
+    <joint name="cw_mot_joint" type="revolute"> 
+      <pose relative_to="cw_servo_link">0 0.003829 0.041455 0 0 0</pose>
+      <parent>cw_servo_link</parent>
+      <child>cw_mot_link</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.004</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- sensors -->
+    <link name="imu_link">
+      <pose>0 0 0.08 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1.33333E-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.33333E-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.33333E-05</izz>
+        </inertia>
+      </inertial>
+      <sensor name="imu_sensor" type="imu">
+        <pose degrees="true">0 0 0 180 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+    <joint name="imu_joint" type="revolute">
+      <child>imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- plugins -->
+    <plugin name="gz::sim::systems::JointStatePublisher"
+        filename="gz-sim-joint-state-publisher-system">
+    </plugin>
+
+    <!-- left servo (ccw prop) -->
+    <!-- <plugin name="gz::sim::systems::JointPositionController"
+        filename="gz-sim-joint-position-controller-system">
+      <joint_name>ccw_servo_joint</joint_name>
+      <topic>/ccw_servo_joint/cmd_pos</topic>
+      <p_gain>0.3</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0.001</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin> -->
+
+    <!-- right servo (cw prop) -->
+    <!-- <plugin name="gz::sim::systems::JointPositionController"
+        filename="gz-sim-joint-position-controller-system">
+      <joint_name>cw_servo_joint</joint_name>
+      <topic>/cw_servo_joint/cmd_pos</topic>
+      <p_gain>0.3</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0.001</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin> -->
+
+    <!-- left motor (ccw prop) -->
+    <!-- <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>ccw_mot_joint</joint_name>
+      <initial_velocity>0.0</initial_velocity>
+      <use_force_commands>false</use_force_commands>
+      <p_gain>0.01</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin> -->
+
+    <!-- right motor (cw prop) -->
+    <!-- <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>cw_mot_joint</joint_name>
+      <initial_velocity>0.0</initial_velocity>
+      <use_force_commands>false</use_force_commands>
+      <p_gain>0.01</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.0</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin> -->
+
+    <!-- prop left (ccw) lift-drag -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.084 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>ccw_mot_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.042 0.072746134 0</cp>
+      <forward>-0.866025404 -0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>ccw_mot_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.042 -0.072746134 0</cp>
+      <forward>0.866025404 -0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>ccw_mot_link</link_name>
+    </plugin>
+
+    <!-- prop right (ccw) lift-drag -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>0.084 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>cw_mot_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.042 0.072746134 0</cp>
+      <forward>0.866025404 0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>cw_mot_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.002</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.042 0.072746134 0</cp>
+      <forward>-0.866025404 0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>cw_mot_link</link_name>
+    </plugin>
+
+  </model>
+</sdf>
