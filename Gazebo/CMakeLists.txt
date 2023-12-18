@@ -5,11 +5,6 @@ project(ardupilot_sitl_models)
 # Find dependencies.
 find_package(ament_cmake REQUIRED)
 
-find_package(gz-cmake3 REQUIRED)
-
-find_package(gz-sim7 REQUIRED)
-set(GZ_SIM_VER ${gz-sim7_VERSION_MAJOR})
-
 # --------------------------------------------------------------------------- #
 #  Build.
 
