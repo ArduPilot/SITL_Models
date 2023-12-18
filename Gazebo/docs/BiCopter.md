@@ -56,7 +56,7 @@ For example the Copter simulation starts in STABILIZE mode which appears as MANU
 
 ### Credits
 
-- Original version of bicopter model: [GreenPine-CK/bicopter_simulation](https://github.com/GreenPine-CK/bicopter_simulation)
+- Lee ChangKeun, [GreenPine-CK/bicopter_simulation](https://github.com/GreenPine-CK/bicopter_simulation)
 - [Валентин Дмитриев](https://grabcad.com/-5981), [Propeller Phantom 3 9450](https://grabcad.com/library/propeller-phantom-3-9450-1)
 - [Vincent Shi](https://grabcad.com/vincent.shi-1), [DJI 2312(E305) Motor](https://grabcad.com/library/dji-2312-e305-motor-1)
 - [PedroC](https://grabcad.com/pedroc-1), [Hitech Servo HS-422](https://grabcad.com/library/hitech-servo-hs-422-1)
