@@ -730,7 +730,7 @@
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
       <cda>0.10</cda>
-      <cma>0.00</cma>
+      <cma>0.0</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0.0</cma_stall>
@@ -747,7 +747,7 @@
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
       <cda>0.10</cda>
-      <cma>0.00</cma>
+      <cma>0.0</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0.0</cma_stall>
@@ -766,7 +766,7 @@
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
       <cda>0.10</cda>
-      <cma>0.00</cma>
+      <cma>0.0</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0.0</cma_stall>
@@ -783,7 +783,7 @@
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
       <cda>0.10</cda>
-      <cma>0.00</cma>
+      <cma>0.0</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0.0</cma_stall>
@@ -802,7 +802,7 @@
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
       <cda>0.10</cda>
-      <cma>0.00</cma>
+      <cma>0.0</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0.0</cma_stall>
@@ -819,7 +819,7 @@
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
       <cda>0.10</cda>
-      <cma>0.00</cma>
+      <cma>0.0</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0.0</cma_stall>
@@ -838,7 +838,7 @@
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
       <cda>0.10</cda>
-      <cma>0.00</cma>
+      <cma>0.0</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0.0</cma_stall>
@@ -855,7 +855,7 @@
       <alpha_stall>1.4</alpha_stall>
       <cla>4.2500</cla>
       <cda>0.10</cda>
-      <cma>0.00</cma>
+      <cma>0.0</cma>
       <cla_stall>-0.025</cla_stall>
       <cda_stall>0.0</cda_stall>
       <cma_stall>0.0</cma_stall>
@@ -873,11 +873,11 @@
       <a0>0.13</a0>
       <cla>3.7</cla>
       <cda>0.06417112299</cda>
-      <cma>-1.8</cma>
+      <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
+      <cma_stall>0.0</cma_stall>
       <cp>-0.025 0 0</cp>
       <area>0.18</area>
       <air_density>1.2041</air_density>
@@ -891,11 +891,11 @@
       <a0>0.0</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
-      <cma>-1.8</cma>
+      <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
+      <cma_stall>0.0</cma_stall>
       <cp>-0.14 0.59 0.035</cp>
       <area>0.0068</area>
       <air_density>1.2041</air_density>
@@ -909,11 +909,11 @@
       <a0>0.0</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
-      <cma>-1.8</cma>
+      <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
+      <cma_stall>0.0</cma_stall>
       <cp>-0.14 -0.59 0.035</cp>
       <area>0.0068</area>
       <air_density>1.2041</air_density>
@@ -927,11 +927,11 @@
       <a0>0.0</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
-      <cma>-1.8</cma>
+      <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
+      <cma_stall>0.0</cma_stall>
       <cp>-0.07 0.25 0</cp>
       <area>0.01</area>
       <air_density>1.2041</air_density>
@@ -945,11 +945,11 @@
       <a0>0.0</a0>
       <cla>4.752798721</cla>
       <cda>0.6417112299</cda>
-      <cma>-1.8</cma>
+      <cma>0.0</cma>
       <alpha_stall>0.3391428111</alpha_stall>
       <cla_stall>-3.85</cla_stall>
       <cda_stall>-0.9233984055</cda_stall>
-      <cma_stall>0</cma_stall>
+      <cma_stall>0.0</cma_stall>
       <cp>-0.07 -0.25 0</cp>
       <area>0.01</area>
       <air_density>1.2041</air_density>
