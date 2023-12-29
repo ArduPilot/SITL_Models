@@ -14,7 +14,7 @@
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.177 0.101 0.053</size>
@@ -37,7 +37,7 @@
         </surface>
       </collision>
       <visual name='base_link_visual'>
-        <pose>0 0 -0.0265 0 -0 0</pose>
+        <pose>0 0 -0.0265 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -90,9 +90,9 @@
       </physics>
     </joint>
     <link name='coxa_bl_link'>
-      <pose relative_to='coxa_bl_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='coxa_bl_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0.01425 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.01425 0 0 0 90 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>9.26875e-06</ixx>
@@ -104,7 +104,7 @@
         </inertia>
       </inertial>
       <collision name='coxa_bl_link_collision'>
-        <pose>0.01425 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.01425 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.0285</length>
@@ -125,7 +125,7 @@
         </surface>
       </collision>
       <visual name='coxa_bl_link_visual'>
-        <pose>0 0 0.0196 0 -0 0</pose>
+        <pose>0 0 0.0196 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -180,7 +180,7 @@
     <link name='femur_bl_link'>
       <pose relative_to='femur_bl_joint'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0.0381 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.0381 0 0 0 90 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>5.0887e-05</ixx>
@@ -192,7 +192,7 @@
         </inertia>
       </inertial>
       <collision name='femur_bl_link_collision'>
-        <pose>0.0381 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.0381 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.0762</length>
@@ -213,7 +213,7 @@
         </surface>
       </collision>
       <visual name='femur_bl_link_visual'>
-        <pose>0 -0.026 0 0 -0 0</pose>
+        <pose>0 -0.026 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -268,7 +268,7 @@
     <link name='tibia_bl_link'>
       <pose relative_to='tibia_bl_joint'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0 0 -0.051 0 -0 0</pose>
+        <pose>0 0 -0.051 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>8.92e-05</ixx>
@@ -280,7 +280,7 @@
         </inertia>
       </inertial>
       <collision name='tibia_bl_link_collision'>
-        <pose>0 0 -0.051 0 -0 0</pose>
+        <pose>0 0 -0.051 0 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.102</length>
@@ -301,7 +301,7 @@
         </surface>
       </collision>
       <collision name='tibia_bl_link_fixed_joint_lump__foot_bl_link_collision_1'>
-        <pose>0 0 -0.102 0 -0 0</pose>
+        <pose>0 0 -0.102 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.01</radius>
@@ -329,7 +329,7 @@
         </surface>
       </collision>
       <visual name='tibia_bl_link_visual'>
-        <pose>0 -0.0185 0 0 -0 0</pose>
+        <pose>0 -0.0185 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -383,9 +383,9 @@
       </physics>
     </joint>
     <link name='coxa_br_link'>
-      <pose relative_to='coxa_br_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='coxa_br_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0.01425 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.01425 0 0 0 90 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>9.26875e-06</ixx>
@@ -397,7 +397,7 @@
         </inertia>
       </inertial>
       <collision name='coxa_br_link_collision'>
-        <pose>0.01425 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.01425 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.0285</length>
@@ -418,7 +418,7 @@
         </surface>
       </collision>
       <visual name='coxa_br_link_visual'>
-        <pose>0 0 0.0196 0 -0 0</pose>
+        <pose>0 0 0.0196 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -445,7 +445,7 @@
       <velocity_decay/>
     </link>
     <joint name='femur_br_joint' type='revolute'>
-      <pose relative_to='coxa_br_link'>0.0285 0 0 0 -0 0</pose>
+      <pose relative_to='coxa_br_link'>0.0285 0 0 0 0 0</pose>
       <parent>coxa_br_link</parent>
       <child>femur_br_link</child>
       <axis>
@@ -471,9 +471,9 @@
       </physics>
     </joint>
     <link name='femur_br_link'>
-      <pose relative_to='femur_br_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='femur_br_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0.0381 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.0381 0 0 0 90 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>5.0887e-05</ixx>
@@ -485,7 +485,7 @@
         </inertia>
       </inertial>
       <collision name='femur_br_link_collision'>
-        <pose>0.0381 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.0381 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.0762</length>
@@ -506,7 +506,7 @@
         </surface>
       </collision>
       <visual name='femur_br_link_visual'>
-        <pose>0 0.026 0 0 -0 0</pose>
+        <pose>0 0.026 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -533,7 +533,7 @@
       <velocity_decay/>
     </link>
     <joint name='tibia_br_joint' type='revolute'>
-      <pose relative_to='femur_br_link'>0.0762 0 0 0 -0 0</pose>
+      <pose relative_to='femur_br_link'>0.0762 0 0 0 0 0</pose>
       <parent>femur_br_link</parent>
       <child>tibia_br_link</child>
       <axis>
@@ -559,9 +559,9 @@
       </physics>
     </joint>
     <link name='tibia_br_link'>
-      <pose relative_to='tibia_br_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='tibia_br_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 -0.051 0 -0 0</pose>
+        <pose>0 0 -0.051 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>8.92e-05</ixx>
@@ -573,7 +573,7 @@
         </inertia>
       </inertial>
       <collision name='tibia_br_link_collision'>
-        <pose>0 0 -0.051 0 -0 0</pose>
+        <pose>0 0 -0.051 0 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.102</length>
@@ -594,7 +594,7 @@
         </surface>
       </collision>
       <collision name='tibia_br_link_fixed_joint_lump__foot_br_link_collision_1'>
-        <pose>0 0 -0.102 0 -0 0</pose>
+        <pose>0 0 -0.102 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.01</radius>
@@ -622,7 +622,7 @@
         </surface>
       </collision>
       <visual name='tibia_br_link_visual'>
-        <pose>0 0.0185 0 0 -0 0</pose>
+        <pose>0 0.0185 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -650,7 +650,7 @@
       <velocity_decay/>
     </link>
     <joint name='coxa_fl_joint' type='revolute'>
-      <pose relative_to='base_link'>0.0885 0.0505 0 0 -0 0.785398</pose>
+      <pose relative_to='base_link' degrees="true">0.0885 0.0505 0 0 0 45</pose>
       <parent>base_link</parent>
       <child>coxa_fl_link</child>
       <axis>
@@ -676,9 +676,9 @@
       </physics>
     </joint>
     <link name='coxa_fl_link'>
-      <pose relative_to='coxa_fl_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='coxa_fl_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0.01425 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.01425 0 0 0 90 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>9.26875e-06</ixx>
@@ -690,7 +690,7 @@
         </inertia>
       </inertial>
       <collision name='coxa_fl_link_collision'>
-        <pose>0.01425 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.01425 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.0285</length>
@@ -711,7 +711,7 @@
         </surface>
       </collision>
       <visual name='coxa_fl_link_visual'>
-        <pose>0 0 0.0196 0 -0 0</pose>
+        <pose>0 0 0.0196 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -738,7 +738,7 @@
       <velocity_decay/>
     </link>
     <joint name='femur_fl_joint' type='revolute'>
-      <pose relative_to='coxa_fl_link'>0.0285 0 0 0 -0 0</pose>
+      <pose relative_to='coxa_fl_link'>0.0285 0 0 0 0 0</pose>
       <parent>coxa_fl_link</parent>
       <child>femur_fl_link</child>
       <axis>
@@ -764,7 +764,7 @@
       </physics>
     </joint>
     <link name='femur_fl_link'>
-      <pose relative_to='femur_fl_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='femur_fl_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.0381 0 0 0 1.5708 0</pose>
         <mass>0.1</mass>
@@ -778,7 +778,7 @@
         </inertia>
       </inertial>
       <collision name='femur_fl_link_collision'>
-        <pose>0.0381 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.0381 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.0762</length>
@@ -799,7 +799,7 @@
         </surface>
       </collision>
       <visual name='femur_fl_link_visual'>
-        <pose>0 -0.026 0 0 -0 0</pose>
+        <pose>0 -0.026 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -826,7 +826,7 @@
       <velocity_decay/>
     </link>
     <joint name='tibia_fl_joint' type='revolute'>
-      <pose relative_to='femur_fl_link'>0.0762 0 0 0 -0 0</pose>
+      <pose relative_to='femur_fl_link'>0.0762 0 0 0 0 0</pose>
       <parent>femur_fl_link</parent>
       <child>tibia_fl_link</child>
       <axis>
@@ -852,7 +852,7 @@
       </physics>
     </joint>
     <link name='tibia_fl_link'>
-      <pose relative_to='tibia_fl_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='tibia_fl_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0 0 -0.051 0 -0 0</pose>
         <mass>0.1</mass>
@@ -866,7 +866,7 @@
         </inertia>
       </inertial>
       <collision name='tibia_fl_link_collision'>
-        <pose>0 0 -0.051 0 -0 0</pose>
+        <pose>0 0 -0.051 0 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.102</length>
@@ -887,7 +887,7 @@
         </surface>
       </collision>
       <collision name='tibia_fl_link_fixed_joint_lump__foot_fl_link_collision_1'>
-        <pose>0 0 -0.102 0 -0 0</pose>
+        <pose>0 0 -0.102 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.01</radius>
@@ -915,7 +915,7 @@
         </surface>
       </collision>
       <visual name='tibia_fl_link_visual'>
-        <pose>0 -0.0185 0 0 -0 0</pose>
+        <pose>0 -0.0185 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -943,7 +943,7 @@
       <velocity_decay/>
     </link>
     <joint name='coxa_fr_joint' type='revolute'>
-      <pose relative_to='base_link'>0.0885 -0.0505 0 0 0 -0.785398</pose>
+      <pose relative_to='base_link' degrees="true">0.0885 -0.0505 0 0 0 -45</pose>
       <parent>base_link</parent>
       <child>coxa_fr_link</child>
       <axis>
@@ -969,7 +969,7 @@
       </physics>
     </joint>
     <link name='coxa_fr_link'>
-      <pose relative_to='coxa_fr_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='coxa_fr_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.01425 0 0 0 1.5708 0</pose>
         <mass>0.1</mass>
@@ -1004,7 +1004,7 @@
         </surface>
       </collision>
       <visual name='coxa_fr_link_visual'>
-        <pose>0 0 0.0196 0 -0 0</pose>
+        <pose>0 0 0.0196 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1031,7 +1031,7 @@
       <velocity_decay/>
     </link>
     <joint name='femur_fr_joint' type='revolute'>
-      <pose relative_to='coxa_fr_link'>0.0285 0 0 0 -0 0</pose>
+      <pose relative_to='coxa_fr_link'>0.0285 0 0 0 0 0</pose>
       <parent>coxa_fr_link</parent>
       <child>femur_fr_link</child>
       <axis>
@@ -1057,7 +1057,7 @@
       </physics>
     </joint>
     <link name='femur_fr_link'>
-      <pose relative_to='femur_fr_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='femur_fr_joint'>0 0 0 0 0 0</pose>
       <inertial>
         <pose>0.0381 0 0 0 1.5708 0</pose>
         <mass>0.1</mass>
@@ -1071,7 +1071,7 @@
         </inertia>
       </inertial>
       <collision name='femur_fr_link_collision'>
-        <pose>0.0381 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0.0381 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.0762</length>
@@ -1092,7 +1092,7 @@
         </surface>
       </collision>
       <visual name='femur_fr_link_visual'>
-        <pose>0 0.026 0 0 -0 0</pose>
+        <pose>0 0.026 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1119,7 +1119,7 @@
       <velocity_decay/>
     </link>
     <joint name='tibia_fr_joint' type='revolute'>
-      <pose relative_to='femur_fr_link'>0.0762 0 0 0 -0 0</pose>
+      <pose relative_to='femur_fr_link'>0.0762 0 0 0 0 0</pose>
       <parent>femur_fr_link</parent>
       <child>tibia_fr_link</child>
       <axis>
@@ -1145,9 +1145,9 @@
       </physics>
     </joint>
     <link name='tibia_fr_link'>
-      <pose relative_to='tibia_fr_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='tibia_fr_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 -0.051 0 -0 0</pose>
+        <pose>0 0 -0.051 0 0 0</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>8.92e-05</ixx>
@@ -1159,7 +1159,7 @@
         </inertia>
       </inertial>
       <collision name='tibia_fr_link_collision'>
-        <pose>0 0 -0.051 0 -0 0</pose>
+        <pose>0 0 -0.051 0 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.102</length>
@@ -1180,7 +1180,7 @@
         </surface>
       </collision>
       <collision name='tibia_fr_link_fixed_joint_lump__foot_fr_link_collision_1'>
-        <pose>0 0 -0.102 0 -0 0</pose>
+        <pose>0 0 -0.102 0 0 0</pose>
         <geometry>
           <sphere>
             <radius>0.01</radius>
@@ -1208,7 +1208,7 @@
         </surface>
       </collision>
       <visual name='tibia_fr_link_visual'>
-        <pose>0 0.0185 0 0 -0 0</pose>
+        <pose>0 0.0185 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1251,7 +1251,7 @@
         </inertia>
       </inertial>
       <sensor name="imu_sensor" type="imu">
-        <pose>0 0 0 3.141593 0 0</pose>
+        <pose degrees="true">0 0 0 180 0 0</pose>
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
       </sensor>
@@ -1334,18 +1334,8 @@
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>
 
-      <!-- Frame conventions
-        modelXYZToAirplaneXForwardZDown:
-          - transforms body frame from orientation in Gazebo to NED
-
-        gazeboXYZToNED
-          - transforms world from Gazebo convention xyz = N -E -D
-            to ArduPilot convention xyz = NED
-
-        Vehicle is oriented x-forward, y-left, z-up
-      -->
-      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
-      <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
 
       <!-- Sensors -->
       <imuName>imu_sensor</imuName>

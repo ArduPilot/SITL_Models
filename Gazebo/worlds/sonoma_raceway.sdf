@@ -47,28 +47,33 @@
 
     <!-- 
       A vehicle on the Sonoma Raceway start grid has a
-      heading of 0.959931 rad (-55 deg)
+      heading of 145 deg
 
-      <pose>0 0 0 0 0 0.959931089</pose>
+      <pose degrees="true">0 0 0 0 0 145</pose>
 
       Below are examples for loading different vehicles onto
       the start grid. 
       -->
 
     <!-- <include>
-      <pose>0 0 0.15 0 0 0.959931089</pose>
+      <pose degrees="true">0 0 1.0 0 0 145</pose>
+      <uri>model://daf_xf_450_tractor</uri>
+    </include> -->
+
+    <!-- <include>
+      <pose degrees="true">0 0 0.1 0 0 145</pose>
       <uri>model://wildthumper</uri>
     </include> -->
 
     <!-- <include>
-      <pose>0 0 0.15 0 0 0.959931089</pose>
-      <uri>model://iris_with_standoffs</uri>
+      <pose degrees="true">0 0 0.1 0 0 145</pose>
+      <uri>model://iris_with_ardupilot</uri>
     </include> -->
 
-    <!-- <include>
-      <pose>0 0 0.15 0 0 0.959931089</pose>
+    <include>
+      <pose degrees="true">0 0 0.15 0 0 145</pose>
       <uri>model://skywalker_x8_quad</uri>
-    </include> -->
+    </include>
 
   </world>
 </sdf>

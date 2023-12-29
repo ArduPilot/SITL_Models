@@ -276,7 +276,7 @@
         </material>
       </visual> -->
       <visual name="motor_visual">
-        <pose>0 0 -0.008 0 -1.5707963 0</pose>
+        <pose degrees="true">0 0 -0.008 0 -90 0</pose>
         <geometry>
           <mesh>
             <uri>model://swan_k1_hwing/meshes/swan_k1_hwing_motor.dae</uri>
@@ -323,7 +323,7 @@
       </visual>
     </link>
     <joint name='motor1_joint' type='revolute'>
-      <pose relative_to="base_link">-0.015 -0.25 -0.16 0.174532925 1.396263402 0</pose>
+      <pose relative_to="base_link" degrees="true">-0.015 -0.25 -0.16 10 80 0</pose>
       <child>motor1_link</child>
       <parent>base_link</parent>
       <axis>
@@ -385,7 +385,7 @@
         </material>
       </visual> -->
       <visual name="motor_visual">
-        <pose>0 0 -0.008 0 -1.5707963 0</pose>
+        <pose degrees="true">0 0 -0.008 0 -90 0</pose>
         <geometry>
           <mesh>
             <uri>model://swan_k1_hwing/meshes/swan_k1_hwing_motor.dae</uri>
@@ -432,7 +432,7 @@
       </visual>
     </link>
     <joint name='motor2_joint' type='revolute'>
-      <pose relative_to="base_link">-0.015 0.25 0.16 -0.174532925 1.745329252 0</pose>
+      <pose relative_to="base_link" degrees="true">-0.015 0.25 0.16 -10 100 0</pose>
       <child>motor2_link</child>
       <parent>base_link</parent>
       <axis>
@@ -494,7 +494,7 @@
         </material>
       </visual> -->
       <visual name="motor_visual">
-        <pose>0 0 -0.008 0 -1.5707963 0</pose>
+        <pose degrees="true">0 0 -0.008 0 -90 0</pose>
         <geometry>
           <mesh>
             <uri>model://swan_k1_hwing/meshes/swan_k1_hwing_motor.dae</uri>
@@ -541,7 +541,7 @@
       </visual>
     </link>
     <joint name='motor3_joint' type='revolute'>
-      <pose relative_to="base_link">-0.015 0.25 -0.16 -0.174532925 1.396263402 0</pose>
+      <pose relative_to="base_link" degrees="true">-0.015 0.25 -0.16 -10 80 0</pose>
       <child>motor3_link</child>
       <parent>base_link</parent>
       <axis>
@@ -603,7 +603,7 @@
         </material>
       </visual> -->
       <visual name="motor_visual">
-        <pose>0 0 -0.008 0 -1.5707963 0</pose>
+        <pose degrees="true">0 0 -0.008 0 -90 0</pose>
         <geometry>
           <mesh>
             <uri>model://swan_k1_hwing/meshes/swan_k1_hwing_motor.dae</uri>
@@ -650,7 +650,7 @@
       </visual>
     </link>
     <joint name='motor4_joint' type='revolute'>
-      <pose relative_to="base_link">-0.015 -0.25 0.16 0.174532925 1.745329252 0</pose>
+      <pose relative_to="base_link" degrees="true">-0.015 -0.25 0.16 10 100 0</pose>
       <child>motor4_link</child>
       <parent>base_link</parent>
       <axis>
@@ -680,7 +680,7 @@
         </inertia>
       </inertial>
       <sensor name="imu_sensor" type="imu">
-        <pose>0 0 0 3.141593 0 0</pose>
+        <pose degrees="true">0 0 0 180 0 0</pose>
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
       </sensor>
@@ -963,8 +963,8 @@
       <fdm_port_in>9002</fdm_port_in>
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>
-      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
-      <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
       <imuName>imu_sensor</imuName>
 
       <!-- 

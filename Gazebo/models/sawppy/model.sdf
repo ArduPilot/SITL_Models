@@ -16,7 +16,7 @@
         </inertia>
       </inertial>
       <collision name='base_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.01 0.01 0.01</size>
@@ -32,7 +32,7 @@
         </surface>
       </collision>
       <collision name='base_link_fixed_joint_lump__body_box_link_collision_1'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.425 0.285 0.093</size>
@@ -48,7 +48,7 @@
         </surface>
       </collision>
       <visual name='base_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.01 0.01 0.01</size>
@@ -61,7 +61,7 @@
         </material>
       </visual>
       <visual name='base_link_fixed_joint_lump__body_box_link_visual_1'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -79,7 +79,7 @@
       <velocity_decay/>
     </link>
     <joint name='diff_brace_joint' type='revolute'>
-      <pose relative_to='base_link'>0 0 0.0681 0 -0 0</pose>
+      <pose relative_to='base_link'>0 0 0.0681 0 0 0</pose>
       <parent>base_link</parent>
       <child>diff_brace_link</child>
       <axis>
@@ -110,9 +110,9 @@
       </physics>
     </joint>
     <link name='diff_brace_link'>
-      <pose relative_to='diff_brace_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='diff_brace_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 1.5708</pose>
+        <pose degrees="true">0 0 0 0 0 90</pose>
         <mass>0.1</mass>
         <inertia>
           <ixx>3.75e-06</ixx>
@@ -124,7 +124,7 @@
         </inertia>
       </inertial>
       <collision name='diff_brace_link_collision'>
-        <pose>0 0 0 0 -0 1.5708</pose>
+        <pose degrees="true">0 0 0 0 0 90</pose>
         <geometry>
           <box>
             <size>0.2 0.015 0.015</size>
@@ -140,7 +140,7 @@
         </surface>
       </collision>
       <visual name='diff_brace_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -157,7 +157,7 @@
       <velocity_decay/>
     </link>
     <joint name='laser_joint' type='fixed'>
-      <pose relative_to='base_link'>0.152 0.078 0.05 0 -0 0</pose>
+      <pose relative_to='base_link'>0.152 0.078 0.05 0 0 0</pose>
       <parent>base_link</parent>
       <child>laser</child>
       <axis>
@@ -181,9 +181,9 @@
       </physics>
     </joint>
     <link name='laser'>
-      <pose relative_to='laser_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='laser_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.15</mass>
         <inertia>
           <ixx>9.09375e-05</ixx>
@@ -195,7 +195,7 @@
         </inertia>
       </inertial>
       <collision name='laser_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.06</length>
@@ -212,7 +212,7 @@
         </surface>
       </collision>
       <visual name='laser_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -232,7 +232,7 @@
         <update_rate>5</update_rate>
         <visualize>0</visualize>
         <topic>sensors/laser</topic>
-        <pose>0 0 0.045 0 -0 0</pose>
+        <pose>0 0 0.045 0 0 0</pose>
         <ray>
           <scan>
             <horizontal>
@@ -266,7 +266,7 @@
       </sensor> -->
     </link>
     <joint name='left_rocker_joint' type='revolute'>
-      <pose relative_to='base_link'>0.071 0.155 0.0118 0 -0 0</pose>
+      <pose relative_to='base_link'>0.071 0.155 0.0118 0 0 0</pose>
       <parent>base_link</parent>
       <child>left_rocker_link</child>
       <axis>
@@ -297,9 +297,9 @@
       </physics>
     </joint>
     <link name='left_rocker_link'>
-      <pose relative_to='left_rocker_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='left_rocker_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>9.375e-06</ixx>
@@ -311,7 +311,7 @@
         </inertia>
       </inertial>
       <collision name='left_rocker_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.015 0.015</size>
@@ -327,7 +327,7 @@
         </surface>
       </collision>
       <visual name='left_rocker_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -344,7 +344,7 @@
       <velocity_decay/>
     </link>
     <joint name='front_left_steer_joint' type='revolute'>
-      <pose relative_to='left_rocker_link'>0.2116 0.075 -0.0279 0 -0 0</pose>
+      <pose relative_to='left_rocker_link'>0.2116 0.075 -0.0279 0 0 0</pose>
       <parent>left_rocker_link</parent>
       <child>front_left_steer_link</child>
       <axis>
@@ -371,9 +371,9 @@
       </physics>
     </joint>
     <link name='front_left_steer_link'>
-      <pose relative_to='front_left_steer_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='front_left_steer_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000416667</ixx>
@@ -385,7 +385,7 @@
         </inertia>
       </inertial>
       <collision name='front_left_steer_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.1 0.1</size>
@@ -401,7 +401,7 @@
         </surface>
       </collision>
       <visual name='front_left_steer_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -418,7 +418,7 @@
       <velocity_decay/>
     </link>
     <joint name='front_left_wheel_joint' type='revolute'>
-      <pose relative_to='front_left_steer_link'>0 0 -0.132 0 -0 0</pose>
+      <pose relative_to='front_left_steer_link'>0 0 -0.132 0 0 0</pose>
       <parent>front_left_steer_link</parent>
       <child>front_left_wheel_link</child>
       <axis>
@@ -445,9 +445,9 @@
       </physics>
     </joint>
     <link name='front_left_wheel_link'>
-      <pose relative_to='front_left_wheel_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='front_left_wheel_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000433333</ixx>
@@ -459,7 +459,7 @@
         </inertia>
       </inertial>
       <collision name='front_left_wheel_link_collision'>
-        <pose>0 0 0 1.5708 -0 0</pose>
+        <pose degrees="true">0 0 0 90 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.1</length>
@@ -476,7 +476,7 @@
         </surface>
       </collision>
       <visual name='front_left_wheel_link_visual'>
-        <pose>0 0 0 1.5708 -0 0</pose>
+        <pose degrees="true">0 0 0 90 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -493,7 +493,7 @@
       <velocity_decay/>
     </link>
     <joint name='left_bogie_joint' type='revolute'>
-      <pose relative_to='left_rocker_link'>-0.181 0.025 -0.062 0 -0 0</pose>
+      <pose relative_to='left_rocker_link'>-0.181 0.025 -0.062 0 0 0</pose>
       <parent>left_rocker_link</parent>
       <child>left_bogie_link</child>
       <axis>
@@ -524,9 +524,9 @@
       </physics>
     </joint>
     <link name='left_bogie_link'>
-      <pose relative_to='left_bogie_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='left_bogie_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>9.375e-06</ixx>
@@ -538,7 +538,7 @@
         </inertia>
       </inertial>
       <collision name='left_bogie_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.015 0.015</size>
@@ -554,7 +554,7 @@
         </surface>
       </collision>
       <visual name='left_bogie_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -571,7 +571,7 @@
       <velocity_decay/>
     </link>
     <joint name='back_left_steer_joint' type='revolute'>
-      <pose relative_to='left_bogie_link'>-0.149 0.05 0.0338 0 -0 0</pose>
+      <pose relative_to='left_bogie_link'>-0.149 0.05 0.0338 0 0 0</pose>
       <parent>left_bogie_link</parent>
       <child>back_left_steer_link</child>
       <axis>
@@ -598,9 +598,9 @@
       </physics>
     </joint>
     <link name='back_left_steer_link'>
-      <pose relative_to='back_left_steer_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='back_left_steer_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000416667</ixx>
@@ -612,7 +612,7 @@
         </inertia>
       </inertial>
       <collision name='back_left_steer_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.1 0.1</size>
@@ -628,7 +628,7 @@
         </surface>
       </collision>
       <visual name='back_left_steer_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -645,7 +645,7 @@
       <velocity_decay/>
     </link>
     <joint name='back_left_wheel_joint' type='revolute'>
-      <pose relative_to='back_left_steer_link'>0 0 -0.132 0 -0 0</pose>
+      <pose relative_to='back_left_steer_link'>0 0 -0.132 0 0 0</pose>
       <parent>back_left_steer_link</parent>
       <child>back_left_wheel_link</child>
       <axis>
@@ -672,9 +672,9 @@
       </physics>
     </joint>
     <link name='back_left_wheel_link'>
-      <pose relative_to='back_left_wheel_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='back_left_wheel_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000433333</ixx>
@@ -686,7 +686,7 @@
         </inertia>
       </inertial>
       <collision name='back_left_wheel_link_collision'>
-        <pose>0 0 0 1.5708 -0 0</pose>
+        <pose degrees="true">0 0 0 90 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.1</length>
@@ -703,7 +703,7 @@
         </surface>
       </collision>
       <visual name='back_left_wheel_link_visual'>
-        <pose>0 0 0 1.5708 -0 0</pose>
+        <pose degrees="true">0 0 0 90 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -720,7 +720,7 @@
       <velocity_decay/>
     </link>
     <joint name='mid_left_wheel_joint' type='revolute'>
-      <pose relative_to='left_bogie_link'>0.1063 0.0929 -0.0959 0 -0 0</pose>
+      <pose relative_to='left_bogie_link'>0.1063 0.0929 -0.0959 0 0 0</pose>
       <parent>left_bogie_link</parent>
       <child>mid_left_wheel_link</child>
       <axis>
@@ -747,9 +747,9 @@
       </physics>
     </joint>
     <link name='mid_left_wheel_link'>
-      <pose relative_to='mid_left_wheel_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='mid_left_wheel_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000433333</ixx>
@@ -761,7 +761,7 @@
         </inertia>
       </inertial>
       <collision name='mid_left_wheel_link_collision'>
-        <pose>0 0 0 1.5708 -0 0</pose>
+        <pose degrees="true">0 0 0 90 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.1</length>
@@ -778,7 +778,7 @@
         </surface>
       </collision>
       <visual name='mid_left_wheel_link_visual'>
-        <pose>0 0 0 1.5708 -0 0</pose>
+        <pose degrees="true">0 0 0 90 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -795,7 +795,7 @@
       <velocity_decay/>
     </link>
     <joint name='right_rocker_joint' type='revolute'>
-      <pose relative_to='base_link'>0.071 -0.155 0.0118 0 -0 0</pose>
+      <pose relative_to='base_link'>0.071 -0.155 0.0118 0 0 0</pose>
       <parent>base_link</parent>
       <child>right_rocker_link</child>
       <axis>
@@ -826,9 +826,9 @@
       </physics>
     </joint>
     <link name='right_rocker_link'>
-      <pose relative_to='right_rocker_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='right_rocker_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>9.375e-06</ixx>
@@ -840,7 +840,7 @@
         </inertia>
       </inertial>
       <collision name='right_rocker_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.015 0.015</size>
@@ -856,7 +856,7 @@
         </surface>
       </collision>
       <visual name='right_rocker_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -873,7 +873,7 @@
       <velocity_decay/>
     </link>
     <joint name='front_right_steer_joint' type='revolute'>
-      <pose relative_to='right_rocker_link'>0.2116 -0.075 -0.0279 0 -0 0</pose>
+      <pose relative_to='right_rocker_link'>0.2116 -0.075 -0.0279 0 0 0</pose>
       <parent>right_rocker_link</parent>
       <child>front_right_steer_link</child>
       <axis>
@@ -900,9 +900,9 @@
       </physics>
     </joint>
     <link name='front_right_steer_link'>
-      <pose relative_to='front_right_steer_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='front_right_steer_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000416667</ixx>
@@ -914,7 +914,7 @@
         </inertia>
       </inertial>
       <collision name='front_right_steer_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.1 0.1</size>
@@ -930,7 +930,7 @@
         </surface>
       </collision>
       <visual name='front_right_steer_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -947,7 +947,7 @@
       <velocity_decay/>
     </link>
     <joint name='front_right_wheel_joint' type='revolute'>
-      <pose relative_to='front_right_steer_link'>0 0 -0.132 0 -0 0</pose>
+      <pose relative_to='front_right_steer_link'>0 0 -0.132 0 0 0</pose>
       <parent>front_right_steer_link</parent>
       <child>front_right_wheel_link</child>
       <axis>
@@ -974,9 +974,9 @@
       </physics>
     </joint>
     <link name='front_right_wheel_link'>
-      <pose relative_to='front_right_wheel_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='front_right_wheel_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000433333</ixx>
@@ -988,7 +988,7 @@
         </inertia>
       </inertial>
       <collision name='front_right_wheel_link_collision'>
-        <pose>0 0 0 -1.5708 0 0</pose>
+        <pose degrees="true">0 0 0 -90 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.1</length>
@@ -1005,7 +1005,7 @@
         </surface>
       </collision>
       <visual name='front_right_wheel_link_visual'>
-        <pose>0 0 0 -1.5708 0 0</pose>
+        <pose degrees="true">0 0 0 -90 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1022,7 +1022,7 @@
       <velocity_decay/>
     </link>
     <joint name='right_bogie_joint' type='revolute'>
-      <pose relative_to='right_rocker_link'>-0.181 -0.025 -0.062 0 -0 0</pose>
+      <pose relative_to='right_rocker_link'>-0.181 -0.025 -0.062 0 0 0</pose>
       <parent>right_rocker_link</parent>
       <child>right_bogie_link</child>
       <axis>
@@ -1053,9 +1053,9 @@
       </physics>
     </joint>
     <link name='right_bogie_link'>
-      <pose relative_to='right_bogie_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='right_bogie_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>9.375e-06</ixx>
@@ -1067,7 +1067,7 @@
         </inertia>
       </inertial>
       <collision name='right_bogie_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.015 0.015</size>
@@ -1083,7 +1083,7 @@
         </surface>
       </collision>
       <visual name='right_bogie_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1100,7 +1100,7 @@
       <velocity_decay/>
     </link>
     <joint name='back_right_steer_joint' type='revolute'>
-      <pose relative_to='right_bogie_link'>-0.149 -0.05 0.0338 0 -0 0</pose>
+      <pose relative_to='right_bogie_link'>-0.149 -0.05 0.0338 0 0 0</pose>
       <parent>right_bogie_link</parent>
       <child>back_right_steer_link</child>
       <axis>
@@ -1127,9 +1127,9 @@
       </physics>
     </joint>
     <link name='back_right_steer_link'>
-      <pose relative_to='back_right_steer_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='back_right_steer_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000416667</ixx>
@@ -1141,7 +1141,7 @@
         </inertia>
       </inertial>
       <collision name='back_right_steer_link_collision'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
             <size>0.1 0.1 0.1</size>
@@ -1157,7 +1157,7 @@
         </surface>
       </collision>
       <visual name='back_right_steer_link_visual'>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1174,7 +1174,7 @@
       <velocity_decay/>
     </link>
     <joint name='back_right_wheel_joint' type='revolute'>
-      <pose relative_to='back_right_steer_link'>0 0 -0.132 0 -0 0</pose>
+      <pose relative_to='back_right_steer_link'>0 0 -0.132 0 0 0</pose>
       <parent>back_right_steer_link</parent>
       <child>back_right_wheel_link</child>
       <axis>
@@ -1201,9 +1201,9 @@
       </physics>
     </joint>
     <link name='back_right_wheel_link'>
-      <pose relative_to='back_right_wheel_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='back_right_wheel_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000433333</ixx>
@@ -1215,7 +1215,7 @@
         </inertia>
       </inertial>
       <collision name='back_right_wheel_link_collision'>
-        <pose>0 0 0 -1.5708 0 0</pose>
+        <pose degrees="true">0 0 0 -90 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.1</length>
@@ -1232,7 +1232,7 @@
         </surface>
       </collision>
       <visual name='back_right_wheel_link_visual'>
-        <pose>0 0 0 -1.5708 0 0</pose>
+        <pose degrees="true">0 0 0 -90 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1249,7 +1249,7 @@
       <velocity_decay/>
     </link>
     <joint name='mid_right_wheel_joint' type='revolute'>
-      <pose relative_to='right_bogie_link'>0.1063 -0.0929 -0.0959 0 -0 0</pose>
+      <pose relative_to='right_bogie_link'>0.1063 -0.0929 -0.0959 0 0 0</pose>
       <parent>right_bogie_link</parent>
       <child>mid_right_wheel_link</child>
       <axis>
@@ -1276,9 +1276,9 @@
       </physics>
     </joint>
     <link name='mid_right_wheel_link'>
-      <pose relative_to='mid_right_wheel_joint'>0 0 0 0 -0 0</pose>
+      <pose relative_to='mid_right_wheel_joint'>0 0 0 0 0 0</pose>
       <inertial>
-        <pose>0 0 0 0 -0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <mass>0.25</mass>
         <inertia>
           <ixx>0.000433333</ixx>
@@ -1290,7 +1290,7 @@
         </inertia>
       </inertial>
       <collision name='mid_right_wheel_link_collision'>
-        <pose>0 0 0 -1.5708 0 0</pose>
+        <pose degrees="true">0 0 0 -90 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.1</length>
@@ -1307,7 +1307,7 @@
         </surface>
       </collision>
       <visual name='mid_right_wheel_link_visual'>
-        <pose>0 0 0 -1.5708 0 0</pose>
+        <pose degrees="true">0 0 0 -90 0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
@@ -1324,9 +1324,9 @@
       <velocity_decay/>
     </link>
     <link name='left_turnbuckle_link'>
-      <pose>0.035 0.17 0.07 0 -0 0</pose>
+      <pose>0.035 0.17 0.07 0 0 0</pose>
       <visual name='left_turnbuckle_visual'>
-        <pose>0 0 0 1.570 0 0</pose>
+        <pose degrees="true">0 0 0 90 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://sawppy/meshes/bases/turnbuckle.stl</uri>
@@ -1339,7 +1339,7 @@
         </material>
       </visual>
       <collision name='left_turnbuckle_collision'>
-        <pose>0 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.07</length>
@@ -1360,20 +1360,20 @@
       </inertial>
     </link>
     <!-- <joint name='back_left_turnbuckle_joint' type='ball'>
-      <pose>-0.035 0 0 0 -0 0</pose>
+      <pose>-0.035 0 0 0 0 0</pose>
       <parent>diff_brace_link</parent>
       <child>left_turnbuckle_link</child>
     </joint> -->
     <!-- <joint name='front_left_turnbuckle_joint' type='ball'> -->
     <joint name='front_left_turnbuckle_joint' type='fixed'>
-      <pose>0.035 0 0 0 -0 0</pose>
+      <pose>0.035 0 0 0 0 0</pose>
       <parent>left_rocker_link</parent>
       <child>left_turnbuckle_link</child>
     </joint>
     <link name='right_turnbuckle_link'>
       <pose>0.035 -0.17 0.07 0 0 0</pose>
       <visual name='right_turnbuckle_visual'>
-        <pose>0 0 0 1.5708 0 0</pose>
+        <pose degrees="true">0 0 0 90 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://sawppy/meshes/bases/turnbuckle.stl</uri>
@@ -1386,7 +1386,7 @@
         </material>
       </visual>
       <collision name='right_turnbuckle_collision'>
-        <pose>0 0 0 0 1.5708 0</pose>
+        <pose degrees="true">0 0 0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.07</length>
@@ -1407,7 +1407,7 @@
       </inertial>
     </link>
     <!-- <joint name='back_right_turnbuckle_joint' type='ball'>
-      <pose>-0.035 0 0 0 -0 0</pose>
+      <pose>-0.035 0 0 0 0 0</pose>
       <parent>diff_brace_link</parent>
       <child>right_turnbuckle_link</child>
     </joint> -->
@@ -1433,7 +1433,7 @@
         </inertia>
       </inertial>
       <sensor name="imu_sensor" type="imu">
-        <pose>0 0 0 3.141593 0 0</pose>
+        <pose degrees="true">0 0 0 180 0 0</pose>
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
       </sensor>
@@ -1508,18 +1508,8 @@
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>
 
-      <!-- Frame conventions
-        modelXYZToAirplaneXForwardZDown:
-          - transforms body frame from orientation in Gazebo to NED
-
-        gazeboXYZToNED
-          - transforms world from Gazebo convention xyz = N -E -D
-            to ArduPilot convention xyz = NED
-
-        Vehicle is oriented x-forward, y-left, z-up
-      -->
-      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
-      <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
 
       <!-- Sensors -->
       <imuName>imu_sensor</imuName>

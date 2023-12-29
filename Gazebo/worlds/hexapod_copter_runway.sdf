@@ -39,12 +39,13 @@
     </light>
 
     <include>
+      <pose degrees="true">-29 545 0 0 0 363</pose>
       <uri>model://runway</uri>
     </include>
 
     <!-- Hexapod copter -->
     <include>
-      <pose>0 0 0.12 0 0 1.57079632</pose>
+      <pose degrees="true">0 0 0.12 0 0 90</pose>
       <uri>model://hexapod_copter</uri>
     </include>
 

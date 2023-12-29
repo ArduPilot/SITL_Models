@@ -89,7 +89,7 @@
         </material>
       </visual>
       <visual name='m0'>
-        <pose>0.49 -0.35 0.045 -0.052 0 0</pose>
+        <pose degrees="true">0.49 -0.35 0.045 -3 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.035</length>
@@ -113,7 +113,7 @@
         </material>
       </visual>
       <visual name='m1'>
-        <pose>-0.49 0.35 0.045 0.052 0 0</pose>
+        <pose degrees="true">-0.49 0.35 0.045 3 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.035</length>
@@ -137,7 +137,7 @@
         </material>
       </visual>
       <visual name='m2'>
-        <pose>0.49 0.35 0.045 0.052 0 0</pose>
+        <pose degrees="true">0.49 0.35 0.045 3 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.035</length>
@@ -161,7 +161,7 @@
         </material>
       </visual>
       <visual name='m3'>
-        <pose>-0.49 -0.35 0.045 -0.052 0 0</pose>
+        <pose degrees="true">-0.49 -0.35 0.045 -3 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.035</length>
@@ -185,7 +185,7 @@
         </material>
       </visual>
       <visual name='m4'>
-        <pose>-0.361 0 0.0 0 1.57 0</pose>
+        <pose degrees="true">-0.361 0 0.0 0 90 0</pose>
         <geometry>
           <cylinder>
             <length>0.035</length>
@@ -277,7 +277,7 @@
     </link>
 
     <link name='rotor_0'>
-      <pose>0.49 -0.35 0.07 -0.052 0 0</pose>
+      <pose degrees="true">0.49 -0.35 0.07 -3 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.025</mass>
@@ -336,7 +336,7 @@
     </joint>
 
     <link name='rotor_1'>
-      <pose>-0.49 0.35 0.07 0.052 0 0</pose>
+      <pose degrees="true">-0.49 0.35 0.07 3 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.025</mass>
@@ -395,7 +395,7 @@
     </joint>
 
     <link name='rotor_2'>
-      <pose>0.49 0.35 0.07 0.052 0 0</pose>
+      <pose degrees="true">0.49 0.35 0.07 3 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.025</mass>
@@ -454,7 +454,7 @@
     </joint>
 
     <link name='rotor_3'>
-      <pose>-0.49 -0.35 0.07 -0.052 0 0</pose>
+      <pose degrees="true">-0.49 -0.35 0.07 -3 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.025</mass>
@@ -513,7 +513,7 @@
     </joint>
 
     <link name='rotor_pusher'>
-      <pose>-0.385 0 0.0 0 1.57 0</pose>
+      <pose degrees="true">-0.385 0 0.0 0 90 0</pose>
       <inertial>
         <mass>0.025</mass>
         <inertia>
@@ -526,7 +526,7 @@
         </inertia>
       </inertial>
       <collision name='collision'>
-        <pose>0.0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <cylinder>
             <length>0.005</length>
@@ -683,7 +683,7 @@
         </inertia>
       </inertial>
       <sensor name="imu_sensor" type="imu">
-        <pose>0 0 0 3.141593 0 0</pose>
+        <pose degrees="true">0 0 0 180 0 0</pose>
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
       </sensor>
@@ -1016,18 +1016,8 @@
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>
 
-      <!-- Frame conventions
-        modelXYZToAirplaneXForwardZDown:
-          - transforms body frame from orientation in Gazebo to NED
-
-        gazeboXYZToNED
-          - transforms world from Gazebo convention xyz = N -E -D
-            to ArduPilot convention xyz = NED
-
-        VTOL is oriented x-forward, y-left, z-up
-      -->
-      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
-      <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
 
       <!-- Sensors -->
       <imuName>imu_sensor</imuName>

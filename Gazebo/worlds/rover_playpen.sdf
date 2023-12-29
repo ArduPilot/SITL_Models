@@ -82,7 +82,7 @@
     </model>
     
     <include>
-      <pose>0 0 0 0 0 1.570796</pose>
+      <pose degrees="true">0 0 0 0 0 90</pose>
       <uri>model://rover_playpen</uri>
     </include>
 
