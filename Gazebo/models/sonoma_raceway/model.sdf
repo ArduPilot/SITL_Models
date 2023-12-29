@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.6">
   <model name="sonoma_raceway">
-    <pose>145 290 -7.3 0 0 -1.570796327</pose>
+    <pose degrees="true">-290 145 -7.35 0 0 0</pose>
     <static>true</static>
     <link name="link">
       <collision name="collision">

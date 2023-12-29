@@ -35,6 +35,7 @@
     </light>
 
     <include>
+      <pose degrees="true">-29 545 0 0 0 363</pose>
       <uri>model://runway</uri>
     </include>
 
@@ -67,7 +68,7 @@
 
     <!-- Quadruped rover -->
     <include>
-      <pose>0 0 0.12 0 0 0</pose>
+      <pose degrees="true">0 0 0.12 0 0 90</pose>
       <uri>model://quadruped</uri>
     </include>
 
