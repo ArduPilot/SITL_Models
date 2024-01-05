@@ -1,0 +1,877 @@
+<!--
+  Dimensions
+  - datum: front of hull
+  - loa: 830 mm
+  - leading edge of fin: 340 mm
+  - leading edge of rudder: 830 mm
+  - mast: 400 mm
+  - CoG: 450 mm
+  - mass: 1.4 kg
+  - rudder area: 0.0503 x 0.18 = 0.00905 m^2
+  - fin area:    0.0755 x 0.16 = 0.01208 m^2
+  - rig aabb:    x: 0.661, y: 1.09
+  - sail area:   1.09 * 0.661 * 2/3 * 2/3
+
+  Inertials
+  - hull platform aabb: [0.83, 0.604, 0.119] m
+  - fin aabb:           [0.075, 0.00615, 0.16] m
+  - rudder aabb:        [0.05, 0.00416, 0.18] m
+
+  SDF Geometry  
+  - hull platform mesh origin is located 453 mm from front of hull 
+  - leading edge of fin: 113 mm
+  - leading edge of rudder: -377 mm
+  - wind_sensor: x: 300 mm, z: 125 mm 
+-->
+<sdf version="1.9">
+  <model name="catamaran">
+    <link name="base_link">
+      <inertial>
+        <pose>0.04 0 0 0 0 0</pose>
+        <mass>1.4</mass>
+        <inertia>
+          <ixx>0.044213983</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.082023783</iyy>
+          <iyz>0</iyz>
+          <izz>0.122933533</izz>
+        </inertia>
+      </inertial>
+      <collision name="hull_left_collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/hull_left_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name="hull_right_collision">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/hull_right_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="hull_platform_visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/hull_platform.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- leave visuals for debugging link / joint placement -->
+
+      <!-- <visual name="fin_left_visual">
+        <pose>0.113 0.25 -0.055 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/fin.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual> -->
+
+      <!-- <visual name="fin_right_visual">
+        <pose>0.113 -0.25 -0.055 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/fin.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual> -->
+
+      <!-- <visual name="rudder_left_visual">
+        <pose>-0.377 0.25 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/rudder.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual> -->
+
+      <!-- <visual name="rudder_right_visual">
+        <pose>-0.377 -0.25 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/rudder.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual> -->
+
+      <!-- <visual name="rig_visual">
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/rig.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <ambient>0.7 0.7 0.7 1</ambient>
+          <specular>0.1 0.1 0.1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual> -->
+
+      <!-- <visual name="wind_sensor_visual">
+        <pose>0.3 0 0.125 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>models://catamaran/meshes/wind_sensor.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <specular>0.1 0.1 0.1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual> -->
+
+      <visual name="anemometer_visual">
+        <pose>0.3 0 0.125 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.034</radius>
+            <length>0.04</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0 1 0 0.7</ambient>
+          <diffuse>0 1 0 0.7</diffuse>
+          <specular>0.1 0.1 0.1 0.7</specular>
+        </material>
+      </visual>
+
+      <sensor name="anemometer" type="custom" gz:type="anemometer">
+        <pose>0.3 0 0.125 0 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <gz:anemometer>
+          <noise type="gaussian">
+            <mean>0</mean>
+            <stddev>0</stddev>
+          </noise>
+        </gz:anemometer>
+      </sensor>
+
+    </link>
+
+    <link name="fin_left_link">
+      <pose>0.113 0.25 -0.055 0 0 0</pose>
+      <inertial>
+        <pose>-0.0375 0 -0.08 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000213649</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000260208</iyy>
+          <iyz>0</iyz>
+          <izz>4.71902E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/fin_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/fin.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="cp_visual">
+        <pose>-0.018875 0 -0.08 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="fin_left_joint" type="revolute">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>fin_left_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="fin_right_link">
+      <pose>0.113 -0.25 -0.055 0 0 0</pose>
+      <inertial>
+        <pose>-0.0375 0 -0.08 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000213649</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000260208</iyy>
+          <iyz>0</iyz>
+          <izz>4.71902E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/fin_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/fin.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="cp_visual">
+        <pose>-0.018875 0 -0.08 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="fin_right_joint" type="revolute">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>fin_right_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="rudder_left_link">
+      <pose>-0.377 0.25 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.025 0 -0.09 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000270144</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000290833</iyy>
+          <iyz>0</iyz>
+          <izz>2.09775E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/rudder_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/rudder.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="cp_visual">
+        <pose>-0.012575 0 -0.09 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="rudder_left_joint" type="revolute">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rudder_left_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="rudder_right_link">
+      <pose>-0.377 -0.25 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.025 0 -0.09 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.000270144</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000290833</iyy>
+          <iyz>0</iyz>
+          <izz>2.09775E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/rudder_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/rudder.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 0 1</diffuse>
+          <ambient>1 1 0 1</ambient>
+          <specular>1 1 1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="cp_visual">
+        <pose>-0.012575 0 -0.09 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="rudder_right_joint" type="revolute">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rudder_right_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="rig_link">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0.4 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.081670833</ixx>
+          <ixy>0</ixy>
+          <iyy>0.088333333</iyy>
+          <iyz>0</iyz>
+          <izz>0.006670833</izz>
+        </inertia>
+      </inertial>
+      <collision name="rig_collision">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/rig.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="rig_visual">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/rig.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.7 0.7 0.7 1</diffuse>
+          <ambient>0.7 0.7 0.7 1</ambient>
+          <specular>0.1 0.1 0.1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="cp_visual">
+        <pose>-0.03 0 0.4 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="rig_joint" type="revolute">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rig_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.5708</lower>
+          <upper>1.5708</upper>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="wind_sensor_link">
+      <pose>0.3 0 0.125 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/wind_sensor_collision.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>models://catamaran/meshes/wind_sensor.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <specular>0.1 0.1 0.1 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.5</metalness>
+              <roughness>0.5</roughness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name="wind_sensor_joint" type="revolute">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>rig_link</parent>
+      <child>wind_sensor_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.0E-16</lower>
+          <upper>1.0E16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- sensors -->
+    <link name="imu_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001</izz>
+        </inertia>
+      </inertial>
+      <sensor name="imu_sensor" type="imu">
+        <pose degrees="true">0 0 0 180 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+    <joint name="imu_joint" type="revolute">
+      <child>imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- plugins -->
+    <plugin name="gz::sim::systems::JointStatePublisher"
+      filename="gz-sim-joint-state-publisher-system">
+    </plugin>
+
+    <plugin name="gz::sim::systems::OdometryPublisher"
+      filename="gz-sim-odometry-publisher-system">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <dimensions>3</dimensions>
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointPositionController"
+      filename="gz-sim-joint-position-controller-system">
+      <joint_name>rudder_left_joint</joint_name>
+      <topic>/rudder_left_joint/cmd_pos</topic>
+      <p_gain>1.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.01</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>10.0</cmd_max>
+      <cmd_min>-10.0</cmd_min>
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointPositionController"
+      filename="gz-sim-joint-position-controller-system">
+      <joint_name>rudder_right_joint</joint_name>
+      <topic>/rudder_right_joint/cmd_pos</topic>
+      <p_gain>1.0</p_gain>
+      <i_gain>0.0</i_gain>
+      <d_gain>0.01</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>10.0</cmd_max>
+      <cmd_min>-10.0</cmd_min>
+    </plugin>
+
+    <plugin name="gz::sim::systems::SailPositionController"
+      filename="asv_sim2-sail-position-controller-system">
+      <joint_name>rig_joint</joint_name>
+      <topic>/rig_joint/cmd_pos</topic>
+      <p_gain>0.3</p_gain>
+      <i_gain>0.1</i_gain>
+      <d_gain>0.05</d_gain>
+      <i_max>2</i_max>
+      <i_min>-2</i_min>
+      <cmd_max>100</cmd_max>
+      <cmd_min>-100</cmd_min>
+    </plugin>
+
+    <plugin name="gz::sim::systems::SailLiftDrag"
+        filename="asv_sim2-sail-lift-drag-system">
+      <a0>0.0</a0>
+      <cla>6.2832</cla>
+      <alpha_stall>0.1592</alpha_stall>
+      <cla_stall>-0.7083</cla_stall>
+      <cda>0.63662</cda>
+      <area>0.32</area>
+      <fluid_density>1.2</fluid_density>
+      <forward>1 0 0</forward>
+      <upward>0 1 0</upward>
+      <cp>-0.03 0 0.4</cp>
+      <link_name>rig_link</link_name>
+      <radial_symmetry>1</radial_symmetry>
+      <topic>lift_drag</topic>
+    </plugin>
+
+    <plugin name="gz::sim::systems::FoilLiftDrag"
+        filename="asv_sim2-foil-lift-drag-system">
+      <a0>0.0</a0>
+      <cla>6.2832</cla>
+      <alpha_stall>0.1592</alpha_stall>
+      <cla_stall>-0.7083</cla_stall>
+      <cda>0.63662</cda>
+      <area>0.00905</area>
+      <fluid_density>1025</fluid_density>
+      <forward>1 0 0</forward>
+      <upward>0 1 0</upward>
+      <cp>-0.012575 0 -0.09</cp>
+      <link_name>rudder_left_link</link_name>
+      <radial_symmetry>1</radial_symmetry>
+      <topic>lift_drag</topic>
+    </plugin>
+
+    <plugin name="gz::sim::systems::FoilLiftDrag"
+        filename="asv_sim2-foil-lift-drag-system">
+      <a0>0.0</a0>
+      <cla>6.2832</cla>
+      <alpha_stall>0.1592</alpha_stall>
+      <cla_stall>-0.7083</cla_stall>
+      <cda>0.63662</cda>
+      <area>0.00905</area>
+      <fluid_density>1025</fluid_density>
+      <forward>1 0 0</forward>
+      <upward>0 1 0</upward>
+      <cp>-0.012575 0 -0.09</cp>
+      <link_name>rudder_right_link</link_name>
+      <radial_symmetry>1</radial_symmetry>
+      <topic>lift_drag</topic>
+    </plugin>
+
+    <plugin name="gz::sim::systems::FoilLiftDrag"
+        filename="asv_sim2-foil-lift-drag-system">
+      <a0>0.0</a0>
+      <cla>6.2832</cla>
+      <alpha_stall>0.1592</alpha_stall>
+      <cla_stall>-0.7083</cla_stall>
+      <cda>0.63662</cda>
+      <area>0.01208</area>
+      <fluid_density>1025</fluid_density>
+      <forward>1 0 0</forward>
+      <upward>0 1 0</upward>
+      <cp>-0.018875 0 -0.08</cp>
+      <link_name>fin_left_link</link_name>
+      <radial_symmetry>1</radial_symmetry>
+      <topic>lift_drag</topic>
+    </plugin>
+
+    <plugin name="gz::sim::systems::FoilLiftDrag"
+        filename="asv_sim2-foil-lift-drag-system">
+      <a0>0.0</a0>
+      <cla>6.2832</cla>
+      <alpha_stall>0.1592</alpha_stall>
+      <cla_stall>-0.7083</cla_stall>
+      <cda>0.63662</cda>
+      <area>0.01208</area>
+      <fluid_density>1025</fluid_density>
+      <forward>1 0 0</forward>
+      <upward>0 1 0</upward>
+      <cp>-0.018875 0 -0.08</cp>
+      <link_name>fin_right_link</link_name>
+      <radial_symmetry>1</radial_symmetry>
+      <topic>lift_drag</topic>
+    </plugin>
+
+    <!-- hydrodynamics plugin -->
+    <plugin name="gz::sim::systems::Hydrodynamics" 
+        filename="gz-waves1-hydrodynamics-system">
+        <enable>catamaran::base_link</enable>
+        <hydrodynamics>
+          <damping_on>1</damping_on>
+          <viscous_drag_on>1</viscous_drag_on>
+          <pressure_drag_on>1</pressure_drag_on>
+        </hydrodynamics>
+    </plugin>
+
+    <!-- ardupilot plugin -->
+    <plugin name="ArduPilotPlugin" filename="ArduPilotPlugin">
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>        
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <imuName>imu_link::imu_sensor</imuName>
+      <anemometer>base_link::anemometer</anemometer>
+
+      <!--
+        SERVO1_FUNCTION 26 (GroundSteering)
+        SERVO1_MAX 2000
+        SERVO1_MIN 1000
+
+        Input command in [0, 1]
+        Target rudder position in [-PI/4, PI/4]
+      -->
+      <control channel="0">
+        <jointName>rudder_left_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>1.570796</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/rudder_left_joint/cmd_pos</cmd_topic>
+      </control>
+
+      <control channel="0">
+        <jointName>rudder_right_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>1.570796</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/rudder_right_joint/cmd_pos</cmd_topic>
+      </control>
+
+      <!--
+        SERVO4_FUNCTION 89 (MainSail)
+        SERVO4_MAX 2000
+        SERVO4_MIN 1000
+
+        Input command in [0, 1]
+        Desired sail angle in [0, 80] deg
+
+        If the sails are allowed to sheet out too far 
+        the boat will not gybe.
+        -->
+      <control channel="3">
+        <jointName>rig_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>1.57079632</multiplier>
+        <offset>0</offset>
+        <type>COMMAND</type>
+        <cmd_topic>/rig_joint/cmd_pos</cmd_topic>
+      </control>
+    </plugin>
+
+  </model>
+</sdf>
