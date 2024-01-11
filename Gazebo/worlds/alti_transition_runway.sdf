@@ -35,11 +35,12 @@
     </light>
 
     <include>
+      <pose degrees="true">-29 545 0 0 0 363</pose>
       <uri>model://runway</uri>
     </include>
 
     <include>
-      <pose>0 0 0.35 0 0 0</pose>
+      <pose degrees="true">0 0 0.35 0 0 90</pose>
       <uri>model://alti_transition_quad</uri>
     </include>
 

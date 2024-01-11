@@ -29,12 +29,12 @@
   trailer_model = make_trailer_model('trailer', trailer_pose, 9012)
 
   # make the tractor model and inject trailer
-  tractor_pose = '0 0 1.0 0 0 0'
+  tractor_pose = '0 0 1.0 0 0 1.57079632'
   tractor_model = make_tractor_model('tractor', tractor_pose, 9002,
     trailer_joint, trailer_model)
 
   # make the quadplane and place on the trailer
-  quadplane_pose = '-8.0 0 1.6 0 0 0'
+  quadplane_pose = '0 -8.0 1.6 0 0 1.57079632'
   quadplane_model = make_quadplane_model('quadplane', quadplane_pose, 9022)
 %>
 
@@ -75,6 +75,7 @@
     </light>
 
     <include>
+      <pose degrees="true">-29 545 0 0 0 363</pose>
       <uri>model://runway</uri>
     </include>
 

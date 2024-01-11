@@ -35,11 +35,12 @@
     </light>
 
     <include>
+      <pose degrees="true">-29 545 0 0 0 363</pose>
       <uri>model://runway</uri>
     </include>
 
     <include>
-      <pose>0 0 1.0 0 0 0</pose>
+      <pose degrees="true">0 0 1.0 0 0 90</pose>
       <uri>model://daf_xf_450_tractor</uri>
     </include>
 
