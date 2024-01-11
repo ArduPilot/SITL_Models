@@ -1122,18 +1122,8 @@
       <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
       <lock_step>1</lock_step>
 
-      <!-- Frame conventions
-        modelXYZToAirplaneXForwardZDown:
-          - transforms body frame from orientation in Gazebo to NED
-
-        gazeboXYZToNED
-          - transforms world from Gazebo convention xyz = N -E -D
-            to ArduPilot convention xyz = NED
-
-        VTOL is oriented x-forward, y-left, z-up
-      -->
-      <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 0</modelXYZToAirplaneXForwardZDown>
-      <gazeboXYZToNED>0 0 0 3.141593 0 0</gazeboXYZToNED>
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
 
       <!-- Sensors -->
       <imuName>imu_sensor</imuName>
