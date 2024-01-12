@@ -23,13 +23,13 @@ An X8 configured as a delta-wing plane.
 #### Run Gazebo
 
 ```bash
-$ gz sim -v4 -r skywalker_x8_runway.sdf
+gz sim -v4 -r skywalker_x8_runway.sdf
 ```
 
 #### Run ArduPilot SITL
 
 ```bash
-$ sim_vehicle.py -v ArduPlane -f JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/skywalker_x8.param --console --map
+sim_vehicle.py -v ArduPlane --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/skywalker_x8.param --console --map
 ```
 
 ### `skywalker_x8_quad`
@@ -39,13 +39,13 @@ An X8 configured as a delta-wing quad plane.
 #### Run Gazebo
 
 ```bash
-$ gz sim -v4 -r skywalker_x8_quad_runway.sdf
+gz sim -v4 -r skywalker_x8_quad_runway.sdf
 ```
 
 #### Run ArduPilot SITL
 
 ```bash
-$ sim_vehicle.py -v ArduPlane -f JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/skywalker_x8_quad.param --console --map
+sim_vehicle.py -v ArduPlane --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/skywalker_x8_quad.param --console --map
 ```
 
 ### Notes

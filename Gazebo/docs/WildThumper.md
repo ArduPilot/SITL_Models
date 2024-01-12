@@ -23,7 +23,7 @@ A Wild Thumper 6WD skid-steer rover.
 #### Run Gazebo
 
 ```bash
-$ gz sim -v4 -r wildthumper_runway.sdf
+gz sim -v4 -r wildthumper_runway.sdf
 ```
 
 #### Run ArduPilot SITL
@@ -31,7 +31,7 @@ $ gz sim -v4 -r wildthumper_runway.sdf
 The model can be run with the default `rover-skid` SITL parameters.
 
 ```bash
-$ sim_vehicle.py -v Rover -f rover-skid --model JSON  --console --map
+sim_vehicle.py -v Rover -f rover-skid --model JSON  --console --map
 ```
 
 ## Credits

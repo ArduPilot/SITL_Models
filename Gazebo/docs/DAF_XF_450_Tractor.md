@@ -11,14 +11,14 @@ The vehicle is configured to have car steering (i.e. different wheel angles for 
 **Run Gazebo**
 
 ```bash
-$ gz sim -v4 -s -r daf_truck_runway.sdf
+gz sim -v4 -r daf_truck_runway.sdf
 ```
 **Run ArduPilot SITL**
 
 Copy the script `daf_xf_450_tractor_mixer.lua` to the SITL scripts directory, then start SITL:
 
 ```bash
-sim_vehicle.py -v Rover -f JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/daf_xf_450_tractor.param --console --map
+sim_vehicle.py -v Rover --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/daf_xf_450_tractor.param --console --map
 ```
 
 You may need to reboot the autopilot to ensure the additional scripting parameters are loaded.

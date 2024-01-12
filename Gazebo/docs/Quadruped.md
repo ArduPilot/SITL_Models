@@ -19,7 +19,7 @@ $HOME/SITL_Models/Gazebo/worlds
 #### Run Gazebo
 
 ```bash
-$ gz sim -v4 -r quadruped_runway.sdf
+gz sim -v4 -r quadruped_runway.sdf
 ```
 
 #### Run ArduPilot SITL
@@ -33,7 +33,7 @@ Copy the Lua script `quadruped.lua` to the `scripts` folder for SITL (this is us
 The parameters set `SCR_ENABLE = 1` and you will need to reboot the autopilot after the initial start to retrieve the full set of scripting parameters. You may also need to increase the `SCR_HEAP_SIZE`.
 
 ```bash
-$ sim_vehicle.py -v Rover -f JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/quadruped.param --console --map
+sim_vehicle.py -v Rover --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/quadruped.param --console --map
 ```
 
 #### Controls

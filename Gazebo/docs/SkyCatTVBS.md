@@ -19,13 +19,13 @@ $HOME/SITL_Models/Gazebo/worlds
 #### Run Gazebo
 
 ```bash
-$ gz sim -v4 -r skycat_runway.sdf
+gz sim -v4 -r skycat_runway.sdf
 ```
 
 #### Run ArduPilot SITL
 
 ```bash
-$ sim_vehicle.py -v ArduPlane -f JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/skycat_tvbs.param --console --map
+sim_vehicle.py -v ArduPlane --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/skycat_tvbs.param --console --map
 ```
 
 ### Testing
