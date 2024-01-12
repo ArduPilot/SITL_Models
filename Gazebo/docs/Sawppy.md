@@ -33,7 +33,7 @@ gz sim -v4 sawppy_playpen.sdf
 ### Start SITL
 
 ```bash
-sim_vehicle.py -v Rover -f JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/sawppy.param --console
+sim_vehicle.py -v Rover --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/sawppy.param --console --map
 ```
 
 ### Configure parameters

@@ -24,7 +24,7 @@ The model may be included in a world sdf file using the `<include>` element:
 An example world containing a wild thumper rover is provided as an example:
 
 ```bash
-$ gz sim -r wildthumper_playpen.sdf
+gz sim -v4 -r wildthumper_playpen.sdf
 ```
 
 For details on controlling the wild thumper rover with SITL see: [Wild Thumper 6WD](./WildThumper.md).

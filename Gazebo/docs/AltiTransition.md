@@ -26,7 +26,7 @@ gz sim -v4 -r alti_transition_runway.sdf
 ###  Run ArduPilot SITL
 
 ```bash
-sim_vehicle.py -v ArduPlane -f JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/alti_transition_quad.param --console --map
+sim_vehicle.py -v ArduPlane --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/alti_transition_quad.param --console --map
 ```
 
 ### Preflight checks

@@ -33,7 +33,7 @@ $HOME/SITL_Models/Gazebo/worlds
 #### Run Gazebo
 
 ```bash
-$ gz sim -v4 -r hexapod_copter_runway.sdf
+gz sim -v4 -r hexapod_copter_runway.sdf
 ```
 
 #### Run ArduPilot SITL
@@ -42,7 +42,7 @@ Copy the script $HOME/SITL_Models/Gazebo/scripts/hexapod_copter.lua to the SITL 
 then start SITL:
 
 ```bash
-sim_vehicle.py -D -v ArduCopter -f hexa --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/hexapod_copter.param --console
+sim_vehicle.py -v ArduCopter -f hexa --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/hexapod_copter.param --console --map
 ```
 
 ## Dimensions

@@ -33,7 +33,7 @@ gz sim -v4 -r catamaran_waves.sdf
 #### Run ArduPilot SITL
 
 ```bash
-sim_vehicle.py -D -v Rover --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/catamaran.param --console --map --custom-location='51.566151,-4.034345,10.0,-135'
+sim_vehicle.py -v Rover --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/catamaran.param --console --map --custom-location='51.566151,-4.034345,10.0,-135'
 ```
  
 #### Wave and wind settings

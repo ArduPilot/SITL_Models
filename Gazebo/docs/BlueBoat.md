@@ -39,7 +39,7 @@ gz sim -v4 -r waves.sdf
 #### Run ArduPilot SITL
 
 ```bash
-sim_vehicle.py -D -v Rover -f rover-skid --model JSON  --console --map
+sim_vehicle.py -v Rover -f rover-skid --model JSON  --console --map --custom-location='51.566151,-4.034345,10.0,-135'
 ```
 
 The default skid steer rover parameters give a workable simulation with minor modifications:

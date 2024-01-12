@@ -20,13 +20,13 @@ $HOME/SITL_Models/Gazebo/worlds
 #### Run Gazebo
 
 ```bash
-$ gz sim -v4 -r bicopter_runway.sdf
+gz sim -v4 -r bicopter_runway.sdf
 ```
 
 #### Run ArduPilot SITL
 
 ```bash
-$ sim_vehicle.py -v ArduCopter --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/bicopter.param --console --map
+sim_vehicle.py -v ArduCopter --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/bicopter.param --console --map
 ```
 
 ### Notes
