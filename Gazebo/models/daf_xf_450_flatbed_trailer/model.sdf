@@ -594,11 +594,11 @@
 
   <!-- Plugins -->
   <plugin name="gz::sim::systems::JointStatePublisher"
-      filename="libgz-sim-joint-state-publisher-system.so">
+      filename="gz-sim-joint-state-publisher-system">
   </plugin>
 
   <plugin name="ArduPilotPlugin"
-      filename="libArduPilotPlugin.so">
+      filename="ArduPilotPlugin">
     <fdm_addr>127.0.0.1</fdm_addr>
     <fdm_port_in>9012</fdm_port_in>
     <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>

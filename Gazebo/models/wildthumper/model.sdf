@@ -1762,7 +1762,7 @@
     </joint>
 
     <!-- plugins -->
-    <plugin filename="libgz-sim-joint-state-publisher-system.so"
+    <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
     </plugin>
     <plugin
@@ -1772,32 +1772,32 @@
       <robot_base_frame>base_link</robot_base_frame>
       <dimensions>3</dimensions>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>front_left_wheel_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>front_right_wheel_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>mid_left_wheel_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>mid_right_wheel_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>rear_left_wheel_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>rear_right_wheel_joint</joint_name>
     </plugin>
 
-    <plugin name="ArduPilotPlugin" filename="libArduPilotPlugin.so">
+    <plugin name="ArduPilotPlugin" filename="ArduPilotPlugin">
       <!-- Port settings -->
       <fdm_addr>127.0.0.1</fdm_addr>
       <fdm_port_in>9002</fdm_port_in>

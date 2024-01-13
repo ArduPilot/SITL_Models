@@ -570,12 +570,12 @@
     </joint>
 
     <!-- plugins -->
-    <plugin filename="libgz-sim-joint-state-publisher-system.so"
+    <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
     </plugin>
 
     <!-- prop_left (cc) lift-drag -->
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
@@ -592,7 +592,7 @@
       <upward>0 0 1</upward>
       <link_name>motor_left_link</link_name>
     </plugin>
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
@@ -611,7 +611,7 @@
     </plugin>
 
     <!-- prop_right (ccw) lift-drag -->
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
@@ -628,7 +628,7 @@
       <upward>0 0 1</upward>
       <link_name>motor_right_link</link_name>
     </plugin>
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.3</a0>
       <alpha_stall>1.4</alpha_stall>
@@ -647,7 +647,7 @@
     </plugin>
 
     <!-- wing lift-drag -->
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.13</a0>
       <cla>3.7</cla>
@@ -665,7 +665,7 @@
       <link_name>base_link</link_name>
     </plugin>
     <!-- left_elevon lift-drag -->
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.15</a0>
       <cla>6.8</cla>
@@ -685,7 +685,7 @@
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
     </plugin>
     <!-- right_elevon lift-drag -->
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.15</a0>
       <cla>6.8</cla>
@@ -705,7 +705,7 @@
       <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
     </plugin>
     <!-- left_winglet lift-drag -->
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.0</a0>
       <cla>4.752798721</cla>
@@ -723,7 +723,7 @@
       <link_name>base_link</link_name>
     </plugin>
     <!-- right_winglet lift-drag -->
-    <plugin filename="libgz-sim-lift-drag-system.so"
+    <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
       <a0>0.0</a0>
       <cla>4.752798721</cla>
@@ -741,32 +741,32 @@
       <link_name>base_link</link_name>
     </plugin>
 
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>elevon_left_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>elevon_right_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>tilt_left_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>tilt_right_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>motor_left_joint</joint_name>
     </plugin>
-    <plugin filename="libgz-sim-apply-joint-force-system.so"
+    <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>motor_right_joint</joint_name>
     </plugin>
 
-    <plugin name="ArduPilotPlugin" filename="libArduPilotPlugin.so">
+    <plugin name="ArduPilotPlugin" filename="ArduPilotPlugin">
       <!-- Port settings -->
       <fdm_addr>127.0.0.1</fdm_addr>
       <fdm_port_in>9002</fdm_port_in>

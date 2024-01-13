@@ -2176,7 +2176,7 @@
     </joint>
 
     <!-- plugins -->
-    <plugin filename="libgz-sim-joint-state-publisher-system.so"
+    <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
     </plugin>
 
