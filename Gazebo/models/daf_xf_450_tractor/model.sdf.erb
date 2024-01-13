@@ -697,27 +697,27 @@ DO NOT EDIT. This file is generated from an ERB template.
 
   <!-- Plugins -->
   <plugin name="gz::sim::systems::JointStatePublisher"
-      filename="libgz-sim-joint-state-publisher-system.so">
+      filename="gz-sim-joint-state-publisher-system">
   </plugin>
   <plugin name="gz::sim::systems::ApplyJointForce"
-      filename="libgz-sim-apply-joint-force-system.so">
+      filename="gz-sim-apply-joint-force-system">
       <joint_name>rear_left_wheel_joint</joint_name>
   </plugin>
   <plugin name="gz::sim::systems::ApplyJointForce"
-      filename="libgz-sim-apply-joint-force-system.so">
+      filename="gz-sim-apply-joint-force-system">
       <joint_name>rear_right_wheel_joint</joint_name>
   </plugin>
   <plugin name="gz::sim::systems::ApplyJointForce"
-      filename="libgz-sim-apply-joint-force-system.so">
+      filename="gz-sim-apply-joint-force-system">
       <joint_name>front_left_steer_joint</joint_name>
   </plugin>
   <plugin name="gz::sim::systems::ApplyJointForce"
-      filename="libgz-sim-apply-joint-force-system.so">
+      filename="gz-sim-apply-joint-force-system">
       <joint_name>front_right_steer_joint</joint_name>
   </plugin>
 
   <plugin name="ArduPilotPlugin"
-      filename="libArduPilotPlugin.so">
+      filename="ArduPilotPlugin">
     <!-- Port settings -->
     <fdm_addr><%= fdm_addr %></fdm_addr>
     <fdm_port_in><%= fdm_port_in %></fdm_port_in>
