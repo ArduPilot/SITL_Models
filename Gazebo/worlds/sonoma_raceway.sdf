@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.7">
-  <world name="sonoma_raceway">
+  <world name="raceway">
     <plugin filename="gz-sim-physics-system"
       name="gz::sim::systems::Physics">
     </plugin>

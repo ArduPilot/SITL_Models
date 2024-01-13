@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <sdf version="1.7">
-  <world name="wildthumper_runway">
+  <world name="runway">
     <plugin filename="gz-sim-physics-system"
       name="gz::sim::systems::Physics">
     </plugin>
