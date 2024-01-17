@@ -1,0 +1,1803 @@
+<?xml version="1.0" ?>
+<sdf version="1.9">
+  <model name="wsc_aircraft">
+  <static>0</static>
+  <self_collide>0</self_collide>
+
+    <!-- Links -->
+
+    <link name="base_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>1e-10</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-10</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-10</izz>
+        </inertia>
+      </inertial>
+
+      <!-- centre of mass debugging 
+      <collision name="base_link_collision">
+        <pose>0 -0.78 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.1 0.1 2</size>
+          </box>
+        </geometry>   
+      </collision>
+
+      -->
+
+    <!-- save for debugging use -->
+    <!--
+      <visual name="cp_wing_root_left">
+        <pose>1.7 -0.15 2.15 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 0 1</ambient>
+          <diffuse>0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+
+      <visual name="cp_wing_tip_left">
+        <pose>3.75 0.6 2.2 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.03</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 0 1</ambient>
+          <diffuse>0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    -->
+    </link>
+
+    <link name="wing_body">
+      <pose>0 -1.47 1.95 0 0 0</pose>
+      <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>1e-10</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-10</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-10</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+<link name="wing_root_left">
+      <pose>-0.1 0 0 -0.05 0.05 0</pose>
+      <inertial>
+        <pose>1.28 -0.576 2 0 0 0</pose>
+        <mass>9.3</mass>
+        <inertia>
+          <ixx>3.159</ixx>
+          <ixy>-2.957</ixy>
+          <iyy>6.887</iyy>
+          <ixz>0.067</ixz>
+          <iyz>0.082</iyz>
+          <izz>9.962</izz>
+        </inertia>
+      </inertial>
+      <visual name="wing_root_left_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/wing_root_left.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name="wing_root_left_collision">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/wing_root_left.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>    
+
+    <link name="wing_root_right">
+      <pose>0.1 0 0 -0.05 -0.05 0</pose>
+      <inertial>
+        <pose>-1.28 -0.576 2 0 0 0</pose>
+        <mass>9.3</mass>
+        <inertia>
+          <ixx>3.159</ixx>
+          <ixy>2.957</ixy>
+          <iyy>6.887</iyy>
+          <ixz>-0.067</ixz>
+          <iyz>0.082</iyz>
+          <izz>9.962</izz>
+        </inertia>
+      </inertial>
+      <visual name="wing_root_right_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/wing_root_right.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name="wing_root_right_collision">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/wing_root_right.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link> 
+
+    <link name="wing_tip_left">
+      <pose>0.3 0.26 -0.65 0.1 -0.15 0</pose>
+      <inertial>
+        <pose>3.8 0.5 1.93 0 0 0</pose>
+        <mass>1.7</mass>
+        <inertia>
+          <ixx>0.215</ixx>
+          <ixy>-0.187</ixy>
+          <iyy>0.439</iyy>
+          <ixz>-0.002</ixz>
+          <iyz>-0.002</iyz>
+          <izz>0.647</izz>
+        </inertia>
+      </inertial>
+      <visual name="wing_tip_left_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/wing_tip_left_2.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name="wing_tip_left_collision">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/wing_tip_left_2.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>    
+
+    <link name="wing_tip_right">
+      <pose>-0.3 0.26 -0.65 0.1 0.15 0</pose>
+      <inertial>
+        <pose>-3.8 0.1 1.93 0 0 0</pose>
+        <mass>1.7</mass>
+        <inertia>
+          <ixx>0.215</ixx>
+          <ixy>0.187</ixy>
+          <iyy>0.439</iyy>
+          <ixz>0.002</ixz>
+          <iyz>-0.002</iyz>
+          <izz>0.647</izz>
+        </inertia>
+      </inertial>
+      <visual name="wing_tip_right_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/wing_tip_right_2.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <collision name="wing_tip_right_collision">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/wing_tip_right_2.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>   
+
+    <link name="front_wheel1">
+      <pose>-1 -1.47 0.127 1.58 0 1.58</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.007</ixx>
+          <ixy>0</ixy>
+          <iyy>0.004</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.004</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="front_wheel1_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.127</radius>
+            <length>0.09</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <collision name="front_wheel1_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.127</radius>
+            <length>0.09</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.01</mu>
+              <mu2>0.01</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>  
+
+    <link name="front_wheel2">
+      <pose>1 -1.47 0.127 1.58 0 1.58</pose>
+      <inertial>
+        <mass>1</mass>
+        <inertia>
+          <ixx>0.007</ixx>
+          <ixy>0</ixy>
+          <iyy>0.004</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.004</izz>          
+        </inertia>
+      </inertial> 
+      <visual name="front_wheel2_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.127</radius>
+            <length>0.09</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <collision name="front_wheel2_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.127</radius>
+            <length>0.09</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.01</mu>
+              <mu2>0.01</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>  
+
+    <link name="rear_wheel">
+      <pose>0 1.1 0.127 1.58 0 1.58</pose>
+      <inertial>
+        <mass>0.48</mass>
+        <inertia>
+          <ixx>0.004</ixx>
+          <ixy>0</ixy>
+          <iyy>0.002</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.002</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="rear_wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.127</radius>
+            <length>0.09</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <collision name="rear_wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.127</radius>
+            <length>0.09</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.01</mu>
+              <mu2>0.01</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>  
+
+    <link name="landing_gear">
+      <inertial>
+        <pose>0 0.385 0.664 0 0 0</pose>
+        <mass>6.3</mass>
+        <inertia>
+          <ixx>7.391</ixx>
+          <ixy>0</ixy>
+          <iyy>3.202</iyy>
+          <ixz>0</ixz>
+          <iyz>0.373</iyz>
+          <izz>7.265</izz>          
+        </inertia>
+      </inertial>
+      <visual name="landing_gear_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/landing_gear.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>   
+      <collision name="landing_gear_collision">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/landing_gear.dae</uri>
+          </mesh>
+        </geometry>      
+      </collision>
+    </link>
+
+    <link name="steering_link">
+      <inertial>
+        <pose>0 1.1 0.335 0 0 0</pose>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <iyy>0.001</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1.847e-4</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="steering_link_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/steering_link.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="steering_link_collision">
+        <pose>0 1.1 0.335 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.122 0.064 0.1</size>
+          </box>
+        </geometry>   
+      </collision>
+    </link>
+
+    <link name="hang_block_yaw">
+      <inertial>
+        <pose>0 -1.02 1.9 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>1e-10</ixx>
+          <ixy>0</ixy>
+          <iyy>1e-10</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1e-10</izz>        
+        </inertia>
+      </inertial> 
+    </link>   
+
+    <link name="hang_block_roll">
+      <inertial>
+        <pose>0 -1.02 1.9 0 0 0</pose>
+        <mass>0.3245</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <iyy>1.249e-4</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.001</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="hang_block_roll_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/hang_block_roll.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="hang_block_roll_collision">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/hang_block_roll.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>   
+
+    <link name="hang_block_pitch">
+      <inertial>
+        <pose>0 -1.02 1.9 0 0 0</pose>
+        <mass>0.3245</mass>
+        <inertia>
+          <ixx>4.924e-5</ixx>
+          <ixy>0</ixy>
+          <iyy>3.172e-4</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>2.969e-4</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="hang_block_pitch_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/hang_block_pitch.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="hang_block_pitch_collision">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/hang_block_pitch.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>   
+
+    <link name="fuselage">
+      <inertial>
+        <pose>0 -0.44 1.08 0 0 0</pose>
+        <mass>5</mass>
+        <inertia>
+          <ixx>2.563</ixx>
+          <ixy>0</ixy>
+          <iyy>0.619</iyy>
+          <ixz>0</ixz>
+          <iyz>-0.09</iyz>
+          <izz>2.849</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="fuselage_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/fuselage.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="fuselage_collision">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/fuselage.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>    
+
+    <link name="battery">
+      <inertial>
+        <pose>0 -1.3254 0.795 0 0 0</pose>
+        <mass>40</mass>
+        <inertia>
+          <ixx>1.465</ixx>
+          <ixy>0</ixy>
+          <iyy>0.73</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>1.029</izz>         
+        </inertia>
+      </inertial>
+      <visual name="battery_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/battery.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="battery_collision">
+        <pose>0 -1.3254 0.795 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.21 0.53 0.43</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>  
+
+    <link name="motor1">
+      <pose>-0.65 0.31 1.13 0 1.58 1.58</pose>
+      <inertial>
+        <mass>1.74</mass>
+        <inertia>
+          <ixx>0.003</ixx>
+          <ixy>0</ixy>
+          <iyy>0.004</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.003</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="motor1_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.075</radius>
+            <length>0.06</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <collision name="motor1_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.075</radius>
+            <length>0.06</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>   
+
+    <link name="motor2">
+      <pose>0.65 0.31 1.13 0 1.58 1.58</pose>
+      <inertial>
+        <mass>1.74</mass>
+        <inertia>
+          <ixx>0.003</ixx>
+          <ixy>0</ixy>
+          <iyy>0.004</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.003</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="motor2_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.075</radius>
+            <length>0.06</length>
+          </cylinder>
+        </geometry>
+      </visual>
+      <collision name="motor2_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.075</radius>
+            <length>0.06</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>  
+
+    <link name="propeller1">
+      <pose>-0.65 0.35 1.13 0 1.58 1.58</pose>
+      <inertial>
+        <mass>0.474</mass>
+        <inertia>
+          <ixx>0.00001686</ixx>
+          <ixy>0.0001072</ixy>
+          <iyy>0.0168</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.01681</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="propeller1_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/propeller_S.dae</uri>
+            <center>true</center>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="propeller1_collision">
+        <geometry>
+          <cylinder>
+              <radius>0.508</radius>
+              <length>0.02</length>
+            </cylinder>
+        </geometry>
+      </collision>
+    </link>   
+
+    <link name="propeller2">
+      <pose>0.65 0.35 1.13 0 1.58 1.58</pose>
+      <inertial>
+        <mass>0.474</mass>
+        <inertia>
+          <ixx>0.00001686</ixx>
+          <ixy>0.0001072</ixy>
+          <iyy>0.0168</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.01681</izz>         
+        </inertia>
+      </inertial> 
+      <visual name="propeller2_visual">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/propeller_S.dae</uri>
+            <center>true</center>
+          </mesh>
+        </geometry>
+      </visual>
+      <collision name="propeller2_collision">
+        <geometry>
+          <cylinder>
+              <radius>0.508</radius>
+              <length>0.02</length>
+            </cylinder>
+        </geometry>
+      </collision>
+    </link>  
+  
+    <!-- Joints -->
+    <joint name="dummy_joint" type="fixed">
+      <pose relative_to='landing_gear'/>
+      <parent>base_link</parent>
+      <child>landing_gear</child>
+    </joint>
+
+    <joint name="wing_body_joint" type="fixed">
+      <pose relative_to='wing_body'/>
+      <parent>landing_gear</parent>
+      <child>wing_body</child>
+    </joint>
+
+    <joint name="landing_wing_left_joint" type="revolute">
+      <pose>0 -0.576 2 0 0 0</pose>
+      <parent>wing_body</parent>
+      <child>wing_root_left</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.01</lower>
+          <upper>0.01</upper>
+          <effort>9e80</effort>
+          <velocity>1e-5</velocity>
+        </limit>
+        <dynamics>
+          <damping>5e4</damping>
+          <friction>5e2</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="landing_wing_right_joint" type="revolute">
+      <pose>0 -0.576 2 0 0 0</pose>
+      <parent>wing_body</parent>
+      <child>wing_root_right</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <lower>-0.01</lower>
+          <upper>0.01</upper>
+          <effort>9e80</effort>
+          <velocity>1e-5</velocity>
+        </limit>
+        <dynamics>
+          <damping>5e4</damping>
+          <friction>5e2</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="wing_joint_left" type="revolute">
+      <pose>0 0.5 1.93 0 0 0</pose>
+      <parent>wing_root_left</parent>
+      <child>wing_tip_left</child>
+      <axis>
+        <xyz>1 1 0</xyz>
+        <limit>
+          <lower>-0.001</lower>
+          <upper>0.001</upper>
+          <effort>9e80</effort>
+          <velocity>1e-5</velocity>
+        </limit>
+        <dynamics>
+          <damping>5e80</damping>
+          <friction>5e80</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="wing_joint_right" type="revolute">
+      <pose>0 0.5 1.93 0 0 0</pose>
+      <parent>wing_root_right</parent>
+      <child>wing_tip_right</child>
+      <axis>
+        <xyz>1 1 0</xyz>
+        <limit>
+          <lower>-0.001</lower>
+          <upper>0.001</upper>
+          <effort>9e80</effort>
+          <velocity>1e-5</velocity>
+        </limit>
+        <dynamics>
+          <damping>5e80</damping>
+          <friction>5e80</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="front_wheel1_joint" type="revolute">
+      <pose relative_to='front_wheel1'/>
+      <parent>landing_gear</parent>
+      <child>front_wheel1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.1</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="front_wheel2_joint" type="revolute">
+      <pose relative_to='front_wheel2'/>
+      <parent>landing_gear</parent>
+      <child>front_wheel2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.1</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="rear_wheel_joint" type="revolute">
+      <pose relative_to='rear_wheel'/>
+      <parent>steering_link</parent>
+      <child>rear_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <damping>15</damping>
+          <friction>1</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="steering_wheel_joint" type="revolute">
+      <pose>0 1.1 0.335 0 0 0</pose>
+      <parent>landing_gear</parent>
+      <child>steering_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.7</lower>
+          <upper>0.7</upper>
+          <effort>1000</effort>
+          <velocity>100</velocity>
+        </limit>
+        <dynamics>
+          <damping>50</damping>
+          <friction>5</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="fuselage_yaw_joint" type="revolute">
+      <pose>0 -1.027 1.9 0 0 0</pose>
+      <parent>wing_body</parent>
+      <child>hang_block_yaw</child>    
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1e80</effort>
+          <velocity>0.5</velocity>
+          <lower>-0.0</lower>
+          <upper>0.0</upper>
+        </limit>
+        <dynamics>
+          <damping>2e1</damping>
+          <friction>1</friction>
+        </dynamics>
+      </axis>  
+    </joint>
+    
+    <joint name="fuselage_roll_joint" type="revolute">
+      <pose>0 -1.027 1.9 0 0 0</pose>
+      <parent>hang_block_yaw</parent>
+      <child>hang_block_roll</child>    
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <effort>1e80</effort>
+          <velocity>0.5</velocity>
+          <lower>-0.35</lower>
+          <upper>0.35</upper>
+        </limit>
+        <dynamics>
+          <damping>1e2</damping>
+          <friction>1</friction>
+        </dynamics>
+      </axis>  
+    </joint>
+
+    <joint name="fuselage_pitch_joint" type="revolute">
+      <pose>0 -1.027 1.9 0 0 0</pose>
+      <parent>hang_block_roll</parent>
+      <child>hang_block_pitch</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <effort>1e80</effort>
+          <velocity>0.5</velocity>
+          <lower>-0.25</lower>
+          <upper>0.25</upper>
+        </limit>
+        <dynamics>
+          <damping>2e4</damping>
+          <friction>1</friction>
+        </dynamics>
+      </axis>      
+    </joint>
+
+    <joint name="hang_block_joint" type="fixed">
+      <pose>0 -1.027 1.9 0 0 0</pose>
+      <parent>hang_block_pitch</parent>
+      <child>fuselage</child>
+    </joint>
+
+    <joint name="battery_joint" type="fixed">
+      <pose>0 -1.3254 0.795 0 0 0</pose>
+      <parent>fuselage</parent>
+      <child>battery</child>
+    </joint>
+
+    <joint name="motor1_joint" type="fixed">
+      <pose relative_to='motor1'/>
+      <parent>fuselage</parent>
+      <child>motor1</child>
+    </joint>
+
+    <joint name="motor2_joint" type="fixed">
+      <pose relative_to='motor2'/>
+      <parent>fuselage</parent>
+      <child>motor2</child>
+    </joint>
+
+    <joint name="propeller1_joint" type="revolute">
+      <pose relative_to='propeller1'/>
+      <parent>motor1</parent>
+      <child>propeller1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <dynamics>
+          <damping>0.2</damping>
+          <friction>2</friction>
+        </dynamics>
+      </axis>   
+      <sensor name="prop1_sensor" type="force_torque">
+        <always_on>true</always_on>
+        <update_rate>60</update_rate>
+        <visualize>true</visualize>
+        <topic>prop1_force_joint/force_torque</topic>
+        <force_torque>
+          <frame>sensor</frame>
+          <measure_direction>parent_to_child</measure_direction>
+        </force_torque>
+      </sensor>   
+    </joint>
+
+    <joint name="propeller2_joint" type="revolute">
+      <pose relative_to='propeller2'/>
+      <parent>motor2</parent>
+      <child>propeller2</child>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <dynamics>
+          <damping>0.2</damping>
+          <friction>2</friction>
+        </dynamics>
+      </axis>   
+      <sensor name="prop2_sensor" type="force_torque">
+        <always_on>true</always_on>
+        <update_rate>60</update_rate>
+        <visualize>true</visualize>
+        <topic>prop2_force_joint/force_torque</topic>
+        <force_torque>
+          <frame>sensor</frame>
+          <measure_direction>parent_to_child</measure_direction>
+        </force_torque>
+      </sensor>     
+    </joint>
+
+    <!-- Sensors -->
+
+    <link name='imu_link1'>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.11</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      <sensor name="imu_sensor1" type="imu">
+        <pose>0 0 0 3.141593 0 -1.5707963</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+    <joint name='imu_joint1' type='revolute'>
+      <child>imu_link1</child>
+      <parent>wing_body</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+<!-- Gimbal camera links and joints  -->
+    <link name="gimbal_camera">
+      <pose>0 -2 2 0 0 -1.5707963</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      <visual name="gimbal_camera_visual">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size>
+          </box>
+        </geometry>
+      </visual>
+      <sensor name="gimbal_camera" type="camera">
+        <camera>
+          <horizontal_fov>1.098</horizontal_fov>
+          <image>
+            <width>320</width>
+            <height>240</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>1000</far>
+          </clip>
+        </camera>
+        <always_on>true</always_on>
+        <update_rate>30</update_rate>
+      </sensor>
+   
+      <sensor name='gpu_lidar2' type='gpu_lidar'>
+        <topic>lidar2</topic>
+        <update_rate>10</update_rate>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>64</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.261799</min_angle>
+              <max_angle>0.261799</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>64</samples>
+              <resolution>1</resolution>
+              <min_angle>-0.261799</min_angle>
+              <max_angle>0.261799</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>10</min>
+            <max>1000.0</max>
+            <resolution>0.1</resolution>
+          </range>
+        </lidar>
+        <alwaysOn>1</alwaysOn>
+        <visualize>true</visualize>
+      </sensor>
+
+    </link>
+
+    <link name="fixed_camera">
+      <pose>0 -2 2 0 0 -1.5707963</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+        <sensor name='gpu_lidar' type='gpu_lidar'>
+          <topic>lidar</topic>
+          <update_rate>30</update_rate>
+          <lidar>
+            <scan>
+              <horizontal>
+                <samples>1</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.02</min_angle>
+                <max_angle>0.02</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <resolution>1</resolution>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.1</min>
+              <max>10</max>
+              <resolution>0.1</resolution>
+            </range>
+          </lidar>
+          <alwaysOn>1</alwaysOn>
+          <visualize>true</visualize>
+        </sensor>
+    </link>
+
+    <link name="gimbal_yaw">
+      <pose relative_to='gimbal_camera'/>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <link name="gimbal_roll">
+      <pose relative_to='gimbal_camera'/>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <link name="gimbal_pitch">
+      <pose relative_to='gimbal_camera'/>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+    </link>
+
+    <joint name="gimbal_yaw_joint" type="revolute">
+      <pose relative_to='gimbal_camera'/>
+      <parent>base_link</parent>
+      <child>gimbal_yaw</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <effort>1e80</effort>
+          <velocity>1</velocity>
+          <lower>-3.14159</lower>
+          <upper>3.14159</upper>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.01</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name="gimbal_roll_joint" type="revolute">
+      <pose relative_to='gimbal_camera'/>
+      <parent>gimbal_yaw</parent>
+      <child>gimbal_roll</child>
+      <axis>
+        <xyz>1 0 0</xyz>
+        <limit>
+          <effort>1e80</effort>
+          <velocity>1</velocity>
+          <lower>-0.5236</lower>
+          <upper>0.5236</upper>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.01</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name="gimbal_pitch_joint" type="revolute">
+      <pose relative_to='gimbal_camera'/>
+      <parent>gimbal_roll</parent>
+      <child>gimbal_pitch</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <effort>1e80</effort>
+          <velocity>1</velocity>
+          <lower>-0.44</lower>
+          <upper>1.571</upper>
+        </limit>
+        <dynamics>
+          <damping>0.1</damping>
+          <friction>0.01</friction>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <joint name="gimbal_camera_joint" type="fixed">
+      <pose relative_to='gimbal_camera'/>
+      <parent>gimbal_pitch</parent>
+      <child>gimbal_camera</child>
+    </joint>
+
+    <joint name="fixed_camera_joint" type="fixed">
+      <pose relative_to='fixed_camera'/>
+      <parent>base_link</parent>
+      <child>fixed_camera</child>
+    </joint>
+
+<!-- Fog generator for trails-->
+
+    <link name="trail_gen">
+      <pose>0 2 0 0 0 0</pose>
+      <particle_emitter name="emitter" type="point">
+        <emitting>true</emitting>
+        <size>0.001 0.001 0.001</size>
+        <particle_size>1 1 1</particle_size>
+        <particle_scatter_ratio>1.0</particle_scatter_ratio>
+        <lifetime>60</lifetime>
+        <min_velocity>0</min_velocity>
+        <max_velocity>0</max_velocity>
+        <scale_rate>0</scale_rate>
+        <rate>20</rate>
+        <material>
+          <ambient>0 0 1</ambient>
+          <diffuse>0.7 0.7 0.7</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+        </material>
+      </particle_emitter>
+    </link>
+
+    <joint name="tail_gen_joint" type="fixed">
+      <pose>0 0 0 0 0 0</pose>
+      <parent>wing_body</parent>
+      <child>trail_gen</child>
+    </joint>
+
+<!-- plugins -->
+
+  <plugin filename="libgz-sim-joint-state-publisher-system.so"
+    name="gz::sim::systems::JointStatePublisher">
+  </plugin>
+
+  <plugin
+    filename="ignition-gazebo-forcetorque-system"
+    name="ignition::gazebo::systems::ForceTorque">
+  </plugin>
+  
+  <!-- wing_root_left-->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.0436</a0>
+    <cla>5.87</cla>
+    <cda>0.0306</cda>
+    <cma>0</cma>
+    <alpha_stall>0.38</alpha_stall>
+    <cla_stall>-3.44</cla_stall>
+    <cda_stall>1.13</cda_stall>
+    <cma_stall>0</cma_stall>
+    <cp>1.2 -0.6 2.15</cp>
+    <area>6</area>
+    <air_density>1.2041</air_density>
+    <forward>0 -1 0</forward>
+    <upward>0 0 1</upward>
+    <link_name>wing_root_left</link_name>
+  </plugin>
+
+  <!-- wing_root_right-->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.0436</a0>
+    <cla>5.87</cla>
+    <cda>0.0306</cda>
+    <cma>0</cma>
+    <alpha_stall>0.38</alpha_stall>
+    <cla_stall>-3.44</cla_stall>
+    <cda_stall>1.13</cda_stall>
+    <cma_stall>0</cma_stall>
+    <cp>-1.2 -0.6 2.15</cp>
+    <area>6</area>
+    <air_density>1.2041</air_density>
+    <forward>0 -1 0</forward>
+    <upward>0 0 1</upward>
+    <link_name>wing_root_right</link_name>
+  </plugin>
+
+  <!-- wing_tip_left-->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.0436</a0>
+    <cla>5.87</cla>
+    <cda>0.0306</cda>
+    <cma>0</cma>
+    <alpha_stall>0.38</alpha_stall>
+    <cla_stall>-3.44</cla_stall>
+    <cda_stall>1.13</cda_stall>
+    <cma_stall>0</cma_stall>
+    <cp>3. 0.6 2.2</cp>
+    <area>2</area>
+    <air_density>1.2041</air_density>
+    <forward>0 -1 0</forward>
+    <upward>0 0 1</upward>
+    <link_name>wing_tip_left</link_name>
+  </plugin>
+
+  <!-- wing_tip_right-->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.0436 </a0>
+    <cla>5.87</cla>
+    <cda>0.0306</cda>
+    <cma>0</cma>
+    <alpha_stall>0.38</alpha_stall>
+    <cla_stall>-3.44</cla_stall>
+    <cda_stall>1.13</cda_stall>
+    <cma_stall>0</cma_stall>
+    <cp>-3. 0.6 2.2</cp>
+    <area>2</area>
+    <air_density>1.2041</air_density>
+    <forward>0 -1 0</forward>
+    <upward>0 0 1</upward>
+    <link_name>wing_tip_right</link_name>
+  </plugin>
+
+  <!-- propeller1_blade_1 -->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.35</a0>
+    <alpha_stall>1.4</alpha_stall>
+    <cla>2.1500</cla>
+    <cda>0.55</cda>
+    <cma>0.00</cma>
+    <cla_stall>-0.025</cla_stall>
+    <cda_stall>0.0</cda_stall>
+    <cma_stall>0.0</cma_stall>
+    <area>0.073</area>
+    <air_density>1.2041</air_density>
+    <cp>0.2 0 0</cp>
+    <forward>0 1 0</forward>
+    <upward>0 0 -1</upward>
+    <link_name>propeller1</link_name>
+  </plugin>
+  <!-- propeller1_blade_2 -->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.35</a0>
+    <alpha_stall>1.4</alpha_stall>
+    <cla>2.1500</cla>
+    <cda>0.55</cda>
+    <cma>0.00</cma>
+    <cla_stall>-0.025</cla_stall>
+    <cda_stall>0.0</cda_stall>
+    <cma_stall>0.0</cma_stall>
+    <area>0.073</area>
+    <air_density>1.2041</air_density>
+    <cp>-0.2 0 0</cp>
+    <forward>0 -1 0</forward>
+    <upward>0 0 -1</upward>
+    <link_name>propeller1</link_name>
+  </plugin>
+
+  <!-- propeller2_blade_1 -->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.35</a0>
+    <alpha_stall>1.4</alpha_stall>
+    <cla>2.1500</cla>
+    <cda>0.55</cda>
+    <cma>0.00</cma>
+    <cla_stall>-0.025</cla_stall>
+    <cda_stall>0.0</cda_stall>
+    <cma_stall>0.0</cma_stall>
+    <area>0.073</area>
+    <air_density>1.2041</air_density>
+    <cp>0.2 0 0</cp>
+    <forward>0 -1 0</forward>
+    <upward>0 0 -1</upward>
+    <link_name>propeller2</link_name>
+  </plugin>
+  <!-- propeller2_blade_2 -->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.35</a0>
+    <alpha_stall>1.4</alpha_stall>
+    <cla>2.1500</cla>
+    <cda>0.55</cda>
+    <cma>0.00</cma>
+    <cla_stall>-0.025</cla_stall>
+    <cda_stall>0.0</cda_stall>
+    <cma_stall>0.0</cma_stall>
+    <area>0.073</area>
+    <air_density>1.2041</air_density>
+    <cp>-0.2 0 0</cp>
+    <forward>0 1 0</forward>
+    <upward>0 0 -1</upward>
+    <link_name>propeller2</link_name>
+  </plugin>
+
+  <!-- drag modelling of remaining components -->
+  <!-- frontal area -->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.785398 </a0>
+    <cla>0</cla>
+    <cda>57.3</cda>
+    <cma>0</cma>
+    <alpha_stall>0.0174533</alpha_stall>
+    <cla_stall>0</cla_stall>
+    <cda_stall>0</cda_stall>
+    <cma_stall>0</cma_stall>
+    <cp>0 -0.85 1.13</cp>
+    <area>0.56</area>
+    <air_density>1.2041</air_density>
+    <forward>0 -1 0</forward>
+    <upward>0 0 1</upward>
+    <link_name>fuselage</link_name>
+  </plugin>
+
+  <!-- front left wheel-->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.785398 </a0>
+    <cla>0</cla>
+    <cda>57.3</cda>
+    <cma>0</cma>
+    <alpha_stall>0.0174533</alpha_stall>
+    <cla_stall>0</cla_stall>
+    <cda_stall>0</cda_stall>
+    <cma_stall>0</cma_stall>
+    <cp>-1 -1.47 0.127</cp>
+    <area>0.023</area>
+    <air_density>1.2041</air_density>
+    <forward>0 -1 0</forward>
+    <upward>0 0 1</upward>
+    <link_name>fuselage</link_name>
+  </plugin>
+
+  <!-- front right wheel-->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.785398 </a0>
+    <cla>0</cla>
+    <cda>57.3</cda>
+    <cma>0</cma>
+    <alpha_stall>0.0174533</alpha_stall>
+    <cla_stall>0</cla_stall>
+    <cda_stall>0</cda_stall>
+    <cma_stall>0</cma_stall>
+    <cp>1 -1.47 0.127</cp>
+    <area>0.023</area>
+    <air_density>1.2041</air_density>
+    <forward>0 -1 0</forward>
+    <upward>0 0 1</upward>
+    <link_name>fuselage</link_name>
+  </plugin>
+
+  <!-- rear wheel-->
+  <plugin filename="gz-sim-lift-drag-system"
+      name="gz::sim::systems::LiftDrag">
+    <a0>0.785398 </a0>
+    <cla>0</cla>
+    <cda>57.3</cda>
+    <cma>0</cma>
+    <alpha_stall>0.0174533</alpha_stall>
+    <cla_stall>0</cla_stall>
+    <cda_stall>0</cda_stall>
+    <cma_stall>0</cma_stall>
+    <cp>0 1.1 0.127</cp>
+    <area>0.023</area>
+    <air_density>1.2041</air_density>
+    <forward>0 -1 0</forward>
+    <upward>0 0 1</upward>
+    <link_name>fuselage</link_name>
+  </plugin>
+
+  <plugin filename="libgz-sim-apply-joint-force-system.so"
+    name="gz::sim::systems::ApplyJointForce">
+    <joint_name>fuselage_roll_joint</joint_name>
+    <joint_name>fuselage_pitch_joint</joint_name>
+    <joint_name>steering_wheel_joint</joint_name>
+    <joint_name>propeller1_joint</joint_name>
+    <joint_name>propeller2_joint</joint_name>
+    <joint_name>wing_tip_roll_left</joint_name>
+    <joint_name>wing_tip_roll_right</joint_name>
+    <joint_name>gimbal_yaw_joint</joint_name>
+    <joint_name>gimbal_roll_joint</joint_name>
+    <joint_name>gimbal_pitch_joint</joint_name>
+  </plugin>
+
+  <plugin name="ArduPilotPlugin" filename="ArduPilotPlugin">
+    <!-- Port settings -->
+    <fdm_addr>127.0.0.1</fdm_addr>
+    <fdm_port_in>9002</fdm_port_in>
+    <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+    <lock_step>1</lock_step>
+
+    <!-- Frame conventions
+      modelXYZToAirplaneXForwardZDown:
+        - transforms body frame from orientation in Gazebo to NED
+
+      gazeboXYZToNED
+        - transforms world from Gazebo convention xyz = N -E -D
+          to ArduPilot convention xyz = NED
+
+      euav_tp is oriented x-left, y-back, z-up ??????
+    -->
+    <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 -1.5707963</modelXYZToAirplaneXForwardZDown>
+    <gazeboXYZToNED>0 0 0 3.141593 0 1.57079632</gazeboXYZToNED>
+
+    <!-- Sensors -->
+    <imuName>imu_sensor1</imuName>
+
+    <!-- roll
+        SERVO1_FUNCTION   4 (Aileron)
+        SERVO1_MAX        1900
+        SERVO1_MIN        1100
+        SERVO1_REVERSED   1
+        SERVO1_TRIM       1500
+
+        pwm:          =>  [1100, 1900]
+        input:        =>  [0, 1]
+        offset: -0.5  =>  [-0.5, 0.5]
+        scale:   2.0  =>  [-1.0, 1.0]
+        scale:  0.45  =>  [-0.45, 0.45]
+    -->
+    <control channel="0">
+      <jointName>fuselage_roll_joint</jointName>
+      <useForce>1</useForce>
+      <multiplier>0.9</multiplier>
+      <offset>-0.5</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>POSITION</type>
+      <p_gain>2e3</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>50</d_gain>
+      <i_max>100</i_max>
+      <i_min>-100</i_min>
+      <cmd_max>1e20</cmd_max>
+      <cmd_min>-1e20</cmd_min>
+    </control>  
+
+    <!-- pitch
+        SERVO2_FUNCTION   19 (Elevator)
+        SERVO2_MAX        1900
+        SERVO2_MIN        1100
+        SERVO2_REVERSED   1
+        SERVO2_TRIM       1500
+
+        pwm:          =>  [1100, 1900]
+        input:        =>  [0, 1]
+        offset: -0.5  =>  [-0.5, 0.5]
+        scale:   2.0  =>  [-1.0, 1.0]
+        scale:  0.25  =>  [-0.25, 0.25]
+    -->
+    <control channel="1">
+      <jointName>fuselage_pitch_joint</jointName>
+      <useForce>1</useForce>
+      <multiplier>0.5</multiplier>
+      <offset>-0.5</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>POSITION</type>
+      <p_gain>5e4</p_gain>
+      <i_gain>0.1</i_gain>
+      <d_gain>10</d_gain>
+      <i_max>100</i_max>
+      <i_min>-100</i_min>
+      <cmd_max>1e80</cmd_max>
+      <cmd_min>-1e80</cmd_min>
+    </control>
+
+    <!-- steer
+        SERVO4_FUNCTION   21 (Rudder)
+        SERVO4_MAX        1900
+        SERVO4_MIN        1100
+        SERVO4_REVERSED   0
+        SERVO4_TRIM       1500
+
+        pwm:          =>  [1100, 1900]
+        input:        =>  [0, 1]
+        offset: -0.5  =>  [-0.5, 0.5]
+        scale:   2.0  =>  [-1.0, 1.0]
+        scale:   0.7  =>  [-0.7, 0.7]
+    -->
+    <control channel="3">
+      <jointName>steering_wheel_joint</jointName>
+      <useForce>1</useForce>
+      <multiplier>1.4</multiplier>
+      <offset>-0.5</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>POSITION</type>
+      <p_gain>2500.0</p_gain>
+      <i_gain>0.5</i_gain>
+      <d_gain>50</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>200.5</cmd_max>
+      <cmd_min>-200.5</cmd_min>
+    </control>
+
+    <!-- wing motion left
+        SERVO5_FUNCTION   77 (Elevon left) 
+        SERVO5_MAX        1900
+        SERVO5_MIN        1100
+        SERVO5_REVERSED   0
+        SERVO5_TRIM       1500
+
+        pwm:          =>  [1100, 1900]
+        input:        =>  [0, 1]
+        offset: -0.5  =>  [-0.5, 0.5]
+        scale:   2.0  =>  [-1.0, 1.0]
+        scale:  0.1  =>  [-0.1, 0.1]
+    -->
+    <control channel="4">
+      <jointName>wing_joint_left</jointName>
+      <useForce>1</useForce>
+      <multiplier>0.2</multiplier>
+      <offset>-0.5</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>POSITION</type>
+      <p_gain>1000</p_gain>
+      <i_gain>10</i_gain>
+      <d_gain>200</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1e5</cmd_max>
+      <cmd_min>-1e5</cmd_min>
+    </control>  
+
+    <!-- wing motion right
+        SERVO6_FUNCTION   78 (Elevon right) 
+        SERVO6_MAX        1900
+        SERVO6_MIN        1100
+        SERVO6_REVERSED   0
+        SERVO6_TRIM       1500
+
+        pwm:          =>  [1100, 1900]
+        input:        =>  [0, 1]
+        offset: -0.5  =>  [-0.5, 0.5]
+        scale:   2.0  =>  [-1.0, 1.0]
+        scale:  0.1  =>  [-0.1, 0.1]
+    -->
+
+    <control channel="5">
+      <jointName>wing_joint_right</jointName>
+      <useForce>1</useForce>
+      <multiplier>0.2</multiplier>
+      <offset>-0.5</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>POSITION</type>
+      <p_gain>1000</p_gain>
+      <i_gain>10</i_gain>
+      <d_gain>200</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1e5</cmd_max>
+      <cmd_min>-1e5</cmd_min>
+    </control> 
+
+    <!-- propeller 1
+        SERVO10_FUNCTION   74 (Throttle Right)
+        SERVO10_MAX        1900
+        SERVO10_MIN        1100
+        SERVO10_REVERSED   0
+        SERVO10_TRIM       1100
+
+        incoming control command [0, 1]
+        so offset it by 0 to get [0, 1]
+        and divide max target by 1.
+        offset = 0
+        multiplier = 525 max rad/s / 1 = 525
+    -->
+    <control channel="9">
+      <jointName>propeller1_joint</jointName>
+      <useForce>1</useForce>
+      <multiplier>400</multiplier>
+      <offset>0</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>VELOCITY</type>
+      <p_gain>20</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0</i_max>
+      <i_min>0</i_min>
+      <cmd_max>2000</cmd_max>
+      <cmd_min>0.0</cmd_min>
+    </control>
+
+    <!-- propeller 2
+        SERVO11_FUNCTION   73 (Throttle Left)
+        SERVO11_MAX        1900
+        SERVO11_MIN        1100
+        SERVO11_REVERSED   0
+        SERVO11_TRIM       1100
+
+        incoming control command [0, 1]
+        so offset it by 0 to get [0, 1]
+        and divide max target by 1.
+        offset = 0
+        multiplier = 525 max rad/s / 1 = 525
+    -->
+    <control channel="10">
+      <jointName>propeller2_joint</jointName>
+      <useForce>1</useForce>
+      <multiplier>400</multiplier>
+      <offset>0</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>VELOCITY</type>
+      <p_gain>20</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>0</i_max>
+      <i_min>0</i_min>
+      <cmd_max>2000</cmd_max>
+      <cmd_min>0.0</cmd_min>
+    </control>
+
+    <!-- gimbal control -->
+
+    <!-- gimbal yaw
+        SERVO7_FUNCTION   6 (Mount1 Yaw)
+        SERVO7_MAX        1900
+        SERVO7_MIN        1100
+        SERVO7_REVERSED   0
+        SERVO7_TRIM       1500
+
+        pwm:          =>  [1100, 1900]
+        input:        =>  [0, 1]
+        offset: -0.5  =>  [-0.5, 0.5]
+        scale:   2.0  =>  [-1.0, 1.0]
+        scale:  3.14  =>  [-3.14, 3.14]
+    -->
+    <control channel="6">
+      <jointName>gimbal_yaw_joint</jointName>
+      <useForce>1</useForce>
+      <multiplier>-6.28318</multiplier>
+      <offset>-0.5</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>POSITION</type>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0.1</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1e3</cmd_max>
+      <cmd_min>-1e3</cmd_min>
+    </control>  
+
+        <!-- gimbal roll
+        SERVO8_FUNCTION   8 (Mount1 Roll)
+        SERVO8_MAX        1900
+        SERVO8_MIN        1100
+        SERVO8_REVERSED   0
+        SERVO8_TRIM       1500
+
+        pwm:          =>  [1100, 1900]
+        input:        =>  [0, 1]
+        offset: -0.5  =>  [-0.5, 0.5]
+        scale:   2.0  =>  [-1.0, 1.0]
+        scale:  0.52  =>  [-0.52, 0.52]
+    -->
+    <control channel="7">
+      <jointName>gimbal_roll_joint</jointName>
+      <useForce>1</useForce>
+      <multiplier>1.04</multiplier>
+      <offset>-0.5</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>POSITION</type>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0.1</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1e3</cmd_max>
+      <cmd_min>-1e3</cmd_min>
+    </control>  
+
+        <!-- gimbal pitch
+        SERVO9_FUNCTION   7 (Mount1 Pitch)
+        SERVO9_MAX        1900
+        SERVO9_MIN        1100
+        SERVO9_REVERSED   1
+        SERVO9_TRIM       1500
+
+        pwm:          =>  [1100, 1900]
+        input:        =>  [0, 1]
+        offset: -0.7812  =>  [-0.7812, 0.2188]
+        scale:   2.0  =>  [-1.5624, 0.4376]
+        scale:  1.0055  =>  [-1.571, 0.44]
+    -->
+    <control channel="8">
+      <jointName>gimbal_pitch_joint</jointName>
+      <useForce>1</useForce>
+      <multiplier>-2.011</multiplier>
+      <offset>-0.7812</offset>
+      <servo_min>1100</servo_min>
+      <servo_max>1900</servo_max>
+      <type>POSITION</type>
+      <p_gain>1</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0.1</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>1e3</cmd_max>
+      <cmd_min>-1e3</cmd_min>
+    </control>  
+
+  </plugin>
+
+  </model>
+</sdf>
