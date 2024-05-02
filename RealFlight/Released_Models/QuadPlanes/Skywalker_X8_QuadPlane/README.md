@@ -1,6 +1,6 @@
 # Skywalker X8 QuadPlane
 
-![cover.png]
+![JPG](cover.jpg)
 
 CAD and power setup: [UCanDrone S.A.](https://ucandrone.com/)
 SITL model development: George Zogopoulos - [Controlled Ascent](https://controlled-ascent.com/)
