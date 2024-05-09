@@ -9,7 +9,7 @@ SITL model development: George Zogopoulos - [Controlled Ascent](https://controll
 
 * Wing span: .......... 2.12 m
 * Length: ............. 1.06 m
-* Weight: ............. 9.89 kg
+* Weight: ............. 9.82 kg
 * Battery: ............ 8S3P LiPo - 26000 mAh
 * Pusher thruster: .... 17"x5.8" 375KV
 * MC thrusters: ....... 15"x12" T-Motor MN505-S Navigator KV380
@@ -27,7 +27,7 @@ SITL model development: George Zogopoulos - [Controlled Ascent](https://controll
 
 ## Notes
 
-* The retracts are passthrough, via the RC Ch9. RealFlight will pass that to SITL if your controller is configured in RealFlight.
+* The retracts are controlled via RC Ch9.
 
-Tested in RealFlight Evoluation using ArduPlane 4.5.2.
+Tested in RealFlight Evolution using ArduPlane 4.5.2.
 
