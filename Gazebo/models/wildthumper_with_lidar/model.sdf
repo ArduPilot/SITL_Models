@@ -1868,6 +1868,177 @@
       </axis>
     </joint>
 
+    <link name='gimbal_base'>
+      <pose relative_to='gimbal_base_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>9.09375e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>9.09375e-05</iyy>
+          <iyz>0</iyz>
+          <izz>9.1875e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.035</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name='visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.01</length>
+            <radius>0.035</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='gimbal_base_joint' type='revolute'>
+      <pose relative_to='base_link'>0.0 0 0.0. 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>gimbal_base</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>0</effort>
+          <velocity>0</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+
+    <link name='gimbal_head'>
+      <pose relative_to='gimbal_head_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>9.09375e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>9.09375e-05</iyy>
+          <iyz>0</iyz>
+          <izz>9.1875e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.08</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='visugimbal_baseal'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.08</size>
+          </box>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='gimbal_head_joint' type='revolute'>
+      <pose relative_to='gimbal_base'>0.0 0 0.120 0 0 0</pose>
+      <parent>gimbal_base</parent>
+      <child>gimbal_head</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>50</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <joint name='camera_joint' type='fixed'>
+      <pose relative_to='gimbal_head'>0.05 0 0.0 0 0 0</pose>
+      <parent>gimbal_head</parent>
+      <child>camera_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-3.14</lower>
+          <upper>3.14</upper>
+          <effort>50</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <link name='camera_link'>
+      <pose relative_to='camera_joint'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1.0e-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.0e-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.0e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='camera_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name='camera_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.05 0.05 0.05</size>
+          </box>
+        </geometry>
+      </visual>
+      <sensor name="camera" type="camera">
+        <!-- <pose degrees="true">0 0 0 0 0 0</pose> -->
+        <camera>
+          <horizontal_fov>2.0</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>15000</far>
+          </clip>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+      </sensor>
+    </link>
+
     <!-- plugins -->
     <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
@@ -1899,6 +2070,11 @@
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>rear_left_wheel_joint</joint_name>
     </plugin>
+    <plugin filename="gz-sim-apply-joint-force-system"
+      name="gz::sim::systems::ApplyJointForce">
+      <joint_name>rear_right_wheel_joint</joint_name>
+    </plugin>
+
     <plugin filename="gz-sim-apply-joint-force-system"
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>rear_right_wheel_joint</joint_name>
@@ -2053,6 +2229,40 @@
         <cmd_min>0.0</cmd_min>
       </control>
 
+      <control channel="4">
+        <jointName>gimbal_head_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>46.3</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>POSITION</type>
+        <p_gain>0.2</p_gain>
+        <i_gain>0.06</i_gain>
+        <d_gain>0.0001</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>-1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
+      </control>
+
+      <control channel="5">
+        <jointName>gimbal_base_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>46.3</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>POSITION</type>
+        <p_gain>0.2</p_gain>
+        <i_gain>0.06</i_gain>
+        <d_gain>0.0001</d_gain>
+        <i_max>1</i_max>
+        <i_min>-1</i_min>
+        <cmd_max>-1.0</cmd_max>
+        <cmd_min>0.0</cmd_min>
+      </control>
+      
     </plugin>
 
   </model>
