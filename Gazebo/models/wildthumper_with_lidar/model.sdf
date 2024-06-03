@@ -2039,6 +2039,17 @@
       </sensor>
     </link>
 
+    <!-- realsensee d435 -->
+    <include merge="true">
+      <pose relative_to='realsense_joint'>0 0 0 0 0 0</pose>
+      <uri>model://RealSense_D435</uri>
+    </include>
+    <joint name='realsense_joint' type='fixed'>
+      <pose relative_to='base_link'>0.2 0.0 0.05 0.0 0.0 0.0</pose>
+      <parent>base_link</parent>
+      <child>realsense_link</child>
+    </joint>
+    
     <!-- plugins -->
     <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
