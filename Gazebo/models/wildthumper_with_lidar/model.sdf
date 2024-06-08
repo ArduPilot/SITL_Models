@@ -1789,7 +1789,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://wildthumper_with_lidar/meshes/sensors/sensors/rplidar_a1.dae</uri>
+            <uri>model://wildthumper_with_lidar/meshes/sensors/rplidar_a1.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -1849,6 +1849,8 @@
         </ray>
       </sensor>
     </link>
+
+
     <joint name='base_scan_joint' type='revolute'>
       <pose relative_to='base_link'>0.11 0 0.03 0 0 0</pose>
       <parent>base_link</parent>
@@ -1991,7 +1993,7 @@
     </joint>
 
     <link name='camera_link'>
-      <pose relative_to='camera_joint'>0 0 0 0 0 0</pose>
+      <pose relative_to='base_link'>0.11 0 0.03 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.05</mass>
@@ -2050,7 +2052,14 @@
       <child>realsense_link</child>
     </joint>
      -->
-  
+    <joint name='rs_camera_joint' type='fixed'>
+      <pose relative_to='base_link'>0.19 0 0.0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>realsense_link</child>
+    </joint>
+
+
+
     <link name="realsense_link">
       <inertial>
         <mass>0.0615752</mass>
@@ -2062,7 +2071,7 @@
           <iyz>0</iyz>
           <izz>8.931e-05</izz>
         </inertia>
-        <pose frame=''>0 0 0 0 -0 0</pose>
+        <pose relative_to='rs_camera_joint'>0.0 0 0.0 0 0 0</pose>
       </inertial>
       <collision name="collision">
         <geometry>
@@ -2150,11 +2159,7 @@
 
     </link>
 
-    <joint name='rs_camera_joint' type='fixed'>
-      <pose relative_to='base_link'>0 0 0.0 0 0 0.5</pose>
-      <parent>base_link</parent>
-      <child>realsense_link</child>
-    </joint>
+   
 
     <!-- plugins -->
     <plugin filename="gz-sim-joint-state-publisher-system"

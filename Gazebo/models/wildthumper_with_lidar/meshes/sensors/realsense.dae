@@ -17,7 +17,7 @@
   </asset>
   <library_images>
     <image id="MapFBXASC032FBXASC0352-image" name="MapFBXASC032FBXASC0352">
-      <init_from>../materials/textures/RealSense_Albedo.png</init_from>
+      <init_from>/home/navneeth/dev/arista/arista_ws/src/sim/ardupilot_sitl_models/Gazebo/models/wildthumper_with_lidar/materials/textures/RealSense_Albedo.png</init_from>
     </image>
   </library_images>
   <library_materials>
