@@ -2052,15 +2052,12 @@
       <child>realsense_link</child>
     </joint>
      -->
-    <joint name='rs_camera_joint' type='fixed'>
-      <pose relative_to='base_link'>0.19 0 0.0 0 0 0</pose>
-      <parent>base_link</parent>
-      <child>realsense_link</child>
-    </joint>
+    
 
 
 
     <link name="realsense_link">
+      <pose relative_to='rs_camera_joint'>0.0 0 0.0 0 0 0</pose>
       <inertial>
         <mass>0.0615752</mass>
         <inertia>
@@ -2071,9 +2068,9 @@
           <iyz>0</iyz>
           <izz>8.931e-05</izz>
         </inertia>
-        <pose relative_to='rs_camera_joint'>0.0 0 0.0 0 0 0</pose>
       </inertial>
       <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://wildthumper_with_lidar/meshes/sensors/realsense.dae</uri>
@@ -2081,6 +2078,7 @@
         </geometry>
       </collision>
       <visual name= "visual">
+        <pose>0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://wildthumper_with_lidar/meshes/sensors/realsense.dae</uri>
@@ -2111,6 +2109,8 @@
       </visual>
 
       <sensor name="realsense_d435" type="rgbd_camera">
+        <gz_frame_id>realsense_link</gz_frame_id>
+        <pose>0 0 0 0 0 0</pose>
         <update_rate>60</update_rate>
         <camera name="rs_camera">
           <horizontal_fov>1.0472</horizontal_fov>
@@ -2157,7 +2157,15 @@
         </camera>
       </sensor>
 
+
     </link>
+
+
+    <joint name='rs_camera_joint' type='fixed'>
+      <pose relative_to='base_link'>0.19 0.0 0.0 0.0 0 0</pose>
+      <parent>base_link</parent>
+      <child>realsense_link</child>
+    </joint>
 
    
 
