@@ -32,10 +32,10 @@
           </box>
         </geometry>
         <material>
-          <script>
+          <!-- <script>
             <name>Gazebo/Orange</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
+          </script> -->
           <diffuse>1 0.3125 0 1</diffuse>
           <ambient>1 0.3125 0 1</ambient>
         </material>
@@ -1912,8 +1912,8 @@
         <limit>
           <lower>-3.14</lower>
           <upper>3.14</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
+          <effort>50</effort>
+          <velocity>20</velocity>
         </limit>
         <dynamics>
           <damping>1.0</damping>
@@ -1945,7 +1945,7 @@
           </box>
         </geometry>
       </collision>
-      <visual name='visugimbal_baseal'>
+      <visual name='visual'>
         <pose>0 0 0 0 0 0</pose>
         <geometry>
           <box>
@@ -1961,8 +1961,8 @@
       <axis>
         <xyz>0 1 0</xyz>
         <limit>
-          <lower>-3.14</lower>
-          <upper>3.14</upper>
+          <lower>-1.57</lower>
+          <upper>1.57</upper>
           <effort>50</effort>
           <velocity>20</velocity>
         </limit>
@@ -2078,7 +2078,7 @@
         </geometry>
       </collision>
       <visual name= "visual">
-        <pose>0 0 0 0 0 0</pose>
+        <pose>0 0 0 0 0 1.5708</pose>
         <geometry>
           <mesh>
             <uri>model://wildthumper_with_lidar/meshes/sensors/realsense.dae</uri>
@@ -2209,6 +2209,16 @@
       name="gz::sim::systems::ApplyJointForce">
       <joint_name>rear_right_wheel_joint</joint_name>
     </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system" 
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>gimbal_base_joint</joint_name>
+    </plugin>
+    <plugin filename="gz-sim-joint-position-controller-system" 
+      name="gz::sim::systems::JointPositionController">
+      <joint_name>gimbal_head_joint</joint_name>
+    </plugin>    
+
 
     <plugin name="ArduPilotPlugin" filename="ArduPilotPlugin">
       <!-- Port settings -->
@@ -2362,7 +2372,7 @@
       <control channel="4">
         <jointName>gimbal_head_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>46.3</multiplier>
+        <multiplier>1</multiplier>
         <offset>-0.5</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -2372,14 +2382,22 @@
         <d_gain>0.0001</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
-        <cmd_max>-1.0</cmd_max>
-        <cmd_min>0.0</cmd_min>
+        <cmd_max>-3.14</cmd_max>
+        <cmd_min>3.14</cmd_min>
       </control>
+      <!-- 
+          NOTE range=0-1
+          offset =-0.5
+          range=-0.5-0.5
+          multiplier=6.28
+          range= -3.14-3.14
+          PS the plugin is faulty
+       -->
 
       <control channel="5">
         <jointName>gimbal_base_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>46.3</multiplier>
+        <multiplier>6.28</multiplier>
         <offset>-0.5</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
@@ -2389,8 +2407,8 @@
         <d_gain>0.0001</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
-        <cmd_max>-1.0</cmd_max>
-        <cmd_min>0.0</cmd_min>
+        <cmd_max>-3.14</cmd_max>
+        <cmd_min>3.14</cmd_min>
       </control>
       
     </plugin>
