@@ -1916,7 +1916,7 @@
           <velocity>20</velocity>
         </limit>
         <dynamics>
-          <damping>1.0</damping>
+          <damping>0.1</damping>
         </dynamics>
         <use_parent_model_frame>1</use_parent_model_frame>
       </axis>
@@ -2205,11 +2205,6 @@
       <joint_name>rear_right_wheel_joint</joint_name>
     </plugin>
 
-    <plugin filename="gz-sim-apply-joint-force-system"
-      name="gz::sim::systems::ApplyJointForce">
-      <joint_name>rear_right_wheel_joint</joint_name>
-    </plugin>
-
     <plugin filename="gz-sim-joint-position-controller-system" 
       name="gz::sim::systems::JointPositionController">
       <joint_name>gimbal_base_joint</joint_name>
@@ -2402,15 +2397,14 @@
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
         <type>POSITION</type>
-        <p_gain>0.2</p_gain>
+        <p_gain>2</p_gain>
         <i_gain>0.06</i_gain>
         <d_gain>0.0001</d_gain>
         <i_max>1</i_max>
         <i_min>-1</i_min>
         <cmd_max>-3.14</cmd_max>
         <cmd_min>3.14</cmd_min>
-      </control>
-      
+      </control>     
     </plugin>
 
   </model>
