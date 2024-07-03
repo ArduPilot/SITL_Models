@@ -32,10 +32,6 @@
           </box>
         </geometry>
         <material>
-          <script>
-            <name>Gazebo/Orange</name>
-            <uri>file://media/materials/scripts/gazebo.material</uri>
-          </script>
           <diffuse>1 0.3125 0 1</diffuse>
           <ambient>1 0.3125 0 1</ambient>
         </material>
