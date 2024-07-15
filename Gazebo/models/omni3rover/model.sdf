@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="omni3rover">
+    <link name="base_link">
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00875</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00875</iyy>
+          <iyz>0</iyz>
+          <izz>0.016875</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <cylinder>
+            <radius>0.15</radius>
+            <length>0.05</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+
+      <!-- senors -->
+      <sensor name="imu_sensor" type="imu">
+        <pose degrees="true">0 0 0 180 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+
+    <!-- wheels -->
+    <include>
+      <uri>model://mecanum_wheel_left</uri>
+      <pose degrees="true">0.09 -0.155884573 0 90 0 30</pose>
+      <name>wheel_1</name>
+    </include>
+    <joint name="wheel_1_joint" type="revolute">
+      <child>wheel_1::wheel_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.0e16</lower>
+          <upper>1.0e16</upper>
+          <effort>1.0e6</effort>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <include>
+      <uri>model://mecanum_wheel_left</uri>
+      <pose degrees="true">-0.18 0 0 -90 0 90</pose>
+      <name>wheel_2</name>
+    </include>
+    <joint name="wheel_2_joint" type="revolute">
+      <child>wheel_2::wheel_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.0e16</lower>
+          <upper>1.0e16</upper>
+          <effort>1.0e6</effort>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <include>
+      <uri>model://mecanum_wheel_left</uri>
+      <pose degrees="true">0.09 0.155884573 0 -90 0 -30</pose>
+      <name>wheel_3</name>
+    </include>
+    <joint name="wheel_3_joint" type="revolute">
+      <child>wheel_3::wheel_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.0e16</lower>
+          <upper>1.0e16</upper>
+          <effort>1.0e6</effort>
+        </limit>
+        <dynamics>
+          <damping>0.0001</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <plugin filename="gz-sim-joint-state-publisher-system"
+      name="gz::sim::systems::JointStatePublisher">
+    </plugin>
+    <plugin
+      filename="gz-sim-odometry-publisher-system"
+      name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <dimensions>3</dimensions>
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>wheel_1_joint</joint_name>
+      <use_force_commands>1</use_force_commands>
+      <topic>/model/omni3rover/joint/wheel_1_joint/cmd_vel</topic>
+      <initial_velocity>0.0</initial_velocity>
+      <p_gain>0.3</p_gain>
+      <d_gain>1.0e-4</d_gain>
+      <cmd_max>1.0e6</cmd_max>
+      <cmd_min>-1.0e6</cmd_min>
+    </plugin>
+    <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>wheel_2_joint</joint_name>
+      <use_force_commands>1</use_force_commands>
+      <topic>/model/omni3rover/joint/wheel_2_joint/cmd_vel</topic>
+      <initial_velocity>0.0</initial_velocity>
+      <p_gain>0.3</p_gain>
+      <d_gain>1.0e-4</d_gain>
+      <cmd_max>1.0e6</cmd_max>
+      <cmd_min>-1.0e6</cmd_min>
+    </plugin>
+    <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>wheel_3_joint</joint_name>
+      <use_force_commands>1</use_force_commands>
+      <topic>/model/omni3rover/joint/wheel_3_joint/cmd_vel</topic>
+      <initial_velocity>0.0</initial_velocity>
+      <p_gain>0.3</p_gain>
+      <d_gain>1.0e-4</d_gain>
+      <cmd_max>1.0e6</cmd_max>
+      <cmd_min>-1.0e6</cmd_min>
+    </plugin>
+
+    <plugin name="ArduPilotPlugin"
+      filename="ArduPilotPlugin">
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+      <have_32_channels>0</have_32_channels>
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
+      <imuName>base_link::imu_sensor</imuName>
+
+      <control channel="0">
+        <jointName>wheel_1_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>100</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/omni3rover/joint/wheel_1_joint/cmd_vel</cmd_topic>
+      </control>
+
+      <control channel="1">
+        <jointName>wheel_2_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>100</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/omni3rover/joint/wheel_2_joint/cmd_vel</cmd_topic>
+      </control>
+
+      <control channel="2">
+        <jointName>wheel_3_joint</jointName>
+        <useForce>1</useForce>
+        <multiplier>100</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/omni3rover/joint/wheel_3_joint/cmd_vel</cmd_topic>
+      </control>
+    </plugin>
+
+  </model>
+</sdf>
