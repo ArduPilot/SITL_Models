@@ -1,38 +1,40 @@
-# SITL Modelleri 🚀
+# SITL Models 🚀
 
-Bu depo, ArduPilot Yazılımı İçin Simülasyon (SITL) simülasyonlarında kullanılan çeşitli araçlar ve modeller içerir.
+For Turkish users, please refer to the [Turkish README](readme_tr.md).
 
-## Gazebo Modelleri 🌊
+This repository contains models and scripts for various vehicles used in the ArduPilot Software In The Loop (SITL) simulations.
 
-`Gazebo/` dizini, Gazebo'da simülasyon için tasarlanmış çeşitli modelleri içerir. Aşağıda bazı önemli modeller bulunmaktadır:
+## Gazebo Models 🌊
+
+The `Gazebo/` directory includes various models designed for simulation in Gazebo. Below are some of the key models:
 
 ### Catamaran ⛵
-- **Açıklama:** Andy Little tarafından tasarlanan Yelkenli Catamaran.
-- **Kullanım:** Gazebo'da modeli çalıştırmak için `Catamaran.md` dosyasındaki talimatları izleyin.
-- **Bağlantılar:** [ArduPilot Gazebo Eklentisi](https://github.com/ArduPilot/ardupilot_gazebo)
+- **Description:** Sailing Catamaran designed by Andy Little.
+- **Usage:** Follow the instructions in `Catamaran.md` for setup and running the model in Gazebo.
+- **Links:** [ArduPilot Gazebo Plugin](https://github.com/ArduPilot/ardupilot_gazebo)
 
-### Diğer Modeller
-- **Rover Oyun Alanı:** Çeşitli engeller içeren bir rover ortamı modeli. `RoverPlayPen.md` dosyasına bakın.
-- **Wild Thumper:** Wild Thumper 6WD kaydırıcı rover modeli. `WildThumper.md` dosyasına bakın.
-- **Quadruped:** Dört bacaklı bir rover modeli. `Quadruped.md` dosyasına bakın.
-- **BlueBoat:** Blue Robotics BlueBoat modeli. `BlueBoat.md` dosyasına bakın.
-- **AION R1:** AION R1 kaydırıcı rover modeli. `AionR1.md` dosyasına bakın.
-- **Sawppy Rover:** Roger Chen'in Sawppy Rover'ının Gazebo modeli. `Sawppy.md` dosyasına bakın.
-- **Hexapod Copter:** Bir hexapod copter için Gazebo modeli. `HexapodCopter.md` dosyasına bakın.
-- **DAF XF 450 Traktör:** DAF XF 450 Traktör için Gazebo modeli. `DAF_XF_450_Tractor.md` dosyasına bakın.
-- **Ağırlık Kaydırma Uçağı:** Romaeris insansız ağırlık kaydırma kontrol elektrikli uçağı modeli. `WeightShiftAircraft.md` dosyasına bakın.
-- **Skywalker X8:** Skywalker X8 için uçak ve quad-plane konfigürasyonları. `SkywalkerX8.md` dosyasına bakın.
-- **Swan-K1:** Swan-K1 copter tailsitter quadplane modeli. `Swan-K1.md` dosyasına bakın.
-- **Omni3 Rover:** 3 Mecanum tekerleğe sahip bir Omni rover. `Omni3Rover.md` dosyasına bakın.
-- **OmniX Rover:** 4 Mecanum tekerleğe sahip bir Omni rover. `OmniXRover.md` dosyasına bakın.
+### Other Models
+- **Rover Playpen:** A model for a rover environment containing a variety of obstacles. See `RoverPlayPen.md`.
+- **Wild Thumper:** A model for a Wild Thumper 6WD skid-steer rover. See `WildThumper.md`.
+- **Quadruped:** A model for a quadruped rover. See `Quadruped.md`.
+- **BlueBoat:** A model for the Blue Robotics BlueBoat. See `BlueBoat.md`.
+- **AION R1:** A model for the AION R1 skid-steer rover. See `AionR1.md`.
+- **Sawppy Rover:** A Gazebo model of Roger Chen's Sawppy Rover. See `Sawppy.md`.
+- **Hexapod Copter:** A Gazebo model for a hexapod copter. See `HexapodCopter.md`.
+- **DAF XF 450 Tractor:** A Gazebo model for a DAF XF 450 Tractor. See `DAF_XF_450_Tractor.md`.
+- **Weight-Shift Aircraft:** Model for the Romaeris unmanned weight-shift control electric aircraft. See `WeightShiftAircraft.md`.
+- **Skywalker X8:** Models for the Skywalker X8 in plane and quad-plane configurations. See `SkywalkerX8.md`.
+- **Swan-K1:** Model for the Swan-K1 copter tailsitter quadplane. See `Swan-K1.md`.
+- **Omni3 Rover:** An Omni rover with 3 Mecanum wheels. See `Omni3Rover.md`.
+- **OmniX Rover:** An Omni rover with 4 Mecanum wheels. See `OmniXRover.md`.
 
-## Scriptler 🛠️
+## Scripts 🛠️
 
-`scripts/` dizini, araçları ve simülasyonları modellemek için çeşitli scriptler içerir.
+The `scripts/` directory contains various scripts for modeling and simulating vehicles.
 
-### VTOL Modeli
-- **Açıklama:** VTOL uçağını modellemek için bir araç, motor, pervane ve batarya kombinasyonlarını seçmeye yardımcı olur.
-- **Köken:** CanberraUAV için Paul Riseborough'un çalışmasına dayanmaktadır.
+### VTOL Model
+- **Description:** A tool to model a VTOL aircraft, helping to pick motor, propeller, and battery combinations.
+- **Origin:** Based on work by Paul Riseborough for CanberraUAV.
 
-## Kurulum ve Kullanım
-Kurulum ve kullanım detayları için ilgili model belgelerini izleyin.
+## Installation and Usage
+Follow the instructions in the respective model documentation files for installation and usage details.
