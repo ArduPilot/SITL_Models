@@ -897,7 +897,7 @@
       <air_density>1.2041</air_density>
       <cp>0.074205 0 0</cp>
       <forward>0 1 0</forward>
-      <upward>0 0 1</upward>
+      <upward>0 0 -1</upward>
       <link_name>motor_f</link_name>
     </plugin>
     <plugin filename="gz-sim-lift-drag-system"
@@ -914,7 +914,7 @@
       <air_density>1.2041</air_density>
       <cp>-0.074205 0 0</cp>
       <forward>0 -1 0</forward>
-      <upward>0 0 1</upward>
+      <upward>0 0 -1</upward>
       <link_name>motor_f</link_name>
     </plugin>
     <!-- main_wing lift-drag -->
@@ -1086,35 +1086,6 @@
       <link_name>base_link</link_name>
     </plugin>
 
-    <plugin filename="gz-sim-apply-joint-force-system"
-      name="gz::sim::systems::ApplyJointForce">
-      <joint_name>motor_1_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-apply-joint-force-system"
-      name="gz::sim::systems::ApplyJointForce">
-      <joint_name>motor_2_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-apply-joint-force-system"
-      name="gz::sim::systems::ApplyJointForce">
-      <joint_name>motor_3_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-apply-joint-force-system"
-      name="gz::sim::systems::ApplyJointForce">
-      <joint_name>motor_4_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-apply-joint-force-system"
-      name="gz::sim::systems::ApplyJointForce">
-      <joint_name>motor_f_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-apply-joint-force-system"
-      name="gz::sim::systems::ApplyJointForce">
-      <joint_name>left_aileron_joint</joint_name>
-    </plugin>
-    <plugin filename="gz-sim-apply-joint-force-system"
-      name="gz::sim::systems::ApplyJointForce">
-      <joint_name>right_aileron_joint</joint_name>
-    </plugin>
-
     <plugin name="ArduPilotPlugin" filename="ArduPilotPlugin">
       <!-- Port settings -->
       <fdm_addr>127.0.0.1</fdm_addr>
@@ -1215,7 +1186,7 @@
       <control channel="2">
         <jointName>motor_f_joint</jointName>
         <useForce>1</useForce>
-        <multiplier>-1500</multiplier>
+        <multiplier>1500</multiplier>
         <offset>0</offset>
         <servo_min>1000</servo_min>
         <servo_max>2000</servo_max>
