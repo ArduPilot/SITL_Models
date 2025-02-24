@@ -34,4 +34,12 @@ Aircraft Model: Titan Cobra VTOL
 * AETR normal control order
 * RC8(SwB) is mode: 0:QSTABLIZE, 1:QLOITER, 2:FBWA
 
-Tested in RealFlight 9.5S using ArduPlane 4.1.1
+## Simulated Camera Gimbal:
+In ArduPilot 4.6+, using the included lua script and the "GimbalAddition"
+parameter file, you can simulate a camera gimbal. Currently, the gimbal
+mechanism is invisible, but the camera feed itself can be viewed by hitting
+F4, or by opening an addition Viewport and hitting F4 or selecting the
+"Gimbal" feed. For more information on this script, and for the most up-to-date
+version of it, consult the scripting drivers within the ArduPilot repo.
+
+Tested in RealFlight 9.5S using ArduPlane 4.5.0
