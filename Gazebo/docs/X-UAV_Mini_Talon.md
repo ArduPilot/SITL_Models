@@ -2,6 +2,8 @@
 
 Model for the X-UAV Mini Talon V-Tail plane for use with ArduPilot.
 
+![mini-talon-loiter](https://github.com/user-attachments/assets/44c3e42c-cb3e-4ca9-ba7b-c3e165276917)
+
 ## Usage
 
 Gazebo and the plugins should be installed as per the [ArduPilot Gazebo Plugin](https://github.com/ArduPilot/ardupilot_gazebo) instructions.
