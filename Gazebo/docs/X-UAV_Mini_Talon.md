@@ -25,7 +25,7 @@ gz sim -v4 -r vtail_runway.sdf
 #### Run ArduPilot SITL
 
 ```bash
-sim_vehicle.py -v ArduPlane -f JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/mini_talon_vtail.param --console --map
+sim_vehicle.py -v ArduPlane -f plane --model JSON --add-param-file=$HOME/SITL_Models/Gazebo/config/mini_talon_vtail.param --console --map
 ```
 
 ## Specifications
