@@ -1,0 +1,78 @@
+---
+- ros_topic_name: "clock"
+  gz_topic_name: "/clock"
+  ros_type_name: "rosgraph_msgs/msg/Clock"
+  gz_type_name: "gz.msgs.Clock"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_cw/joint_state"
+  gz_topic_name: "/world/empty/model/helicopter_dual_transverse/model/rotor_head_cw/joint_state"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  gz_type_name: "gz.msgs.Model"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_ccw/joint_state"
+  gz_topic_name: "/world/empty/model/helicopter_dual_transverse/model/rotor_head_ccw/joint_state"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  gz_type_name: "gz.msgs.Model"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_ccw/servo_arm_1/cmd_pos"
+  gz_topic_name: "/model/rotor_head_ccw/joint/servo_arm_1_joint/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_ccw/servo_arm_2/cmd_pos"
+  gz_topic_name: "/model/rotor_head_ccw/joint/servo_arm_2_joint/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_ccw/servo_arm_3/cmd_pos"
+  gz_topic_name: "/model/rotor_head_ccw/joint/servo_arm_3_joint/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_cw/servo_arm_1/cmd_pos"
+  gz_topic_name: "/model/rotor_head_cw/joint/servo_arm_1_joint/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_cw/servo_arm_2/cmd_pos"
+  gz_topic_name: "/model/rotor_head_cw/joint/servo_arm_2_joint/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_cw/servo_arm_3/cmd_pos"
+  gz_topic_name: "/model/rotor_head_cw/joint/servo_arm_3_joint/0/cmd_pos"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_ccw/cmd_vel"
+  gz_topic_name: "/model/rotor_head_ccw/joint/main_joint/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_cw/cmd_vel"
+  gz_topic_name: "/model/rotor_head_cw/joint/main_joint/cmd_vel"
+  ros_type_name: "std_msgs/msg/Float64"
+  gz_type_name: "gz.msgs.Double"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_ccw/forcetorque"
+  gz_topic_name: "/world/empty/model/gimbal/model/helicopter_dual_transverse/model/rotor_head_ccw/joint/main_joint/sensor/force_torque/forcetorque"
+  ros_type_name: "geometry_msgs/msg/WrenchStamped"
+  gz_type_name: "gz.msgs.Wrench"
+  direction: GZ_TO_ROS
+
+- ros_topic_name: "/rotor_cw/forcetorque"
+  gz_topic_name: "/world/empty/model/gimbal/model/helicopter_dual_transverse/model/rotor_head_cw/joint/main_joint/sensor/force_torque/forcetorque"
+  ros_type_name: "geometry_msgs/msg/WrenchStamped"
+  gz_type_name: "gz.msgs.Wrench"
+  direction: GZ_TO_ROS

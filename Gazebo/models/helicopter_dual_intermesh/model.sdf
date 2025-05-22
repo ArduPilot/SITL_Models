@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<!--
+-->
+<sdf version="1.9">
+  <model name="helicopter_dual_intermesh">
+    <link name="base_link">
+      <inertial>
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <!-- <mass>0.5</mass> -->
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.003341667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.035216667</iyy>
+          <iyz>0</iyz>
+          <izz>0.038541667</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <box>
+            <size>0.65 0.2 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision_stab_1">
+        <pose degrees="true">0.32 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 1.0 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision_stab_2">
+        <pose degrees="true">0.32 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 1.0 0.01</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <box>
+            <size>0.65 0.2 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0.65 0</ambient>
+          <diffuse>1 0.65 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="visual_stab_1">
+        <pose degrees="true">0.32 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 1.0 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0.65 0</ambient>
+          <diffuse>1 0.65 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="visual_stab_2">
+        <pose degrees="true">-0.32 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.01 1.0 0.01</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0.65 0</ambient>
+          <diffuse>1 0.65 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+
+      <sensor name="imu_sensor" type="imu">
+        <pose degrees="true">0.15 0 0 180 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+
+    <include>
+      <uri>model://rotor_head_cw</uri>
+      <name>rotor_head_cw</name>
+      <pose degrees="true">0 -0.15 0.23 20 -5 13</pose>
+    </include>
+    <joint name="rotor_head_cw_joint" type="fixed">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rotor_head_cw::base_link</child>
+    </joint>
+
+    <include>
+      <uri>model://rotor_head_ccw</uri>
+      <name>rotor_head_ccw</name>
+      <pose degrees="true">0 0.15 0.23 -20 5 13</pose>
+    </include>
+    <joint name="rotor_head_ccw_joint" type="fixed">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rotor_head_ccw::base_link</child>
+    </joint>
+
+    <!-- stabiliser wheels -->
+    <link name="wheel_1_link">
+      <pose degrees="true">0.32 0.475 -0.03 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1.25000E-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.25000E-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.25000E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0e6</mu>
+              <mu2>1.0e6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="wheel_1_joint" type="fixed">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>wheel_1_link</child>
+    </joint>
+
+    <link name="wheel_2_link">
+      <pose degrees="true">0.32 -0.475 -0.03 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1.25000E-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.25000E-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.25000E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0e6</mu>
+              <mu2>1.0e6</mu2>
+            </ode>
+          </friction>
+          </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="wheel_2_joint" type="fixed">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>wheel_2_link</child>
+    </joint>
+
+    <link name="wheel_3_link">
+      <pose degrees="true">-0.32 -0.475 -0.03 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1.25000E-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.25000E-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.25000E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0e6</mu>
+              <mu2>1.0e6</mu2>
+            </ode>
+          </friction>
+          </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="wheel_3_joint" type="fixed">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>wheel_3_link</child>
+    </joint>
+
+    <link name="wheel_4_link">
+      <pose degrees="true">-0.32 0.475 -0.03 0 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>1.25000E-05</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>1.25000E-05</iyy>
+          <iyz>0</iyz>
+          <izz>1.25000E-05</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0e6</mu>
+              <mu2>1.0e6</mu2>
+            </ode>
+          </friction>
+          </surface>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <sphere>
+            <radius>0.025</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+    </link>
+    <joint name="wheel_4_joint" type="fixed">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>wheel_4_link</child>
+    </joint>
+
+    <!-- plugins -->
+    <plugin name="ArduPilotPlugin"
+      filename="ArduPilotPlugin">
+      <!-- Port settings -->
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+      <have_32_channels>0</have_32_channels>
+
+      <!-- Frame conventions
+        Require by ArduPilot: change model and gazebo from XYZ to XY-Z coordinates
+      -->
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
+
+      <!-- Sensors -->
+      <imuName>base_link::imu_sensor</imuName>
+
+      <!--
+        FRAME_CLASS      11 (Dual Heli)
+        FRAME_TYPE       1 (X)
+      -->
+
+      <!--
+        SERVO8_FUNCTION 31 (HeliRSC)
+      -->
+      <control channel="7">
+        <jointName>rotor_head_ccw::main_joint</jointName>
+        <multiplier>500</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_ccw/joint/main_joint/cmd_vel</cmd_topic>
+      </control>
+
+      <control channel="7">
+        <jointName>rotor_head_cw::main_joint</jointName>
+        <multiplier>500</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_cw/joint/main_joint/cmd_vel</cmd_topic>
+      </control>
+
+      <!--
+        SERVO1_FUNCTION 33 (Motor1)
+      -->
+      <control channel="0">
+        <jointName>rotor_head_ccw::servo_arm_1_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_ccw/joint/servo_arm_1_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+      <!--
+        SERVO2_FUNCTION 34 (Motor2)
+      -->
+      <control channel="1">
+        <jointName>rotor_head_ccw::servo_arm_2_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_ccw/joint/servo_arm_2_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+      <!--
+        SERVO3_FUNCTION 35 (Motor3)
+      -->
+      <control channel="2">
+        <jointName>rotor_head_ccw::servo_arm_3_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_ccw/joint/servo_arm_3_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+      <!--
+        SERVO4_FUNCTION 36 (Motor4)
+      -->
+      <control channel="3">
+        <jointName>rotor_head_cw::servo_arm_1_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_cw/joint/servo_arm_1_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+      <!--
+        SERVO5_FUNCTION 37 (Motor5)
+      -->
+      <control channel="4">
+        <jointName>rotor_head_cw::servo_arm_2_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_cw/joint/servo_arm_2_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+      <!--
+        SERVO6_FUNCTION 38 (Motor6)
+      -->
+      <control channel="5">
+        <jointName>rotor_head_cw::servo_arm_3_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_cw/joint/servo_arm_3_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+    </plugin>
+  </model>
+
+</sdf>
