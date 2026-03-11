@@ -34,4 +34,4 @@ I created this CAD and Realflight model for use with Ardupilot SITL from public 
 * Arm/Disarm with Rudder
 * Flight mode channel - RC8: QSTABILIZE, QLOITER, FBWA.
 
-Tested in RealFlight Evolution using ArduPlane V4.6.2
+Tested in RealFlight 9.5 using ArduPlane V4.6.2
