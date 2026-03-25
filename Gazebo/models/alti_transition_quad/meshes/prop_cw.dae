@@ -13,14 +13,14 @@
   <library_effects>
     <effect id="EPP1045_B-effect">
       <profile_COMMON>
-        <newparam sid="x8_tga-surface">
+        <newparam sid="x8_png-surface">
           <surface type="2D">
-            <init_from>../materials/textures/x8_tga</init_from>
+            <init_from>../materials/textures/x8_png</init_from>
           </surface>
         </newparam>
-        <newparam sid="x8_tga-sampler">
+        <newparam sid="x8_png-sampler">
           <sampler2D>
-            <source>x8_tga-surface</source>
+            <source>x8_png-surface</source>
           </sampler2D>
         </newparam>
         <technique sid="common">
@@ -29,7 +29,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <diffuse>
-              <texture texture="x8_tga-sampler" texcoord="UVMap"/>
+              <texture texture="x8_png-sampler" texcoord="UVMap"/>
             </diffuse>
             <index_of_refraction>
               <float sid="ior">1.45</float>
@@ -40,8 +40,8 @@
     </effect>
   </library_effects>
   <library_images>
-    <image id="x8_tga" name="x8_tga">
-      <init_from>x8.tga</init_from>
+    <image id="x8_png" name="x8_png">
+      <init_from>x8.png</init_from>
     </image>
   </library_images>
   <library_materials>

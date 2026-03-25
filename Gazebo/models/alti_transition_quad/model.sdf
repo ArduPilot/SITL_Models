@@ -266,7 +266,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-                <albedo_map>model://alti_transition_quad/materials/textures/x8.tga</albedo_map>
+                <albedo_map>model://alti_transition_quad/materials/textures/x8.png</albedo_map>
                 <metalness>0.5</metalness>
             </metal>
           </pbr>
@@ -325,7 +325,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-                <albedo_map>model://alti_transition_quad/materials/textures/x8.tga</albedo_map>
+                <albedo_map>model://alti_transition_quad/materials/textures/x8.png</albedo_map>
                 <metalness>0.5</metalness>
             </metal>
           </pbr>
@@ -384,7 +384,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-                <albedo_map>model://alti_transition_quad/materials/textures/x8.tga</albedo_map>
+                <albedo_map>model://alti_transition_quad/materials/textures/x8.png</albedo_map>
                 <metalness>0.5</metalness>
             </metal>
           </pbr>
@@ -443,7 +443,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-                <albedo_map>model://alti_transition_quad/materials/textures/x8.tga</albedo_map>
+                <albedo_map>model://alti_transition_quad/materials/textures/x8.png</albedo_map>
                 <metalness>0.5</metalness>
             </metal>
           </pbr>
@@ -501,7 +501,7 @@
           <specular>1.0 1.0 1.0</specular>
           <pbr>
             <metal>
-                <albedo_map>model://alti_transition_quad/materials/textures/x8.tga</albedo_map>
+                <albedo_map>model://alti_transition_quad/materials/textures/x8.png</albedo_map>
                 <metalness>0.5</metalness>
             </metal>
           </pbr>
@@ -742,6 +742,13 @@
     <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
     </plugin>
+    <plugin filename="gz-sim-odometry-publisher-system"
+      name="gz::sim::systems::OdometryPublisher">
+      <odom_frame>odom</odom_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+      <dimensions>3</dimensions>
+    </plugin>
+
     <!-- motor_1 (cw) lift-drag -->
     <plugin filename="gz-sim-lift-drag-system"
         name="gz::sim::systems::LiftDrag">
