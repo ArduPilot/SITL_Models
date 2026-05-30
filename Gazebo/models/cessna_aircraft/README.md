@@ -1,0 +1,1 @@
+This model is adapted for ArduPilot SITL. The original 3D meshes and base SDF structure originate from the [PX4 Gazebo models repository](https://github.com/PX4/PX4-gazebo-models/tree/main/models/rc_cessna), released under the standard open-source license.
