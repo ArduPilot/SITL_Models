@@ -738,6 +738,32 @@
       </axis>
     </joint>
 
+    <link name="gps_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>0.00001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00001</iyy>
+          <iyz>0</iyz>
+          <izz>0.00001</izz>
+        </inertia>
+      </inertial>
+      <sensor name="navsat_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>10.0</update_rate>
+        <plugin filename="gz-sim-navsat-system"
+          name="gz::sim::systems::NavSat">
+        </plugin>
+      </sensor>
+    </link>
+    <joint name="gps_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>gps_link</child>
+    </joint>
+
     <!-- plugins -->
     <plugin filename="gz-sim-joint-state-publisher-system"
       name="gz::sim::systems::JointStatePublisher">
@@ -1327,5 +1353,13 @@
       </control>
 
     </plugin>
+
+    <!-- Publish odometry for ROS2 bridge -->
+    <plugin filename="gz-sim-odometry-publisher-system"
+      name="gz::sim::systems::OdometryPublisher">
+      <publish_frequency>10</publish_frequency>
+      <target_frame>odom</target_frame>
+    </plugin>
+
   </model>
 </sdf>
