@@ -1,0 +1,314 @@
+<?xml version="1.0" ?>
+<sdf version="1.11">
+  <world name="empty">
+    <!--
+      Physics configuration:
+      - https://gazebosim.org/api/sim/8/physics.html
+
+
+      Notes:
+      
+      dart
+        - what settings are available in the library?
+          - timeStep
+          - constraintSolver
+
+          - gz-physics/dartsim/src/JointFeatures.cc > ::AttachFixedJoint
+
+          //! @todo hardcoded joint ERP and CFM.
+          // These apply to all DynamicJointConstaints
+          double erp = 1.0e-1;
+          double cfm = 1.0e-6;
+          gzdbg << "DynamicJointConstraint: erp: " << erp 
+                << ", cfm: " << cfm << std::endl;
+          constraint->setErrorReductionParameter(erp);
+          constraint->setConstraintForceMixing(cfm);
+
+      bullet
+        - not properly supported
+        - missing joint velocity features
+
+      bullet_featherstone
+        - unstable with step size 0.0001
+
+    -->
+    <physics name="1ms" type="ignore">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>-1.0</real_time_factor>
+      <dart>
+        <solver>
+          <solver_type>dantzig</solver_type> 
+          <!-- <solver_type>pgs</solver_type> -->
+        </solver>
+        <!-- <collision_detector>bullet</collision_detector> -->
+        <!-- <collision_detector>dart</collision_detector> -->
+        <!-- <collision_detector>fcl</collision_detector> -->
+        <collision_detector>ode</collision_detector>
+      </dart>
+      <bullet>
+        <solver>
+          <type>sequential_impulse</type>
+          <min_step_size>0.0001</min_step_size>
+          <iters>50</iters>
+          <sor>1.3</sor>
+        </solver>
+        <constraints>
+          <cfm>0.2</cfm>
+          <contact_surface_layer>0.001</contact_surface_layer>
+          <split_impulse>1</split_impulse>
+          <split_impulse_penetration_threshold>-0.01</split_impulse_penetration_threshold>
+        </constraints>
+      </bullet>
+    </physics>
+
+    <plugin name="gz::sim::systems::Physics"
+      filename="gz-sim-physics-system">
+      <engine>
+        <filename>gz-physics-dartsim-plugin</filename>
+        <!-- <filename>gz-physics-bullet-plugin</filename> -->
+        <!-- <filename>gz-physics-bullet-featherstone-plugin</filename> -->
+      </engine>
+    </plugin>
+    <plugin name="gz::sim::systems::Sensors"
+      filename="gz-sim-sensors-system">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+    <plugin name="gz::sim::systems::UserCommands"
+      filename="gz-sim-user-commands-system">
+    </plugin>
+    <plugin name="gz::sim::systems::SceneBroadcaster"
+      filename="gz-sim-scene-broadcaster-system">
+    </plugin>
+    <plugin name="gz::sim::systems::Imu"
+      filename="gz-sim-imu-system">
+    </plugin>
+    <plugin name="gz::sim::systems::ForceTorque"
+      filename="gz-sim-forcetorque-system">
+    </plugin>
+
+    <scene>
+      <ambient>1.0 1.0 1.0</ambient>
+      <background>0.8 0.8 0.8</background>
+      <sky></sky>
+    </scene>
+
+    <spherical_coordinates>
+      <latitude_deg>37.523648</latitude_deg>
+      <longitude_deg>-122.255122</longitude_deg>
+      <elevation>584</elevation>
+      <heading_deg>0</heading_deg>
+      <surface_model>EARTH_WGS84</surface_model>
+    </spherical_coordinates>
+
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.8 0.8 0.8 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+   
+    <include>
+      <pose degrees="true">-29 545 0 0 0 363</pose>
+      <uri>model://runway</uri>
+    </include>
+
+    <include>
+      <pose degrees="true">0 0 0.12 0 0 90</pose>
+      <uri>model://helicopter</uri>
+    </include>
+
+    <!-- <include>
+      <pose degrees="true">0 0 0.06 0 0 90</pose>
+      <uri>model://helicopter_dual_transverse</uri>
+    </include> -->
+
+    <!-- <include>
+      <pose degrees="true">0 0 0.06 0 0 90</pose>
+      <uri>model://helicopter_dual_intermesh</uri>
+    </include> -->
+
+    <!-- Fix helicoper to gimbal to test CoM and control response
+    <model name="gimbal">
+      <pose degrees="true">0 0 0.26 0 0 0</pose>
+      <link name="base_link">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>2.50000E-03</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.50000E-03</iyy>
+            <iyz>0</iyz>
+            <izz>2.50000E-03</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.25</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.25</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.3 0.3 0.3</ambient>
+            <diffuse>0.3 0.3 0.3</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+      <joint name="base_joint" type="fixed">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <parent>world</parent>
+        <child>base_link</child>
+      </joint>
+      <link name="roll_link">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>2.50000E-03</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.50000E-03</iyy>
+            <iyz>0</iyz>
+            <izz>2.50000E-03</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.25</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.25</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.3 0.3 0.3</ambient>
+            <diffuse>0.3 0.3 0.3</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+      <joint name="roll_joint" type="revolute">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <parent>base_link</parent>
+        <child>roll_link</child>
+        <axis>
+          <xyz>1 0 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+            <spring_reference>0.0</spring_reference>
+            <spring_stiffness>10.0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <link name="pitch_link">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <inertial>
+          <mass>0.1</mass>
+          <inertia>
+            <ixx>2.50000E-03</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>2.50000E-03</iyy>
+            <iyz>0</iyz>
+            <izz>2.50000E-03</izz>
+          </inertia>
+        </inertial>
+        <collision name="collision">
+          <geometry>
+            <sphere>
+              <radius>0.25</radius>
+            </sphere>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <sphere>
+              <radius>0.25</radius>
+            </sphere>
+          </geometry>
+          <material>
+            <ambient>0.3 0.3 0.3</ambient>
+            <diffuse>0.3 0.3 0.3</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+      <joint name="pitch_joint" type="revolute">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <parent>roll_link</parent>
+        <child>pitch_link</child>
+        <axis>
+          <xyz>0 1 0</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+            <spring_reference>0.0</spring_reference>
+            <spring_stiffness>10.0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+      <include>
+        <pose degrees="true">0 -0.2 0.35 0 0 90</pose>
+        <uri>model://helicopter</uri>
+      </include>
+      <joint name="yaw_joint" type="revolute">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <parent>pitch_link</parent>
+        <child>helicopter::base_link</child>
+        <axis>
+          <xyz>0 0 1</xyz>
+          <limit>
+            <lower>0</lower>
+            <upper>0</upper>
+          </limit>
+          <dynamics>
+            <damping>0.1</damping>
+            <spring_reference>0.0</spring_reference>
+            <spring_stiffness>10.0</spring_stiffness>
+          </dynamics>
+        </axis>
+      </joint>
+    </model> -->
+
+    <!-- Fix helicopter to world for rotor analysis -->
+    <!-- <model name="stand">
+      <include>
+        <pose degrees="true">0 0 0.12 0 0 90</pose>
+        <uri>model://helicopter</uri>
+      </include>
+      <joint name="base_joint" type="fixed">
+        <parent>world</parent>
+        <child>helicopter::base_link</child>
+      </joint>
+    </model> -->
+
+  </world>
+</sdf>

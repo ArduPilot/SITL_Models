@@ -1,0 +1,291 @@
+<?xml version="1.0"?>
+<!--
+-->
+<sdf version="1.9">
+  <model name="helicopter">
+    <link name="base_link">
+      <inertial>
+        <pose degrees="true">0.3625 0 0 0 0 0</pose>
+        <mass>0.5</mass>
+        <inertia>
+          <ixx>0.001670833</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.017608333</iyy>
+          <iyz>0</iyz>
+          <izz>0.019270833</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose degrees="true">0.2 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.4 0.2 0.24</size>
+          </box>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0e6</mu>
+              <mu2>1.0e6</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+      <visual name="visual">
+        <pose degrees="true">0.15 0 0.05 90 0 -90</pose>
+        <geometry>
+          <mesh>
+            <scale>1.75 1.75 1.75</scale>
+            <uri>meshes/trex450_frame.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <sensor name="imu_sensor" type="imu">
+        <pose degrees="true">0.15 0 0 180 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+
+    <include>
+      <uri>model://rotor_head_cw</uri>
+      <name>rotor_head_cw</name>
+      <pose degrees="true">0.15 0 0.23 0 0 13</pose>
+    </include>
+    <joint name="rotor_head_joint" type="fixed">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>rotor_head_cw::base_link</child>
+    </joint>
+
+    <link name="tail_motor_link">
+      <pose degrees="true">-0.605 0 0.075 90 0 0</pose>
+      <inertial>
+        <mass>0.05</mass>
+        <inertia>
+          <ixx>5.9375E-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>5.9375E-06</iyy>
+          <iyz>0</iyz>
+          <izz>0.00001</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <cylinder>
+            <length>0.02</length>
+            <radius>0.015</radius>
+          </cylinder>
+        </geometry>
+      </collision>
+      <collision name="collision_blade_1">
+        <pose degrees="true">0.0375 0 0.035 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.075 0.02 0.004</size>
+          </box>
+        </geometry>
+      </collision>
+      <collision name="collision_blade_2">
+        <pose degrees="true">-0.0375 0 0.035 0 0 180</pose>
+        <geometry>
+          <box>
+            <size>0.075 0.02 0.004</size>
+          </box>
+        </geometry>
+      </collision>
+      <visual name="visual_rotor_head">
+        <pose degrees="true">0 0 -0.007 0 0 -60</pose>
+        <geometry>
+          <mesh>
+            <scale>1.75 1.75 1.75</scale>
+            <uri>meshes/trex450_tail_rotor_head.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="visual_blade_1">
+        <pose degrees="true">0.03 0 0.052 90 30 -90</pose>
+        <geometry>
+          <mesh>
+            <scale>1.75 1.75 1.75</scale>
+            <uri>meshes/trex450_tail_blade.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name="visual_blade_2">
+        <pose degrees="true">-0.03 0 0.052 90 30 90</pose>
+        <geometry>
+          <mesh>
+            <scale>1.75 1.75 1.75</scale>
+            <uri>meshes/trex450_tail_blade.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name="tail_motor_joint" type="revolute">
+      <pose degrees="true">0 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>tail_motor_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.0e16</lower>
+          <upper>1.0e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.01</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- plugins -->
+    <plugin name="gz::sim::systems::JointStatePublisher"
+        filename="gz-sim-joint-state-publisher-system">
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>tail_motor_joint</joint_name>
+      <initial_velocity>0.0</initial_velocity>
+      <use_force_commands>1</use_force_commands>
+      <use_actuator_msg>0</use_actuator_msg>
+      <p_gain>0.02</p_gain>
+      <i_gain>0.01</i_gain>
+      <d_gain>0.0</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>5</cmd_max>
+      <cmd_min>-5</cmd_min>
+      <cmd_offset>0</cmd_offset>
+    </plugin>
+
+    <!-- tail rotor lift -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.0</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>0.0375 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 -1</upward>
+      <link_name>tail_motor_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.0</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.0375 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 -1</upward>
+      <link_name>tail_motor_link</link_name>
+    </plugin>
+
+    <plugin name="ArduPilotPlugin"
+      filename="ArduPilotPlugin">
+      <!-- Port settings -->
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+      <have_32_channels>0</have_32_channels>
+
+      <!-- Frame conventions
+        Require by ArduPilot: change model and gazebo from XYZ to XY-Z coordinates
+      -->
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
+
+      <!-- Sensors -->
+      <imuName>base_link::imu_sensor</imuName>
+
+      <!--
+        FRAME_CLASS      6 (Heli)
+        FRAME_TYPE       1 (X)
+      -->
+
+      <!--
+        SERVO8_FUNCTION 31 (HeliRSC)
+      -->
+      <control channel="7">
+        <jointName>rotor_head_cw::main_joint</jointName>
+        <multiplier>500</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_cw/joint/main_joint/cmd_vel</cmd_topic>
+      </control>
+
+      <!--
+        SERVO4_FUNCTION 36 (Motor4)
+      -->
+      <control channel="3">
+        <jointName>tail_motor_joint</jointName>
+        <multiplier>800</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+        <type>COMMAND</type>
+        <cmd_topic>/model/helicopter/joint/tail_motor_joint/cmd_vel</cmd_topic>
+      </control>
+      
+      <!--
+        SERVO1_FUNCTION 33 (Motor1)
+      -->
+      <control channel="0">
+        <jointName>rotor_head_cw::servo_arm_1_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_cw/joint/servo_arm_1_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+      <!--
+        SERVO2_FUNCTION 34 (Motor2)
+      -->
+      <control channel="1">
+        <jointName>rotor_head_cw::servo_arm_2_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_cw/joint/servo_arm_2_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+      <!--
+        SERVO3_FUNCTION 35 (Motor3)
+      -->
+      <control channel="2">
+        <jointName>rotor_head_cw::servo_arm_3_joint</jointName>
+        <multiplier>0.04</multiplier>
+        <offset>-0.5</offset>
+        <servo_max>2000</servo_max>
+        <servo_min>1000</servo_min>
+        <type>COMMAND</type>
+        <cmd_topic>/model/rotor_head_cw/joint/servo_arm_3_joint/0/cmd_pos</cmd_topic>
+      </control>
+
+    </plugin>
+  </model>
+
+</sdf>
