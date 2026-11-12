@@ -90,7 +90,7 @@ The model includes a 3-axis camera gimbal implementation that makes use of the A
 - The flying wing is a rigid approximation of a typical flexible hang-glider wing, with four surfaces sections that mimic the aerodynamic characteristics of washout and wing twist. 
 - The servo input of conventional control surfaces is replaced by the actuation of a two revolute axis (2R) joint called the 'hang-block', that shifts position of the weight beneath the wing.
 - The flying wing attitude is controlled by default plane PID controllers for pitch and roll, where control input induces weight-shift of the net center of gravity.
-- The model's axis is rotated 90 degrees around the z-axis, positioning y as the forward direction instead of x. This is accommodated by adjustments in both the IMU sensor pose and ArduPilot plugin poses to rectify the orientation discrepancy. This will be corrected for in a future PR when time permits.
+- The model and `base_link` use FLU axes (+X forward, +Y left, +Z up). The IMU and ArduPilot model transform use a roll-only 180-degree rotation to FRD, with `AHRS_ORIENTATION=0`. An explicit `airframe_cad` frame preserves the original physical geometry. When migrating an existing world, subtract 90 degrees from its previous model spawn yaw to preserve the same physical heading; the included runway uses 90 degrees.
 
 ## Modelling and comparison to real weight-shift flight
 
