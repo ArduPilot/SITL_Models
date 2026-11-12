@@ -1,0 +1,1652 @@
+<sdf version="1.9">
+
+<!-- 
+  Position control for elevon and tilt mount joints
+    - elevon_left
+    - elevon_right
+    - tilt_left
+    - tilt_right
+
+  gz topic -t /tilt_left/cmd_pos -m gz.msgs.Double -p 'data: 0'
+
+  Velocity control for motor joints
+    - motor_left
+    - motor_right
+    - motor_tail
+
+  gz topic -t /motor_left/cmd_vel -m gz.msgs.Double -p 'data: 400'
+
+  ArduPilot SITL
+
+  sim_vehicle.py
+    -v ArduPlane 
+    -f JSON
+    -/-add-param-file=$HOME/Code/ros2/humble/ros2-ardupilot/src/SITL_Models/Gazebo/config/microhawk_vtol.param
+    -/-console
+    -/-map
+
+  Follow camera
+  
+  gz service -s /gui/follow/offset
+    -/-reqtype gz.msgs.Vector3d
+    -/-reptype gz.msgs.Boolean
+    -/-timeout 2000
+    -/-req "x: 0.7, y: 0.2, z: 0.5"
+ -->
+  <model name="minihawk_vtol">
+    <static>0</static>
+    <self_collide>0</self_collide>
+
+    <link name="base_link">
+      <inertial>
+        <pose>0.005 0 0 0 0 0</pose>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.004166667</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.044166667</iyy>
+          <iyz>0</iyz>
+          <izz>0.041666667</izz>
+        </inertia>
+      </inertial>
+      <collision name="airframe_collision">
+        <pose degrees="true">0 0 0 -180 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_airframe.stl</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <!-- leave for debugging - FBWA horizontal takeoff -->
+      <!-- <collision name="strake_collision">
+        <pose degrees="true">0 0 -0.05 0 5 0</pose>
+        <geometry>
+          <box>
+            <size>0.4 0.1 0.1</size>
+          </box>
+        </geometry>
+      </collision> -->
+
+      <visual name="airframe_visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_airframe.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="nacelle_left_visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_nacelle_left.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="nacelle_right_visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_nacelle_right.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- save for debugging use -->
+      <!-- <visual name="cp_wing">
+        <pose>0 0 -0.00289163 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 0 1</ambient>
+          <diffuse>0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <visual name="cp_elevon_left">
+        <pose>-0.12638 0.211358 -0.00289163 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <visual name="cp_elevon_right">
+        <pose>-0.12638 -0.211358 -0.00289163 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <visual name="cp_vstab_left">
+        <pose>-0.18 0.08 0.032 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual>
+      <visual name="cp_vstab_right">
+        <pose>-0.18 -0.08 0.032 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.01</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+        </material>
+      </visual> -->
+
+    </link>
+
+    <link name="elevon_left_link">
+      <pose>-0.12638 0.211358 -0.00289163 0 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.003713333</ixx>
+          <ixy>0</ixy>
+          <iyy>0.000104167</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.003650833</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_elevon_left.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_elevon_left.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name="elevon_left_joint" type="revolute">
+      <pose>0.0155 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>elevon_left_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>0.523599</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="elevon_right_link">
+      <pose>-0.12638 -0.211358 -0.00289163 0 0 0</pose>
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.003713333</ixx>
+          <ixy>0</ixy>
+          <iyy>0.000104167</iyy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+          <izz>0.003650833</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <pose degrees="true">0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_elevon_right.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_elevon_right.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name="elevon_right_joint" type="revolute">
+      <pose>0.0155 0 0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>elevon_right_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.523599</lower>
+          <upper>0.523599</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="tilt_mount_left_link">
+      <pose relative_to="base_link" degrees="true">0.091 0.119839889 -0.0087 0 -52 0</pose>
+      <inertial>
+        <mass>0.06</mass>
+        <inertia>
+          <ixx>0.0000125</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000125</iyy>
+          <iyz>0</iyz>
+          <izz>0.00001875</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_tilt_mount_left.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_tilt_mount_left.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name="tilt_mount_left_joint" type="revolute">
+      <pose degrees="true">0 0 0.005 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>tilt_mount_left_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.907571211</lower>
+          <upper>0.907571211</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="tilt_mount_right_link">
+      <pose relative_to="base_link" degrees="true">0.091 -0.119839889 -0.0087 0 -52 0</pose>
+      <inertial>
+        <mass>0.06</mass>
+        <inertia>
+          <ixx>0.0000125</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0000125</iyy>
+          <iyz>0</iyz>
+          <izz>0.00001875</izz>
+        </inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_tilt_mount_right.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/mh5_tilt_mount_right.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+    </link>
+    <joint name="tilt_mount_right_joint" type="revolute">
+      <pose degrees="true">0 0 0.005 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>tilt_mount_right_link</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-0.907571211</lower>
+          <upper>0.907571211</upper>
+        </limit>
+        <dynamics>
+          <damping>0.02</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="motor_left_link">
+      <pose relative_to="motor_left_joint">0 0 0.011 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name="prop_collision">
+        <pose>0 0 0.015 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0635</radius>
+            <length>0.005</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="motor_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.013</radius>
+            <length>0.013</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="prop_visual">
+        <pose>0 0 0.015 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/prop_triblade_5045_cw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 1 0</ambient>
+          <diffuse>0 1 0</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- cp visuals -->
+      <!-- <visual name="cp_blade1_visual">
+        <pose>0.063 0 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="cp_blade2_visual">
+        <pose>-0.0315 0.0545596 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="cp_blade3_visual">
+        <pose>-0.0315 -0.0545596 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual> -->
+
+      <!-- forward vector visuals -->
+      <!-- <visual name="forward_blade1_visual">
+        <pose degrees="true">0.063 -0.01 0.015 90 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="forward_blade2_visual">
+        <pose degrees="true">-0.022839746 0.0595596 0.015 90 0 120</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="forward_blade3_visual">
+        <pose degrees="true">-0.040160254 -0.0495596 0.015 90 0 240</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual> -->
+
+    </link>
+    <joint name="motor_left_joint" type="revolute">
+      <pose relative_to="tilt_mount_left_joint" degrees="true">0 0 -0.005 0 90 0</pose>
+      <parent>tilt_mount_left_link</parent>
+      <child>motor_left_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+
+    <link name="motor_right_link">
+      <pose relative_to="motor_right_joint">0 0 0.011 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name="prop_collision">
+        <pose>0 0 0.015 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0635</radius>
+            <length>0.005</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="motor_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.013</radius>
+            <length>0.013</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="prop_visual">
+        <pose>0 0 0.015 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/prop_triblade_5045_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 1</ambient>
+          <diffuse>0 0 1</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- cp visuals -->
+      <!-- <visual name="cp_blade1_visual">
+        <pose>0.063 0 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="cp_blade2_visual">
+        <pose>-0.0315 0.0545596 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="cp_blade3_visual">
+        <pose>-0.0315 -0.0545596 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual> -->
+
+      <!-- forward vector visuals -->
+      <!-- <visual name="forward_blade1_visual">
+        <pose degrees="true">0.063 0.010 0.015 90 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="forward_blade2_visual">
+        <pose degrees="true">-0.040160254 0.0495596 0.015 90 0 120</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="forward_blade3_visual">
+        <pose degrees="true">-0.022839746 -0.0595596 0.015 90 0 240</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual> -->
+
+    </link>
+    <joint name="motor_right_joint" type="revolute">
+      <pose relative_to="tilt_mount_right_joint" degrees="true">0 0 -0.005 0 90 0</pose>
+      <parent>tilt_mount_right_link</parent>
+      <child>motor_right_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <link name="motor_tail_link">
+      <pose relative_to="motor_tail_joint">0 0 0.009 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.025</mass>
+        <inertia>
+          <ixx>9.75e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000166704</iyy>
+          <iyz>0</iyz>
+          <izz>0.000167604</izz>
+        </inertia>
+      </inertial>
+      <collision name="prop_collision">
+        <pose>0 0 0.015 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0635</radius>
+            <length>0.005</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      <visual name="motor_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.013</radius>
+            <length>0.013</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.5 0.5 0.5</ambient>
+          <diffuse>0.5 0.5 0.5</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="prop_visual">
+        <pose>0 0 0.015 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>0.001 0.001 0.001</scale>
+            <uri>model://minihawk_vtol/meshes/prop_triblade_5045_ccw.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <ambient>0 0 1</ambient>
+          <diffuse>0 0 1</diffuse>
+          <specular>0.5 0.5 0.5</specular>
+          <pbr>
+            <metal>
+              <roughness>0.5</roughness>
+              <metalness>0.4</metalness>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+
+      <!-- cp visuals -->
+      <!-- <visual name="cp_blade1_visual">
+        <pose>0.063 0 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="cp_blade2_visual">
+        <pose>-0.0315 0.0545596 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="cp_blade3_visual">
+        <pose>-0.0315 -0.0545596 0.015 0 0 0</pose>
+        <geometry>
+          <sphere>
+            <radius>0.005</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <ambient>1 0 1</ambient>
+          <diffuse>1 0 1</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual> -->
+
+      <!-- forward vector visuals -->
+      <!-- <visual name="forward_blade1_visual">
+        <pose degrees="true">0.063 0.010 0.015 90 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="forward_blade2_visual">
+        <pose degrees="true">-0.040160254 0.0495596 0.015 90 0 120</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual>
+      <visual name="forward_blade3_visual">
+        <pose degrees="true">-0.022839746 -0.0595596 0.015 90 0 240</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.0025</radius>
+            <length>0.020</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>1 0 0</ambient>
+          <diffuse>1 0 0</diffuse>
+          <specular>0.1 0.1 0.1</specular>
+        </material>
+      </visual> -->
+
+    </link>
+    <joint name="motor_tail_joint" type="revolute">
+      <pose relative_to="base_link" degrees="true">-0.164 0 0 0 10 0</pose>
+      <parent>base_link</parent>
+      <child>motor_tail_link</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+        <dynamics>
+          <damping>0.002</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- sensors -->
+    <link name="imu_link">
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.15</mass>
+        <inertia>
+          <ixx>0.00002</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00002</iyy>
+          <iyz>0</iyz>
+          <izz>0.00002</izz>
+        </inertia>
+      </inertial>
+      <sensor name="imu_sensor" type="imu">
+        <pose degrees="true">0 0 0 180 0 0</pose>
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
+      </sensor>
+    </link>
+    <joint name="imu_joint" type="revolute">
+      <child>imu_link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+        </limit>
+        <dynamics>
+          <damping>1.0</damping>
+        </dynamics>
+      </axis>
+    </joint>
+
+    <!-- plugins -->
+    <plugin name="gz::sim::systems::JointStatePublisher"
+      filename="gz-sim-joint-state-publisher-system">
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointPositionController"
+      filename="gz-sim-joint-position-controller-system">
+      <joint_name>elevon_left_joint</joint_name>
+      <topic>/elevon_left/cmd_pos</topic>
+      <p_gain>3</p_gain>
+      <i_gain>0.05</i_gain>
+      <d_gain>0.2</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>5</cmd_max>
+      <cmd_min>-5</cmd_min>
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointPositionController"
+      filename="gz-sim-joint-position-controller-system">
+      <joint_name>elevon_right_joint</joint_name>
+      <topic>/elevon_right/cmd_pos</topic>
+      <initial_position>0</initial_position>
+      <p_gain>3</p_gain>
+      <i_gain>0.05</i_gain>
+      <d_gain>0.2</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>5</cmd_max>
+      <cmd_min>-5</cmd_min>
+    </plugin>
+
+    <!-- use direct control in AP plugin to isolate source of sim instability -->
+    <!-- <plugin name="gz::sim::systems::JointPositionController"
+      filename="gz-sim-joint-position-controller-system">
+      <joint_name>tilt_mount_left_joint</joint_name>
+      <topic>/tilt_left/cmd_pos</topic>
+      <initial_position>0</initial_position>
+      <p_gain>10</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointPositionController"
+      filename="gz-sim-joint-position-controller-system">
+      <joint_name>tilt_mount_right_joint</joint_name>
+      <topic>/tilt_right/cmd_pos</topic>
+      <initial_position>0</initial_position>
+      <p_gain>10</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin> -->
+
+    <!-- <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>motor_right_joint</joint_name>
+      <topic>/motor_right/cmd_vel</topic>
+      <use_force_commands>1</use_force_commands>
+      <initial_velocity>0</initial_velocity>
+      <p_gain>0.2</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>motor_left_joint</joint_name>
+      <topic>/motor_left/cmd_vel</topic>
+      <use_force_commands>1</use_force_commands>
+      <initial_velocity>0</initial_velocity>
+      <p_gain>0.2</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin>
+
+    <plugin name="gz::sim::systems::JointController"
+      filename="gz-sim-joint-controller-system">
+      <joint_name>motor_tail_joint</joint_name>
+      <topic>/motor_tail/cmd_vel</topic>
+      <use_force_commands>1</use_force_commands>
+      <initial_velocity>0</initial_velocity>
+      <p_gain>0.2</p_gain>
+      <i_gain>0</i_gain>
+      <d_gain>0</d_gain>
+      <i_max>1</i_max>
+      <i_min>-1</i_min>
+      <cmd_max>2.5</cmd_max>
+      <cmd_min>-2.5</cmd_min>
+    </plugin> -->
+
+    <!-- tri-blade props per spec -->
+
+    <!-- prop_right (ccw) lift-drag (ArduPilot motor 1) -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>0.063 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_right_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.0315 0.0545596 0</cp>
+      <forward>-0.866025404 -0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_right_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.0315 -0.0545596 0</cp>
+      <forward>0.866025404 -0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_right_link</link_name>
+    </plugin>
+
+    <!-- prop_left (cw) lift-drag (ArduPilot motor 2) -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>0.063 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_left_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.0315 0.0545596 0</cp>
+      <forward>0.866025404 0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_left_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.0315 -0.0545596 0</cp>
+      <forward>-0.866025404 0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_left_link</link_name>
+    </plugin>
+
+    <!-- prop_tail (ccw) lift-drag (ArduPilot motor 4) -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>0.063 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_tail_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.0315 0.0545596 0</cp>
+      <forward>-0.866025404 -0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_tail_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0015</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.0315 -0.0545596 0</cp>
+      <forward>0.866025404 -0.5 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_tail_link</link_name>
+    </plugin>
+
+    <!-- bi-blade props used in skycat_tvbs model -->
+
+    <!-- prop_right (ccw) lift-drag (ArduPilot motor 1) -->
+    <!-- <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0013</area>
+      <air_density>1.2041</air_density>
+      <cp>0.06 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_right_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0013</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.06 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_right_link</link_name>
+    </plugin> -->
+
+    <!-- prop_left (cc) lift-drag (ArduPilot motor 2) -->
+    <!-- <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0013</area>
+      <air_density>1.2041</air_density>
+      <cp>0.06 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_left_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0013</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.06 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_left_link</link_name>
+    </plugin> -->
+
+    <!-- prop_tail (ccw) lift-drag (ArduPilot motor 4) -->
+    <!-- <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0013</area>
+      <air_density>1.2041</air_density>
+      <cp>0.06 0 0</cp>
+      <forward>0 1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_tail_link</link_name>
+    </plugin>
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.3</a0>
+      <alpha_stall>1.4</alpha_stall>
+      <cla>4.2500</cla>
+      <cda>0.10</cda>
+      <cma>0.00</cma>
+      <cla_stall>-0.025</cla_stall>
+      <cda_stall>0.0</cda_stall>
+      <cma_stall>0.0</cma_stall>
+      <area>0.0013</area>
+      <air_density>1.2041</air_density>
+      <cp>-0.06 0 0</cp>
+      <forward>0 -1 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>motor_tail_link</link_name>
+    </plugin> -->
+
+    <!-- wing lift-drag -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.13</a0>
+      <cla>3.7</cla>
+      <cda>0.06417112299</cda>
+      <cma>-1.8</cma>
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>0 0 -0.00289163</cp>
+      <area>0.156</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+    </plugin>
+    <!-- elevon_left lift-drag -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.15</a0>
+      <cla>6.8</cla>
+      <cda>0.06417112299</cda>
+      <cma>-1.8</cma>
+      <alpha_stall>0.6391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.12638 0.211358 -0.00289163</cp>
+      <area>0.012</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>elevon_left_joint</control_joint_name>
+      <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
+    </plugin>
+    <!-- elevon_right lift-drag -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.15</a0>
+      <cla>6.8</cla>
+      <cda>0.06417112299</cda>
+      <cma>-1.8</cma>
+      <alpha_stall>0.6391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.12638 -0.211358 -0.00289163</cp>
+      <area>0.012</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 0 1</upward>
+      <link_name>base_link</link_name>
+      <control_joint_name>elevon_right_joint</control_joint_name>
+      <control_joint_rad_to_cl>-5.0</control_joint_rad_to_cl>
+    </plugin>
+    <!-- vstab_left lift-drag -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.0</a0>
+      <cla>4.752798721</cla>
+      <cda>0.6417112299</cda>
+      <cma>-1.8</cma>
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.18 0.08 0.032</cp>
+      <area>0.005</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 1 0</upward>
+      <link_name>base_link</link_name>
+    </plugin>
+    <!-- vstab_right lift-drag -->
+    <plugin name="gz::sim::systems::LiftDrag"
+      filename="gz-sim-lift-drag-system">
+      <a0>0.0</a0>
+      <cla>4.752798721</cla>
+      <cda>0.6417112299</cda>
+      <cma>-1.8</cma>
+      <alpha_stall>0.3391428111</alpha_stall>
+      <cla_stall>-3.85</cla_stall>
+      <cda_stall>-0.9233984055</cda_stall>
+      <cma_stall>0</cma_stall>
+      <cp>-0.18 -0.08 0.032</cp>
+      <area>0.005</area>
+      <air_density>1.2041</air_density>
+      <forward>1 0 0</forward>
+      <upward>0 -1 0</upward>
+      <link_name>base_link</link_name>
+    </plugin>
+
+    <plugin name="gz::sim::systems::ApplyJointForce"
+      filename="gz-sim-apply-joint-force-system">
+      <joint_name>elevon_left_joint</joint_name>
+    </plugin>
+    <plugin name="gz::sim::systems::ApplyJointForce"
+      filename="gz-sim-apply-joint-force-system">
+      <joint_name>elevon_right_joint</joint_name>
+    </plugin>
+    <plugin name="gz::sim::systems::ApplyJointForce"
+      filename="gz-sim-apply-joint-force-system">
+      <joint_name>tilt_mount_left_joint</joint_name>
+    </plugin>
+    <plugin name="gz::sim::systems::ApplyJointForce"
+      filename="gz-sim-apply-joint-force-system">
+      <joint_name>tilt_mount_right_joint</joint_name>
+    </plugin>
+    <plugin name="gz::sim::systems::ApplyJointForce"
+      filename="gz-sim-apply-joint-force-system">
+      <joint_name>motor_left_joint</joint_name>
+    </plugin>
+    <plugin name="gz::sim::systems::ApplyJointForce"
+      filename="gz-sim-apply-joint-force-system">
+      <joint_name>motor_right_joint</joint_name>
+    </plugin>
+
+    <plugin name="ArduPilotPlugin"
+      filename="ArduPilotPlugin">
+      <!-- Connection -->
+      <fdm_addr>127.0.0.1</fdm_addr>
+      <fdm_port_in>9002</fdm_port_in>
+      <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
+      <lock_step>1</lock_step>
+
+      <!-- Transforms -->
+      <modelXYZToAirplaneXForwardZDown degrees="true">0 0 0 180 0 0</modelXYZToAirplaneXForwardZDown>
+      <gazeboXYZToNED degrees="true">0 0 0 180 0 90</gazeboXYZToNED>
+
+      <!-- Sensors -->
+      <imuName>imu_link::imu_sensor</imuName>
+
+      <!-- 
+          SERVO1_FUNCTION   77 (Elevon Left)
+       -->
+      <control channel="0">
+        <jointName>elevon_left_joint</jointName>
+        <multiplier>1.047</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+
+        <useForce>1</useForce>
+        <type>POSITION</type>
+        <p_gain>5.0</p_gain>
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+
+        <!-- <type>COMMAND</type>
+        <cmd_topic>/elevon_left/cmd_pos</cmd_topic> -->
+      </control>
+
+      <!-- 
+          SERVO2_FUNCTION   78 (Elevon Right)
+       -->
+      <control channel="1">
+        <jointName>elevon_right_joint</jointName>
+        <multiplier>1.047</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+
+        <useForce>1</useForce>
+        <type>POSITION</type>
+        <p_gain>5.0</p_gain>
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+
+        <!-- <type>COMMAND</type>
+        <cmd_topic>/elevon_right/cmd_pos</cmd_topic> -->
+      </control>
+
+      <!-- 
+          SERVO3_FUNCTION   75 (Left Motor Tilt)
+
+          Tilt is -/+52 deg (0.907571211 rad)
+       -->
+      <control channel="2">
+        <jointName>tilt_mount_left_joint</jointName>
+        <multiplier>1.815142422</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+
+        <useForce>1</useForce>
+        <type>POSITION</type>
+        <p_gain>10.0</p_gain>
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+
+        <!-- <type>COMMAND</type>
+        <cmd_topic>/tilt_left/cmd_pos</cmd_topic> -->
+      </control>
+
+      <!-- 
+          SERVO4_FUNCTION   76 (Right Motor Tilt)
+
+          Tilt is -/+52 deg deg (0.907571211 rad)
+       -->
+      <control channel="3">
+        <jointName>tilt_mount_right_joint</jointName>
+        <multiplier>1.815142422</multiplier>
+        <offset>-0.5</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+
+        <useForce>1</useForce>
+        <type>POSITION</type>
+        <p_gain>10.0</p_gain>
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+
+        <!-- <type>COMMAND</type>
+        <cmd_topic>/tilt_right/cmd_pos</cmd_topic> -->
+      </control>
+
+      <!-- 
+          SERVO5_FUNCTION   33 (Right Motor CCW)
+       -->
+      <control channel="4">
+        <jointName>motor_right_joint</jointName>
+        <multiplier>1500</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+
+        <useForce>1</useForce>
+        <type>VELOCITY</type>
+        <p_gain>0.20</p_gain>
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+
+        <!-- <type>COMMAND</type>
+        <cmd_topic>/motor_right/cmd_vel</cmd_topic> -->
+      </control>
+
+      <!-- 
+          SERVO6_FUNCTION   34 (Left Motor CW)
+       -->
+      <control channel="5">
+        <jointName>motor_left_joint</jointName>
+        <multiplier>-1500</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+
+        <useForce>1</useForce>
+        <type>VELOCITY</type>
+        <p_gain>0.20</p_gain>
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+
+        <!-- <type>COMMAND</type>
+        <cmd_topic>/motor_left/cmd_vel</cmd_topic> -->
+      </control>
+
+      <!-- 
+          SERVO7_FUNCTION   0 (Unused)
+       -->
+
+      <!-- 
+          SERVO8_FUNCTION   36 (Tail Motor CCW)
+       -->
+      <control channel="7">
+        <jointName>motor_tail_joint</jointName>
+        <multiplier>1500</multiplier>
+        <offset>0</offset>
+        <servo_min>1000</servo_min>
+        <servo_max>2000</servo_max>
+
+        <useForce>1</useForce>
+        <type>VELOCITY</type>
+        <p_gain>0.20</p_gain>
+        <i_gain>0</i_gain>
+        <d_gain>0</d_gain>
+        <i_max>-1</i_max>
+        <i_min>0</i_min>
+        <cmd_max>2.5</cmd_max>
+        <cmd_min>-2.5</cmd_min>
+
+        <!-- <type>COMMAND</type>
+        <cmd_topic>/motor_tail/cmd_vel</cmd_topic> -->
+      </control>
+
+    </plugin>
+
+  </model>
+</sdf>
