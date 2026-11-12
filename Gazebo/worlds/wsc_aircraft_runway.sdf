@@ -117,7 +117,8 @@
 
     <include>
       <uri>model://wsc_aircraft</uri>
-      <pose degrees="true">0 0 3 0 0 180</pose>
+      <!-- FLU +X forward: preserve the original north-facing aircraft heading. -->
+      <pose degrees="true">0 0 3 0 0 90</pose>
     </include>
 
 

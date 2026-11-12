@@ -1,8 +1,16 @@
 <?xml version="1.0" ?>
 <sdf version="1.9">
-  <model name="wsc_aircraft">
+  <model name="wsc_aircraft" canonical_link="base_link">
   <static>0</static>
   <self_collide>0</self_collide>
+
+    <!-- The public model and base_link use FLU: X forward, Y left, Z up.
+         Meshes, inertia tensors, joints and aerodynamics retain their original
+         link-local CAD coordinates (X left, Y back, Z up). This explicit frame
+         rotates the complete physical assembly, without changing its dynamics. -->
+    <frame name="airframe_cad" attached_to="base_link">
+      <pose relative_to="base_link" degrees="true">0 0 0 0 0 90</pose>
+    </frame>
 
     <!-- Links -->
 
@@ -65,7 +73,7 @@
     </link>
 
     <link name="wing_body">
-      <pose>0 -1.47 1.95 0 0 0</pose>
+      <pose relative_to="airframe_cad">0 -1.47 1.95 0 0 0</pose>
       <inertial>
         <mass>0.001</mass>
         <inertia>
@@ -77,10 +85,18 @@
           <izz>1e-10</izz>
         </inertia>
       </inertial>
+      <visual name="wing_body_reference_details">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/detail_wing_body.dae</uri>
+          </mesh>
+        </geometry>
+        <cast_shadows>false</cast_shadows>
+      </visual>
     </link>
 
 <link name="wing_root_left">
-      <pose>-0.1 0 0 -0.05 0.05 0</pose>
+      <pose relative_to="airframe_cad">-0.1 0 0 -0.05 0.05 0</pose>
       <inertial>
         <pose>1.28 -0.576 2 0 0 0</pose>
         <mass>9.3</mass>
@@ -94,16 +110,12 @@
         </inertia>
       </inertial>
       <visual name="wing_root_left_visual">
+        <pose relative_to="airframe_cad">0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://wsc_aircraft/meshes/wing_root_left.dae</uri>
+            <uri>model://wsc_aircraft/meshes/visual/wing_root_left_sail.dae</uri>
           </mesh>
         </geometry>
-        <material>
-          <ambient>0 1 0</ambient>
-          <diffuse>0 1 0</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
-        </material>
       </visual>
       <collision name="wing_root_left_collision">
         <geometry>
@@ -112,10 +124,19 @@
           </mesh>
         </geometry>
       </collision>
+      <visual name="romaeris_logo_left">
+        <pose relative_to="airframe_cad">0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/romaeris_logo_left.dae</uri>
+          </mesh>
+        </geometry>
+        <cast_shadows>false</cast_shadows>
+      </visual>
     </link>    
 
     <link name="wing_root_right">
-      <pose>0.1 0 0 -0.05 -0.05 0</pose>
+      <pose relative_to="airframe_cad">0.1 0 0 -0.05 -0.05 0</pose>
       <inertial>
         <pose>-1.28 -0.576 2 0 0 0</pose>
         <mass>9.3</mass>
@@ -129,16 +150,12 @@
         </inertia>
       </inertial>
       <visual name="wing_root_right_visual">
+        <pose relative_to="airframe_cad">0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://wsc_aircraft/meshes/wing_root_right.dae</uri>
+            <uri>model://wsc_aircraft/meshes/visual/wing_root_right_sail.dae</uri>
           </mesh>
         </geometry>
-        <material>
-          <ambient>0 1 0</ambient>
-          <diffuse>0 1 0</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
-        </material>
       </visual>
       <collision name="wing_root_right_collision">
         <geometry>
@@ -147,10 +164,19 @@
           </mesh>
         </geometry>
       </collision>
+      <visual name="romaeris_logo_right">
+        <pose relative_to="airframe_cad">0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/romaeris_logo_right.dae</uri>
+          </mesh>
+        </geometry>
+        <cast_shadows>false</cast_shadows>
+      </visual>
     </link> 
 
     <link name="wing_tip_left">
-      <pose>0.3 0.26 -0.65 0.1 -0.15 0</pose>
+      <pose relative_to="airframe_cad">0.3 0.26 -0.65 0.1 -0.15 0</pose>
       <inertial>
         <pose>3.8 0.5 1.93 0 0 0</pose>
         <mass>1.7</mass>
@@ -164,16 +190,12 @@
         </inertia>
       </inertial>
       <visual name="wing_tip_left_visual">
+        <pose relative_to="airframe_cad">0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://wsc_aircraft/meshes/wing_tip_left_2.dae</uri>
+            <uri>model://wsc_aircraft/meshes/visual/wing_tip_left_2_sail.dae</uri>
           </mesh>
         </geometry>
-        <material>
-          <ambient>0 1 0</ambient>
-          <diffuse>0 1 0</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
-        </material>
       </visual>
       <collision name="wing_tip_left_collision">
         <geometry>
@@ -185,7 +207,7 @@
     </link>    
 
     <link name="wing_tip_right">
-      <pose>-0.3 0.26 -0.65 0.1 0.15 0</pose>
+      <pose relative_to="airframe_cad">-0.3 0.26 -0.65 0.1 0.15 0</pose>
       <inertial>
         <pose>-3.8 0.1 1.93 0 0 0</pose>
         <mass>1.7</mass>
@@ -199,16 +221,12 @@
         </inertia>
       </inertial>
       <visual name="wing_tip_right_visual">
+        <pose relative_to="airframe_cad">0 0 0 0 0 0</pose>
         <geometry>
           <mesh>
-            <uri>model://wsc_aircraft/meshes/wing_tip_right_2.dae</uri>
+            <uri>model://wsc_aircraft/meshes/visual/wing_tip_right_2_sail.dae</uri>
           </mesh>
         </geometry>
-        <material>
-          <ambient>0 1 0</ambient>
-          <diffuse>0 1 0</diffuse>
-          <specular>0.1 0.1 0.1 1</specular>
-        </material>
       </visual>
       <collision name="wing_tip_right_collision">
         <geometry>
@@ -220,7 +238,7 @@
     </link>   
 
     <link name="front_wheel1">
-      <pose>-1 -1.47 0.127 1.58 0 1.58</pose>
+      <pose relative_to="airframe_cad">-1 -1.47 0.127 1.58 0 1.58</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -234,10 +252,9 @@
       </inertial> 
       <visual name="front_wheel1_visual">
         <geometry>
-          <cylinder>
-            <radius>0.127</radius>
-            <length>0.09</length>
-          </cylinder>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/wheel_visual.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <collision name="front_wheel1_collision">
@@ -259,7 +276,7 @@
     </link>  
 
     <link name="front_wheel2">
-      <pose>1 -1.47 0.127 1.58 0 1.58</pose>
+      <pose relative_to="airframe_cad">1 -1.47 0.127 1.58 0 1.58</pose>
       <inertial>
         <mass>1</mass>
         <inertia>
@@ -273,10 +290,9 @@
       </inertial> 
       <visual name="front_wheel2_visual">
         <geometry>
-          <cylinder>
-            <radius>0.127</radius>
-            <length>0.09</length>
-          </cylinder>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/wheel_visual.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <collision name="front_wheel2_collision">
@@ -298,7 +314,7 @@
     </link>  
 
     <link name="rear_wheel">
-      <pose>0 1.1 0.127 1.58 0 1.58</pose>
+      <pose relative_to="airframe_cad">0 1.1 0.127 1.58 0 1.58</pose>
       <inertial>
         <mass>0.48</mass>
         <inertia>
@@ -312,10 +328,9 @@
       </inertial> 
       <visual name="rear_wheel_visual">
         <geometry>
-          <cylinder>
-            <radius>0.127</radius>
-            <length>0.09</length>
-          </cylinder>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/wheel_visual.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <collision name="rear_wheel_collision">
@@ -337,6 +352,7 @@
     </link>  
 
     <link name="landing_gear">
+      <pose relative_to="airframe_cad"/>
       <inertial>
         <pose>0 0.385 0.664 0 0 0</pose>
         <mass>6.3</mass>
@@ -355,6 +371,17 @@
             <uri>model://wsc_aircraft/meshes/landing_gear.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.35 0.365 0.375 1</ambient>
+          <diffuse>0.7 0.73 0.75 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.12</metalness>
+              <roughness>0.35</roughness>
+            </metal>
+          </pbr>
+        </material>
       </visual>   
       <collision name="landing_gear_collision">
         <geometry>
@@ -363,9 +390,17 @@
           </mesh>
         </geometry>      
       </collision>
+      <visual name="landing_gear_reference_details">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/detail_landing_gear.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
     </link>
 
     <link name="steering_link">
+      <pose relative_to="airframe_cad"/>
       <inertial>
         <pose>0 1.1 0.335 0 0 0</pose>
         <mass>0.1</mass>
@@ -384,6 +419,17 @@
             <uri>model://wsc_aircraft/meshes/steering_link.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.35 0.365 0.375 1</ambient>
+          <diffuse>0.7 0.73 0.75 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.12</metalness>
+              <roughness>0.35</roughness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
       <collision name="steering_link_collision">
         <pose>0 1.1 0.335 0 0 0</pose>
@@ -396,6 +442,7 @@
     </link>
 
     <link name="hang_block_yaw">
+      <pose relative_to="airframe_cad"/>
       <inertial>
         <pose>0 -1.02 1.9 0 0 0</pose>
         <mass>0.001</mass>
@@ -411,6 +458,7 @@
     </link>   
 
     <link name="hang_block_roll">
+      <pose relative_to="airframe_cad"/>
       <inertial>
         <pose>0 -1.02 1.9 0 0 0</pose>
         <mass>0.3245</mass>
@@ -429,6 +477,17 @@
             <uri>model://wsc_aircraft/meshes/hang_block_roll.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.35 0.365 0.375 1</ambient>
+          <diffuse>0.7 0.73 0.75 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.12</metalness>
+              <roughness>0.35</roughness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
       <collision name="hang_block_roll_collision">
         <geometry>
@@ -440,6 +499,7 @@
     </link>   
 
     <link name="hang_block_pitch">
+      <pose relative_to="airframe_cad"/>
       <inertial>
         <pose>0 -1.02 1.9 0 0 0</pose>
         <mass>0.3245</mass>
@@ -458,6 +518,17 @@
             <uri>model://wsc_aircraft/meshes/hang_block_pitch.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.35 0.365 0.375 1</ambient>
+          <diffuse>0.7 0.73 0.75 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.12</metalness>
+              <roughness>0.35</roughness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
       <collision name="hang_block_pitch_collision">
         <geometry>
@@ -469,6 +540,7 @@
     </link>   
 
     <link name="fuselage">
+      <pose relative_to="airframe_cad"/>
       <inertial>
         <pose>0 -0.44 1.08 0 0 0</pose>
         <mass>5</mass>
@@ -487,6 +559,17 @@
             <uri>model://wsc_aircraft/meshes/fuselage.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.35 0.365 0.375 1</ambient>
+          <diffuse>0.7 0.73 0.75 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.12</metalness>
+              <roughness>0.35</roughness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
       <collision name="fuselage_collision">
         <geometry>
@@ -495,9 +578,17 @@
           </mesh>
         </geometry>
       </collision>
+      <visual name="fuselage_reference_details">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/detail_fuselage.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
     </link>    
 
     <link name="battery">
+      <pose relative_to="airframe_cad"/>
       <inertial>
         <pose>0 -1.3254 0.795 0 0 0</pose>
         <mass>40</mass>
@@ -516,6 +607,17 @@
             <uri>model://wsc_aircraft/meshes/battery.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.0275 0.031 0.0335 1</ambient>
+          <diffuse>0.055 0.062 0.067 1</diffuse>
+          <specular>0.08 0.08 0.08 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0</metalness>
+              <roughness>0.82</roughness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
       <collision name="battery_collision">
         <pose>0 -1.3254 0.795 0 0 0</pose>
@@ -525,10 +627,17 @@
           </box>
         </geometry>
       </collision>
+      <visual name="battery_reference_details">
+        <geometry>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/detail_battery.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
     </link>  
 
     <link name="motor1">
-      <pose>-0.65 0.31 1.13 0 1.58 1.58</pose>
+      <pose relative_to="airframe_cad">-0.65 0.31 1.13 0 1.58 1.58</pose>
       <inertial>
         <mass>1.74</mass>
         <inertia>
@@ -542,10 +651,9 @@
       </inertial> 
       <visual name="motor1_visual">
         <geometry>
-          <cylinder>
-            <radius>0.075</radius>
-            <length>0.06</length>
-          </cylinder>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/motor_visual.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <collision name="motor1_collision">
@@ -559,7 +667,7 @@
     </link>   
 
     <link name="motor2">
-      <pose>0.65 0.31 1.13 0 1.58 1.58</pose>
+      <pose relative_to="airframe_cad">0.65 0.31 1.13 0 1.58 1.58</pose>
       <inertial>
         <mass>1.74</mass>
         <inertia>
@@ -573,10 +681,9 @@
       </inertial> 
       <visual name="motor2_visual">
         <geometry>
-          <cylinder>
-            <radius>0.075</radius>
-            <length>0.06</length>
-          </cylinder>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/motor_visual.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <collision name="motor2_collision">
@@ -590,7 +697,7 @@
     </link>  
 
     <link name="propeller1">
-      <pose>-0.65 0.35 1.13 0 1.58 1.58</pose>
+      <pose relative_to="airframe_cad">-0.65 0.35 1.13 0 1.58 1.58</pose>
       <inertial>
         <mass>0.474</mass>
         <inertia>
@@ -609,6 +716,17 @@
             <center>true</center>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.0125 0.014 0.016 1</ambient>
+          <diffuse>0.025 0.028 0.032 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.1</metalness>
+              <roughness>0.36</roughness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
       <collision name="propeller1_collision">
         <geometry>
@@ -621,7 +739,7 @@
     </link>   
 
     <link name="propeller2">
-      <pose>0.65 0.35 1.13 0 1.58 1.58</pose>
+      <pose relative_to="airframe_cad">0.65 0.35 1.13 0 1.58 1.58</pose>
       <inertial>
         <mass>0.474</mass>
         <inertia>
@@ -640,6 +758,17 @@
             <center>true</center>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.0125 0.014 0.016 1</ambient>
+          <diffuse>0.025 0.028 0.032 1</diffuse>
+          <specular>0.35 0.35 0.35 1</specular>
+          <pbr>
+            <metal>
+              <metalness>0.1</metalness>
+              <roughness>0.36</roughness>
+            </metal>
+          </pbr>
+        </material>
       </visual>
       <collision name="propeller2_collision">
         <geometry>
@@ -941,7 +1070,7 @@
         </inertia>
       </inertial>
       <sensor name="imu_sensor1" type="imu">
-        <pose>0 0 0 3.141593 0 -1.5707963</pose>
+        <pose>0 0 0 3.141592653589793 0 0</pose>
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
       </sensor>
@@ -965,7 +1094,7 @@
 
 <!-- Gimbal camera links and joints  -->
     <link name="gimbal_camera">
-      <pose>0 -2 2 0 0 -1.5707963</pose>
+      <pose relative_to="airframe_cad">0 -2 2 0 0 -1.5707963</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.001</mass>
@@ -980,9 +1109,9 @@
       </inertial>
       <visual name="gimbal_camera_visual">
         <geometry>
-          <box>
-            <size>0.1 0.1 0.1</size>
-          </box>
+          <mesh>
+            <uri>model://wsc_aircraft/meshes/visual/camera_visual.dae</uri>
+          </mesh>
         </geometry>
       </visual>
       <sensor name="gimbal_camera" type="camera">
@@ -1032,7 +1161,7 @@
     </link>
 
     <link name="fixed_camera">
-      <pose>0 -2 2 0 0 -1.5707963</pose>
+      <pose relative_to="airframe_cad">0 -2 2 0 0 -1.5707963</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.001</mass>
@@ -1194,7 +1323,7 @@
 <!-- Fog generator for trails-->
 
     <link name="trail_gen">
-      <pose>0 2 0 0 0 0</pose>
+      <pose relative_to="airframe_cad">0 2 0 0 0 0</pose>
       <particle_emitter name="emitter" type="point">
         <emitting>true</emitting>
         <size>0.001 0.001 0.001</size>
@@ -1221,13 +1350,13 @@
 
 <!-- plugins -->
 
-  <plugin filename="libgz-sim-joint-state-publisher-system.so"
+  <plugin filename="gz-sim-joint-state-publisher-system"
     name="gz::sim::systems::JointStatePublisher">
   </plugin>
 
   <plugin
-    filename="ignition-gazebo-forcetorque-system"
-    name="ignition::gazebo::systems::ForceTorque">
+    filename="gz-sim-forcetorque-system"
+    name="gz::sim::systems::ForceTorque">
   </plugin>
   
   <!-- wing_root_left-->
@@ -1457,7 +1586,7 @@
     <link_name>fuselage</link_name>
   </plugin>
 
-  <plugin filename="libgz-sim-apply-joint-force-system.so"
+  <plugin filename="gz-sim-apply-joint-force-system"
     name="gz::sim::systems::ApplyJointForce">
     <joint_name>fuselage_roll_joint</joint_name>
     <joint_name>fuselage_pitch_joint</joint_name>
@@ -1478,17 +1607,12 @@
     <connectionTimeoutMaxCount>5</connectionTimeoutMaxCount>
     <lock_step>1</lock_step>
 
-    <!-- Frame conventions
-      modelXYZToAirplaneXForwardZDown:
-        - transforms body frame from orientation in Gazebo to NED
-
-      gazeboXYZToNED
-        - transforms world from Gazebo convention xyz = N -E -D
-          to ArduPilot convention xyz = NED
-
-      euav_tp is oriented x-left, y-back, z-up ??????
-    -->
-    <modelXYZToAirplaneXForwardZDown>0 0 0 3.141593 0 -1.5707963</modelXYZToAirplaneXForwardZDown>
+    <!-- The IMU parent link is FLU; both its sensor pose and this bridge
+         transform are the standard 180-degree roll from FLU to FRD.
+         ArduPilotPlugin forwards raw IMU acceleration/rates without rotating
+         them, and derives attitude from the IMU parent link pose.
+         World coordinates use Gazebo ENU and ArduPilot NED. -->
+    <modelXYZToAirplaneXForwardZDown>0 0 0 3.141592653589793 0 0</modelXYZToAirplaneXForwardZDown>
     <gazeboXYZToNED>0 0 0 3.141593 0 1.57079632</gazeboXYZToNED>
 
     <!-- Sensors -->
