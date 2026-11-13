@@ -2,7 +2,7 @@
 
 Model for the [Romaeris](https://www.romaeris.com/) unmanned weight-shift control (uWSC) electric aircraft.
  
-![uWSC_motion](https://github.com/NDevDrone/SITL_Models/assets/50757802/9aee8639-d1a1-4807-8118-03f4ccdcc9ff)
+![uWSC weight-shift demonstration](images/uwsc-weight-shift.gif)
 
 ## Usage
 
