@@ -1,0 +1,5 @@
+/.pixi/
+/.pixi-deps/
+/.pixi-build/
+__pycache__/
+*.py[cod]

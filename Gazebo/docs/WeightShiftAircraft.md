@@ -6,6 +6,19 @@ Model for the [Romaeris](https://www.romaeris.com/) unmanned weight-shift contro
 
 ## Usage
 
+### macOS (Apple Silicon)
+
+Install [Pixi](https://pixi.sh/latest/installation/) and the Xcode Command Line Tools. From `SITL_Models/Gazebo`, run:
+
+```sh
+pixi run setup
+pixi run uwsc
+```
+
+In another terminal in the same directory, run `pixi run mavproxy`. Setup installs Gazebo Harmonic and builds the bridge and Plane SITL. Use `pixi run uwsc -- --headless` to skip the GUI. Press Ctrl-C to stop the simulation.
+
+### Manual setup
+
 Gazebo and the plugins should be installed as per the [ArduPilot Gazebo Plugin](https://github.com/ArduPilot/ardupilot_gazebo) instructions.
 
 Update the `GZ_SIM_RESOURCE_PATH` to include these models:
