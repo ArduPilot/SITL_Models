@@ -1,0 +1,43 @@
+[workspace]
+name = "sitl-models-gazebo"
+channels = ["conda-forge"]
+platforms = ["osx-arm64"]
+
+[system-requirements]
+macos = "11.0"
+
+[activation.env]
+GZ_VERSION = "harmonic"
+
+[dependencies]
+python = "3.12.*"
+cmake = "*"
+ninja = "*"
+pkg-config = "*"
+make = "*"
+rapidjson = "*"
+libopencv = "*"
+gstreamer = "*"
+gst-plugins-base = "*"
+gz-sim8 = "8.9.*"
+gz-transport13-python = "13.5.0.*"
+gz-msgs10-python = "10.3.2.*"
+
+[pypi-dependencies]
+MAVProxy = "*"
+pymavlink = "*"
+empy = "==3.3.4"
+pyserial = "*"
+pyyaml = "*"
+future = "*"
+pexpect = "*"
+intelhex = "*"
+gnureadline = "*"
+
+[tasks]
+gz-version = "gz sim --versions"
+bridge-build = "python scripts/pixi_bridge.py"
+plane-build = "python scripts/pixi_plane.py"
+setup = "python scripts/pixi_bridge.py && python scripts/pixi_plane.py"
+uwsc = "python scripts/pixi_wsc.py"
+mavproxy = "mavproxy.py --master=udp:127.0.0.1:5760"
